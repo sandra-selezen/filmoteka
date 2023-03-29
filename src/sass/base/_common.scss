@@ -8,3 +8,31 @@ body {
   font-weight: 500;
   line-height: 1.33;
 }
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+.section {
+  margin-bottom: 60px;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

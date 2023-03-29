@@ -1,0 +1,125 @@
+.item-films {
+    width: 280px;
+    min-height: 443px;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    transition: all 200ms;
+
+    @include tablet {
+        width: 336px;
+        min-height: 494px;
+    }
+
+    @include desktop {
+        width: 395px;
+        min-height: 634px;
+        margin-bottom: 15px;
+    }
+}
+
+.item-films:hover {
+    transform: scale(1.02);
+}
+
+.img-cover {
+    width: 100%;
+    height: 402px;
+    border-radius: 5px;
+
+    @include tablet {
+        min-height: 455px;
+    }
+
+    @include desktop {
+        min-height: 593px;
+    }
+}
+
+.list-films {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    @include tablet {
+        gap: 32px;
+        justify-content: space-between;
+    }
+
+    @include desktop {
+        gap: 15px;
+        justify-content: left;
+    }
+}
+
+.title {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(16 / 12);
+    color: $mainDarkColor;
+
+    margin-top: 10px;
+
+    @include desktop {
+        font-size: 20px;
+        line-height: calc(24 / 20);
+    }
+}
+
+.film-info {
+    display: flex;
+    align-items: center;
+    color: $accentColor;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+
+    @include desktop {
+        font-size: 20px;
+        line-height: calc(24 / 20);
+    }
+}
+
+.genre {
+    margin-right: 5px;
+}
+
+.year {
+    margin-right: 8px;
+    border-left: solid 2px $accentColor;
+    padding-left: 5px;
+}
+
+.rating {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: calc(14 / 12);
+    color: $mainLightColor;
+    background-color: $accentColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    text-transform: uppercase;
+    border-radius: 5px;
+    width: 36px;
+    height: 16px;
+    padding-top: 2px;
+    margin-top: 1px;
+
+    @include desktop {
+        width: 40px;
+        height: 20px;
+    }
+}
+
+.active {
+    background-color: $accentColor;
+    color: $mainLightColor;
+}
