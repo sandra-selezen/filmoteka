@@ -1,1 +1,10 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
+
+body {
+  color: $mainDarkColor;
+  background-color: $mainBgColor;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+}
