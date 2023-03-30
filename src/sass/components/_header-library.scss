@@ -98,52 +98,6 @@ header {
     }
 }
 
-::placeholder {
-    opacity: 1;
-    color: white;
-}
-
-
-::-webkit-input-placeholder {
-    opacity: 1;
-    transition: opacity $duration $timingFunction;
-}
-
-::-moz-placeholder {
-    opacity: 1;
-    transition: opacity $duration $timingFunction;
-}
-
-:-moz-placeholder {
-    opacity: 1;
-    transition: opacity $duration $timingFunction;
-}
-
-:-ms-input-placeholder {
-    opacity: 1;
-    transition: opacity $duration $timingFunction;
-}
-
-:focus::-webkit-input-placeholder {
-    opacity: 0;
-    transition: opacity $duration $timingFunction;
-}
-
-:focus::-moz-placeholder {
-    opacity: 0;
-    transition: opacity $duration $timingFunction;
-}
-
-:focus:-moz-placeholder {
-    opacity: 0;
-    transition: opacity $duration $timingFunction;
-}
-
-:focus:-ms-input-placeholder {
-    opacity: 0;
-    transition: opacity $duration $timingFunction;
-}
-
 
 .current-page::after {
     position: absolute;
