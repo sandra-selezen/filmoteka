@@ -1,8 +1,8 @@
 <div class="backdrop-movie is-hidden" data-modal>
   <div class="modal-movie">
     <button class="btn-close" data-modal-close>
-      <svg class="btn-close__icon" width="14" height="14">
-        <use href="./images/icons.svg#icon-close"></use>
+      <svg class="btn-close__icon" width="24" height="24">
+        <use href="/src/images/icons.svg#icon-close"></use>
       </svg>
     </button>
 
@@ -15,11 +15,11 @@
           data-id="1"
           width="375px"
         />
-        <a class="trailer">Trailer</a>
+        <a class="link-trailer">Trailer</a>
       </div>
 
       <div class="modal-card__thumb-right">
-        <h2 class="thumb-right__title">Original title</h2>
+        <p class="thumb-right__title">Original title</p>
         <div class="thumb-right__details">
           <ul class="thumb-right__name-details">
             <li class="thumb-right__name-item">Vote / Votes</li>
@@ -29,14 +29,18 @@
           </ul>
           <ul class="thumb-right__value-details">
             <li class="thumb-right__value-item">
-              <span>7.5</span> / <span>500</span>
+              <span class="thumb-right__vote">7.5</span>
+              <span class="thumb-right__delimiter">/</span>
+              <span class="thumb-right__votes">5050</span>
             </li>
             <li class="thumb-right__value-item">100.5</li>
-            <li class="thumb-right__value-item">Original Title</li>
+            <li class="thumb-right__value-item">
+              <span>Original Title</span>
+            </li>
             <li class="thumb-right__value-item">Genre</li>
           </ul>
         </div>
-        <h3 class="thumb-right__about">About</h3>
+        <p class="thumb-right__about">About</p>
         <p class="thumb-right__overview">
           Four of the West’s most infamous outlaws assemble to steal a huge
           stash of gold from the most corrupt settlement of the gold rush towns.
