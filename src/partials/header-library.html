@@ -1,17 +1,31 @@
-<header>
-	<div>
-			<a href="index.html">
-        <svg class="logo__icon" width="24" height="24">
-          <use href="/src/images/icons.svg#icon-film"></use>
-        </svg>
-      <span>Filmoteka</span></a>
-	</div>
-	<div>
-		<nav>
-			<ul>
-				<li><a href="index.html">Home</a></li>
-				<li><a href="my-library.html">My Library</a></li>
-			</ul>
-		</nav>
-	</div>
+<header class="header header-library header-js" id="Home">
+  <div class="container">
+
+	<nav class="nav">
+    <a href="./index.html" class="main-page-link">
+      <svg class="logo__icon" width="24" height="24">
+        <use href="/src/images/icons.svg#icon-film"></use>
+      </svg>
+      <span class="site-title">Filmoteka</span></a
+    >
+   <ul class="nav-list list">
+                <li class="nav-list-item">
+                    <a href="" class="nav-list-link  home-js">Home<a>
+                </li>
+                <li class="nav-list-item ">
+                    <a href="" class="nav-list-link current-page library-js">My library</a>
+                </li>
+            </ul>
+            
+        </nav>
+
+        <ul class="buttons list visually-hidden buttons-library-js">
+            <li class="buttons-item">
+                <button type="button" class="library-btn enabled-btn watched-js">Watched</button>
+            </li>
+            <li class="buttons-item">
+                <button type="button" class="library-btn disabled-btn queue-js">Queue</button>
+            </li>
+        </ul>
+  </div>
 </header>
