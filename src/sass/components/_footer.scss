@@ -1,0 +1,50 @@
+.footer {
+    background: $footerBgColor;
+
+    font-size: 14px;
+    line-height: 16px;
+    font-weight: 400;
+    
+    padding-bottom: 29px;
+    padding-top: 28px;
+
+    color: $footerTxtColor;
+    padding-bottom: 29px;
+    padding-top: 28px;
+
+    display: flex;
+    justify-content: center;
+    text-align: center;
+
+    @include tablet {
+            font-size: 16px;
+            line-height: 19px;
+            padding-bottom: 30px;
+            padding-top: 30px;
+        }
+
+    @include desktop {
+        padding-bottom: 28px;
+        padding-top: 30px;
+    }
+}
+
+.footer__link {
+    color: $footerTxtColor;
+    text-decoration: underline $footerTxtColor solid 1px;
+    transition: color 1s;
+}
+
+.footer__link:hover {
+    color: $accentColor;
+}
+
+.footer__container {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+
+    @include tablet {
+        display: block;
+    }
+}
