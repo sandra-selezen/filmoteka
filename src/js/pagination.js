@@ -2,11 +2,12 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 
 // -----------------------------------
-// This is example for
+// Змінні для роботи, допоки немає роботи по запитам
+
 // загальна кількість сторінок
 let totalPage = 999;
 // поточна сторінка
-let currentPage = 10;
+let currentPage = 30;
 // --------------------------------------
 
 // об'єкт налаштувань tui-pagination
@@ -38,63 +39,7 @@ const options = {
 
 // створюємо екземпляр tui-pagination
 const pagination = new Pagination('pagination', options);
-// отримуємо номер поточної сторінки
-// const page = pagination.getCurrentPage();
-// console.log(page);
+// після натискання кнопки отримуємо номер сторінки, що на кнопці.
+// передаємо цей номер в колбек та робимо запит до АPI для отримання данних відповідної сторінки
+pagination.on('afterMove', ({ page }) => console.log(page));
 
-// pagination.on('beforeMove', evt => {
-//   const { page } = evt;
-//   const result = ajax.call({page});
-
-//   if(result) {
-//     pagination.movePageTo(page);
-//   } else {
-//     return false;
-//   }
-// });
-
-// pagination.on('afterMove', ({ page }) => console.log(page));
-
-
-// ------------------------------------------
-// This is example for me
-// import axios from "axios";
-// import Notiflix from 'notiflix';
-
-// const API_KEY = '959330b1b48c95e1fde96a992bbede29';
-// const URL = 'https://api.themoviedb.org/';
-
-
-
-// /*
-// // refs for keysearch, will be changed
-// const refs = {
-//   form: document.querySelector('form'),
-//   input: document.querySelector('input'),
-// };
-// */
-
-
-// // function for keyword search, will be changed
-
-// const onSearch = async (query) => {
-//   Notiflix.Loading.circle();
-//   try {
-//     const response = await axios.get(
-//       `${URL}/3/search/movie?api_key=${API_KEY}&query=${query}`
-//     );
-//     const { data } = response;
-//     console.log(data);
-//     totalPage = data.total_pages;
-//     currentPage = data.page;
-
-
-      
-//   } catch (error) {
-//     console.log(error);
-//   } finally {
-//     Notiflix.Loading.remove();
-//   }
-// };
-
-// onSearch('die hard');
