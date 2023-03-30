@@ -1,4 +1,5 @@
 import axios from "axios";
+import Notiflix from 'notiflix';
 
 const API_KEY = '959330b1b48c95e1fde96a992bbede29';
 const URL = 'https://api.themoviedb.org/';
