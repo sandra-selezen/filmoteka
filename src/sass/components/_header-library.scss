@@ -114,6 +114,7 @@ header {
 .buttons {
     display: flex;
     justify-content: center;
+    
 
     &-item:last-child {
         margin-left: 15px;
@@ -126,6 +127,7 @@ header {
     outline: none;
     border: none;
     cursor: pointer;
+    text-transform: uppercase;
     color: white;
 }
 
