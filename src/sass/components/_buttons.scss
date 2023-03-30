@@ -1,4 +1,4 @@
-+.button-primary {
+.button-primary {
   width: 148px;
   height: 42px;
   border-radius: 5px;
@@ -22,7 +22,7 @@
 
 .btn-queue {
   background-color: transparent;
-  border: 1px solid $buttonBgModal;
+  border: 1px solid $mainLightColor;
 }
 
 
@@ -36,7 +36,7 @@
 }
 
 .btn-queue-modal {
-  background-color: $buttonBgModal;
+  background-color: $mainLightColor;
   border: 1px solid $mainDarkColor;
   color: $mainDarkColor;
   width: 110px;
