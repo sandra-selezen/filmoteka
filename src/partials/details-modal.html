@@ -5,59 +5,58 @@
         <use href="./images/icons.svg#icon-close"></use>
       </svg>
     </button>
-    
-      <div class="modal-card">
-        <div class="modal-card__thumb-left">
-          <img
-            class="modal-card__img"
-            src="https://image.tmdb.org/t/p/w300/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg"
-            alt="movie"
-            data-id="1"
-            width="375px"
-          />
-          <button>Trailer</button>
-        </div>
 
-        <div class="modal-card__thumb-right thumb-right">
-          <h2 class="thumb-right__title">Original title</h2>
+    <div class="modal-card">
+      <div class="modal-card__thumb-left">
+        <img
+          class="modal-card__img"
+          src="https://image.tmdb.org/t/p/w300/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg"
+          alt="movie"
+          data-id="1"
+          width="375px"
+        />
+        <a class="trailer">Trailer</a>
+      </div>
 
+      <div class="modal-card__thumb-right">
+        <h2 class="thumb-right__title">Original title</h2>
+        <div class="thumb-right__details">
           <ul class="thumb-right__name-details">
-            <li>Vote / Votes</li>
-            <li>Popularity</li>
-            <li>Original Title</li>
-            <li>Genre</li>
+            <li class="thumb-right__name-item">Vote / Votes</li>
+            <li class="thumb-right__name-item">Popularity</li>
+            <li class="thumb-right__name-item">Original Title</li>
+            <li class="thumb-right__name-item">Genre</li>
           </ul>
-
           <ul class="thumb-right__value-details">
-            <li><span>7.5</span> / <span>500</span></li>
-            <li>100.5</li>
-            <li>Original Title</li>
-            <li>Genre</li>
+            <li class="thumb-right__value-item">
+              <span>7.5</span> / <span>500</span>
+            </li>
+            <li class="thumb-right__value-item">100.5</li>
+            <li class="thumb-right__value-item">Original Title</li>
+            <li class="thumb-right__value-item">Genre</li>
           </ul>
+        </div>
+        <h3 class="thumb-right__about">About</h3>
+        <p class="thumb-right__overview">
+          Four of the West’s most infamous outlaws assemble to steal a huge
+          stash of gold from the most corrupt settlement of the gold rush towns.
+          But not all goes to plan one is killed and the other three escapes
+          with bags of gold hide out in the abandoned gold mine where they
+          happen across another gang of three – who themselves were planning to
+          hit the very same bank! As tensions rise, things go from bad to worse
+          as they realise the bags of gold are filled with lead... they’ve been
+          double crossed – but by who and how?
+        </p>
 
-          <h3 class="thumb-right__about">About</h3>
-          <p class="thumb-right__overview">
-            Four of the West’s most infamous outlaws assemble to steal a huge
-            stash of gold from the most corrupt settlement of the gold rush
-            towns. But not all goes to plan one is killed and the other three
-            escapes with bags of gold hide out in the abandoned gold mine where
-            they happen across another gang of three – who themselves were
-            planning to hit the very same bank! As tensions rise, things go from
-            bad to worse as they realise the bags of gold are filled with
-            lead... they’ve been double crossed – but by who and how?
-          </p>
-
-          <div class="modal-card__btn-wrap">
-            <button class="modal-card__watched-btn" data-id="watched">
-              Add to watched
-            </button>
-            <button class="modal-card__queue-btn" data-id="queue">
-              Add to queue
-            </button>
-          </div>
+        <div class="modal-card__btn-wrap">
+          <button class="modal-card__watched-btn" data-id="watched">
+            Add to watched
+          </button>
+          <button class="modal-card__queue-btn" data-id="queue">
+            Add to queue
+          </button>
         </div>
       </div>
-    
+    </div>
   </div>
 </div>
-<button class="show-movie">Show movie details</button>
