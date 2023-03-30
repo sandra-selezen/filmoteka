@@ -1,3 +1,174 @@
 header {
-    background-color: #000000;
+    max-height: 230px;
+        background-color: rgb(8, 8, 8);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
 }
+
+.header-library {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+        url('../images/bg-library-mobile@1x-min.jpg');
+
+    @media screen and (min-device-pixel-ratio: 2) and (min-width: 320px),
+    screen and (min-resolution: 192dpi) and (min-width: 320px),
+    screen and (min-resolution: 2dppx) and (min-width: 320px) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+            url('../images/bg-library-mobile@2x-min.jpg');
+    }
+
+    @media screen and (min-width: 768px) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+            url('../images/bg-library-tablet@1x-min.jpg');
+    }
+
+    @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
+    screen and (min-resolution: 192dpi) and (min-width: 768px),
+    screen and (min-resolution: 2dppx) and (min-width: 768px) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+            url('../images/bg-library-tablet@2x-min.jpg');
+    }
+
+    @media screen and (min-width: 1024px) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+            url('../images/bg-library-desktop@1x-min.jpg');
+    }
+
+    @media screen and (min-device-pixel-ratio: 2) and (min-width: 1024px),
+    screen and (min-resolution: 192dpi) and (min-width: 1024px),
+    screen and (min-resolution: 2dppx) and (min-width: 1024px) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
+            url('../images/bg-library-desktop@2x-min.jpg');
+    }
+}
+
+.header .container {
+    padding-top: 46px;
+    padding-bottom: 97px;
+}
+
+.nav {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+
+    margin-bottom: 41px;
+}
+
+
+.main-page-link {
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.667;
+    color: white;
+    stroke: #818181;
+    transition: color $duration $timingFunction;
+
+    &:hover,
+    &:focus {
+        color: $accentColor;
+        stroke: $header-focus;
+        outline: none;
+    }
+
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-list-item {
+    position: relative;
+}
+
+.nav-list-item:last-child {
+    margin-left: 39px;
+}
+
+.nav-list-link {
+    text-transform: uppercase;
+    color: white;
+    line-height: 1.667;
+    transition: color $duration $timingFunction;
+
+    &:hover {
+        color: $accentColor;
+        cursor: pointer;
+        outline: none;
+    }
+}
+
+
+.current-page::after {
+    position: absolute;
+    bottom: -3px;
+
+    display: block;
+    content: '';
+    width: 100%;
+    height: 3px;
+    background-color: $accentColor;
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    
+
+    &-item:last-child {
+        margin-left: 15px;
+    }
+}
+
+.library-btn {
+    border-radius: 5px;
+    padding: 14px 38px;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    color: white;
+}
+
+.enabled-btn {
+    background-color: $accentColor;
+    border: 1px solid $accentColor;
+    transition: background-color $duration $timingFunction,
+        border $duration $timingFunction;
+}
+
+.disabled-btn {
+    background-color: transparent;
+    border: 1px solid white;
+    transition: background-color $duration $timingFunction,
+        border $duration $timingFunction;
+}
+
+@media screen and (min-width: 320px) {}
+
+@media screen and (max-width: 768px) {
+    .site-title {
+        display: none;
+    }
+
+    .buttons-item:last-child {
+        margin-left: 30px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .search-form {
+        width: 336px;
+    }
+
+    .header .container {
+        padding-top: 41px;
+    }
+
+    .nav {
+        margin-bottom: 38px;
+    }
+}
+
+@media screen and (min-width: 1024px) {}
