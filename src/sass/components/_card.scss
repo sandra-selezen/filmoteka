@@ -29,7 +29,6 @@
 
 .card__film img {
   border-radius: 5px;
-  margin-bottom: 10px;
   width: 276px;
   height: 402px;
 
@@ -40,6 +39,14 @@
   @include desktop {
   width: 395px;
   height: 574px;
+  }
+}
+
+.card__content {
+  padding-top: 10px;
+
+  @include desktop {
+    padding-top: 12px;
   }
 }
 
