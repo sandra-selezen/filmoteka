@@ -1,41 +1,47 @@
-import axios from "axios";
+import axios from 'axios';
 import Notiflix from 'notiflix';
+import FetchFilms from './fetch-films';
 
 const API_KEY = '959330b1b48c95e1fde96a992bbede29';
 const URL = 'https://api.themoviedb.org/';
 
-/*
-// refs for keysearch, will be changed
 const refs = {
-  form: document.querySelector('form'),
-  input: document.querySelector('input'),
+  form: document.querySelector('.js-header__form'),
+  input: document.querySelector('.js-header__input'),
+  inputError: document.querySelector('.header__js-input-error'),
 };
-*/
 
-/*
-// function for keyword search, will be changed
-
-const onSearch = async e => {
+const onSearch = () => {
   Notiflix.Loading.circle();
-  try {
-    const response = await axios.get(
-      `${URL}/3/search/movie?api_key=${API_KEY}&query=${refs.input.value}`
-    );
-    console.log(response.data);
-  } catch (error) {
-    console.log(error);
-  } finally {
-    Notiflix.Loading.remove();
-  }
-};
-*/
+  refs.inputError.classList.add('visually-hidden');
 
-/*
-// event listener for search input, will be changed
+  const search = new FetchFilms(
+    `${URL}/3/search/movie?api_key=${API_KEY}&query=${refs.input.value}`,
+    document.querySelector('.js-cards-list')
+  );
+
+  document.querySelector('.js-cards-list').innerHTML = '';
+
+  const load = async () => {
+    try {
+        await search.getFilms();
+    }
+    catch (error) {
+        console.log(error)
+    }
+    finally {
+      if (search.ids.length === 0) {
+        refs.inputError.classList.remove('visually-hidden');
+      }
+    }
+  }
+  load();
+  Notiflix.Loading.remove();
+};
+
 refs.form.addEventListener('submit', e => {
   e.preventDefault();
   refs.input.value == ''
-    ? Notiflix.Notify.failure('Please enter a keyword')
+    ? refs.inputError.classList.remove('visually-hidden')
     : onSearch();
 });
-*/
