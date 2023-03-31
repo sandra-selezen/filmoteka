@@ -12,12 +12,12 @@
     @include tablet {
       padding: 30px 66px;
       width: 704px;
-      height: 522px;
+      height: 700px;
       text-align: start;
     }
     @include desktop{
-      width: 806x;
-      height: 558px;
+      width: 1000px;
+      height: 700px;
     }
   }
   .team-modal__btn--close {
@@ -48,20 +48,25 @@
     }
   }
   .teem-modal__item {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     @include tablet {
       display: flex;
       flex-direction: column;
-      width: calc(100% / 3);
+      width: calc(100% / 4);
       align-items: center;
     }
     @include desktop{
+      display: flex;
+      flex-direction: column;
+      width: calc(100% / 6);
+      align-items: center;
     }
+
   }
   .teem-modal__img {
     display: block;
     margin: 0 auto;
-    border-radius: 4px;
+    border-radius: 20px;
     margin-bottom: 5px;
     transition: transform 250ms;
     @include tablet {
@@ -71,7 +76,7 @@
     }
     &:hover {
       transform: scale(1.05);
-      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.6));
+      filter: drop-shadow(0px 4px 4px rgba(255, 107, 8, 1));
     }
   }
   .teem-modal-sm {
@@ -107,6 +112,6 @@
   }
   .team-modal__span--orange {
     display: block;
-    color: $footerTxtColor;
+    color: $accentColor;
     text-transform: uppercase;
   }
