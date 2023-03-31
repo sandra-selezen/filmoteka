@@ -1,6 +1,8 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import FetchFilms from './fetch-films';
+const Pagination = require('tui-pagination');
+import Pagination from 'tui-pagination';
 
 const API_KEY = '959330b1b48c95e1fde96a992bbede29';
 const URL = 'https://api.themoviedb.org/';
@@ -24,17 +26,15 @@ const onSearch = () => {
 
   const load = async () => {
     try {
-        await search.getFilms();
-    }
-    catch (error) {
-        console.log(error)
-    }
-    finally {
+      await search.getFilms();
+    } catch (error) {
+      console.log(error);
+    } finally {
       if (search.ids.length === 0) {
         refs.inputError.classList.remove('visually-hidden');
       }
     }
-  }
+  };
   load();
   Notiflix.Loading.remove();
 };
