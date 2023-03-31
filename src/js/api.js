@@ -22,13 +22,21 @@ const onSearch = () => {
 
   document.querySelector('.js-cards-list').innerHTML = '';
 
-  search.getFilms();
-
-  Notiflix.Loading.remove();
-
-  if (document.querySelector('.js-cards-list').innerHTML == '') {
-    refs.inputError.classList.remove('visually-hidden');
+  const load = async () => {
+    try {
+        await search.getFilms();
+    }
+    catch (error) {
+        console.log(error)
+    }
+    finally {
+      if (search.ids.length === 0) {
+        refs.inputError.classList.remove('visually-hidden');
+      }
+    }
   }
+  load();
+  Notiflix.Loading.remove();
 };
 
 refs.form.addEventListener('submit', e => {
