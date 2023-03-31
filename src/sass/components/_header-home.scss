@@ -70,6 +70,17 @@
 
 .logo__svg {
   stroke: $mainLightColor;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  &:hover,
+  focus {
+    transform: scale(1.25);
+  }
+}
+
+.logo__svg:hover,
+focus {
+  transform: scale(1.25);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .logo__name {
@@ -88,6 +99,7 @@
 }
 .navigation-list__link {
   color: $mainLightColor;
+  text-transform: uppercase;
 }
 
 .authorization {
@@ -96,7 +108,6 @@
   bottom: 0;
   display: flex;
   transform: translateY(-100%);
-
   @include tablet {
     transform: translateY(0);
   }
@@ -188,6 +199,8 @@
   &:hover,
   focus {
     cursor: pointer;
+    transform: scale(1.25);
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
