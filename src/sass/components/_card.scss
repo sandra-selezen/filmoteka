@@ -1,10 +1,11 @@
 .cards__list {  
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  row-gap: 20px;
 
   @include tablet {
-    gap: 32px;
+    row-gap: 32px;
+    column-gap: 32px;
   }
 }
 
@@ -13,81 +14,74 @@
   transform: scale(1);
   transition: transform $duration linear;
 
-  @media screen and (min-width: 768px) {
-    width: calc((100% - 2 * 30px) / 2);
+  @include tablet {
+    flex-basis: calc((100% / 2 ) - 32px);
   }
-  @media screen and (min-width: 1280px) {
-    width: calc((100% - 3 * 30px) / 3);
+  @include desktop {
+    flex-basis: calc((100% / 3) - 32px);
   }
 }
-  
-  .card__film:hover,
-  .card__film:focus {
-    transform: scale(1.03);
-  }
-  
-  
-  
-  .card__film img {
-    border-radius: 5px;
-    margin-bottom: 10px;
-    width: 276px;
-    height: 402px;
-    @media screen and (min-width: 768px) {
-      width: 336px;
-      height: 455px;
-    }
-    @media screen and (min-width: 1280px) {
-      width: 395px;
-      height: 574px;
-    }
-  }
-  
-  
 
-  .card__title,
-  .card__text {
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 1.33;
-    
-    @media screen and (min-width: 1280px) {
-      font-size: 20px;
-      line-height: 1.2;
-    }
+.card__film:hover,
+.card__film:focus {
+  transform: scale(1.03);
+}
+
+.card__film img {
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 276px;
+  height: 402px;
+
+  @include tablet {
+    width: 336px;
+    height: 455px;
   }
-  .card__title {
-    text-transform: uppercase;
+  @include desktop {
+  width: 395px;
+  height: 574px;
   }
+}
+
+.card__title,
+.card__text {
+  font-size: 12px;
+  line-height: 1.33;
   
-  .card__text {
-    display: flex;
-    color: $accentColor;  
+  @include desktop {
+    font-size: 20px;
+    line-height: 1.2;
   }
-  
-  .genres{
-    margin-right: 4px;
-  }
-  
-  .release{
-    margin-left: 4px;
-    margin-right: 9px;
-  }
-  
-  .card__vote_average {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  
-    width: 50px;
-    height: 20px;
-    font-family: 'Roboto', sans-serif;
-    font-weight: 500;
-    font-size: 15px;
-    line-height: 1.17;
-    color: $mainLightColor;
-    background-color: $accentColor;
-    border-radius: 5px;
-  }
-  
+}
+
+.card__title {
+  text-transform: uppercase;
+}
+
+.card__text {
+  display: flex;
+  color: $accentColor;  
+}
+
+.genres {
+  margin-right: 4px;
+}
+
+.release {
+  margin-left: 4px;
+  margin-right: 9px;
+}
+
+.card__vote_average {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 50px;
+  height: 20px;
+  font-size: 15px;
+  line-height: 1.17;
+  color: $mainLightColor;
+  background-color: $accentColor;
+  border-radius: 5px;
+}
