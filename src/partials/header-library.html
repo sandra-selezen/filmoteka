@@ -1,31 +1,29 @@
 <header class="header header-library js-header" id="Home">
   <div class="container">
+    <nav class="nav">
+      <a href="./index.html" class="main-page-link">
+        <svg class="logo__icon" width="24" height="24">
+          <use href="/src/images/icons.svg#icon-film"></use>
+        </svg>
+        <span class="site-title">Filmoteka</span>
+      </a>
+      <ul class="nav-list list">
+        <li class="nav-list-item">
+          <a href="index.html" class="nav-list-link  js-home">Home<a>
+        </li>
+        <li class="nav-list-item ">
+          <a href="my-library.html" class="nav-list-link current-page js-library">My library</a>
+        </li>
+      </ul>
+    </nav>
 
-	<nav class="nav">
-    <a href="./index.html" class="main-page-link">
-      <svg class="logo__icon" width="24" height="24">
-        <use href="/src/images/icons.svg#icon-film"></use>
-      </svg>
-      <span class="site-title">Filmoteka</span></a
-    >
-   <ul class="nav-list list">
-                <li class="nav-list-item">
-                    <a href="index.html" class="nav-list-link  js-home">Home<a>
-                </li>
-                <li class="nav-list-item ">
-                    <a href="my-library.html" class="nav-list-link current-page js-library">My library</a>
-                </li>
-            </ul>
-            
-        </nav>
-
-        <ul class="buttons list visually-hidden js-buttons-library">
-            <li class="buttons-item">
-                <button type="button" class="library-btn enabled-btn js-watched">Watched</button>
-            </li>
-            <li class="buttons-item">
-                <button type="button" class="library-btn disabled-btn js-queue">Queue</button>
-            </li>
-        </ul>
+    <ul class="buttons list visually-hidden js-buttons-library">
+      <li class="buttons-item">
+        <button type="button" class="library-btn enabled-btn js-watched">Watched</button>
+      </li>
+      <li class="buttons-item">
+        <button type="button" class="library-btn disabled-btn js-queue">Queue</button>
+      </li>
+    </ul>
   </div>
 </header>
