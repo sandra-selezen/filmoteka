@@ -1,19 +1,14 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
+import { onSearch, nextPage } from './api';
 
-// -----------------------------------
-// Змінні для роботи, допоки немає роботи по запитам
 
-// загальна кількість сторінок
-let totalPage = 999;
-// поточна сторінка
-let currentPage = 30;
 // --------------------------------------
-
-// об'єкт налаштувань tui-pagination
+export const startPagination = ({ totalPage, itemsPerPage1, currentPage }) => {
+  //  об'єкт налаштувань tui-pagination
 const options = {
   totalItems: totalPage,
-  itemsPerPage: 20,
+  itemsPerPage: itemsPerPage1,
   visiblePages: 5,
   page: currentPage,
   centerAlign: false,
@@ -36,10 +31,16 @@ const options = {
       '</a>'
   }
 };
-
 // створюємо екземпляр tui-pagination
 const pagination = new Pagination('pagination', options);
 // після натискання кнопки отримуємо номер сторінки, що на кнопці.
 // передаємо цей номер в колбек та робимо запит до АPI для отримання данних відповідної сторінки
-pagination.on('afterMove', ({ page }) => console.log(page));
+pagination.on('afterMove', ({ page }) => {
+  console.log(page);
+  nextPage = page;
+  onSearch('die');
+});
+  // повертаємо готову пагінацію
+  return pagination;
+};
 
