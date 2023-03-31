@@ -31,12 +31,13 @@
 
 .footer__link {
     color: $footerTxtColor;
-    text-decoration: underline $footerTxtColor solid 1px;
-    transition: color 1s;
-}
+    transition: color $duration $timingFunction;
+    border-bottom: $footerTxtColor 1px solid;
 
-.footer__link:hover {
+    &:hover, &:focus {
     color: $accentColor;
+    border-bottom: $accentColor 1px solid;
+    }
 }
 
 .footer__container {
