@@ -14,12 +14,25 @@ img {
   height: auto;
 }
 
-ul {
+ul, li {
   padding: 0;
   margin: 0;
+}
+
+li {
   list-style: none;
 }
 
 a {
   text-decoration: none;
 }
+
+body {
+  color: $mainDarkColor;
+  background-color: $mainLightColor;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.33;
+}
+
