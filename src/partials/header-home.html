@@ -1,10 +1,10 @@
 <header class="header">
-  <div class="container container-header">
-    <div class="header-wraper">
-      <div class="logo-container">
-        <a href="./index.html" class="logo-site">
-          <svg class="logo" width="24" height="24">
-            <use class="logo-icon" href="/src/images/icons.svg#icon-film"></use>
+  <div class="container header__container">
+    <div class="header__wraper">
+      <div class="logo">
+        <a href="./index.html" class="logo__site">
+          <svg class="logo__svg" width="24" height="24">
+            <use class="logo__icon" href="/src/images/icons.svg#icon-film"></use>
           </svg>
           <span class="logo__name">Filmoteka</span>
         </a>
@@ -13,23 +13,23 @@
       <nav class="header-navigation">
         <ul class="navigation-list">
           <li class="navigation-list__item">
-            <a class="navigation-list__link site-nav__link-current" href="index.html">HOME</a>
+            <a class="navigation-list__link navigation-list__link-current" href="index.html">HOME</a>
           </li>
           <li class="navigation-list__item">
             <a class="navigation-list__link" href="my-library.html">MY LIBRARY</a>
           </li>
         </ul>
-        <ul class="navigation-buttons">
-          <li class="js-signIn-btn">
-            <button class="navigation-btn">
+        <ul class="authorization">
+          <li class="authorization__js-signIn">
+            <button class="authorization__btn">
               <svg width="16" height="16">
                 <use href="/src/images/icons.svg#icon-sign-in"></use>
               </svg>
               &nbsp; Sign in
             </button>
           </li>
-          <li class="js-signOut-btn visually-hidden">
-            <button class="navigation-btn">
+          <li class="authorization__js-signOut visually-hidden">
+            <button class="authorization__btn">
               Sign out &nbsp;
               <svg width="16" height="16">
                 <use href="/src/images/icons.svg#icon-sign-out"></use>
@@ -40,14 +40,14 @@
       </nav>
     </div>
 
-    <form class="header-search-form">
-      <div class="form-search">
-        <input type="text" name="search" class="search form-input" placeholder="Movie search" />
-        <button type="submit" class="search-btn">
+    <form class="header__form">
+      <div class="header__form-search">
+        <input type="text" name="search" class="header__search header__input" placeholder="Movie search" />
+        <button type="submit" class="header__search-btn">
         </button>
       </div>
     </form>
-    <div class="input-error js-input-error visually-hidden">
+    <div class="header__input-error header__js-input-error visually-hidden">
       Search result not successful. Enter the correct movie name
     </div>
 </header>

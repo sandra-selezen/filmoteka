@@ -47,11 +47,11 @@
   }
 }
 
-.container-header {
+.header__container {
   position: relative;
 }
 
-.header-wraper {
+.header__wraper {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -59,16 +59,16 @@
   position: relative;
 }
 
-.logo-site:hover > svg,
-.logo-site:focus > svg,
-.logo-site:hover > span,
-.logo-site:focus > span {
+.logo__site:hover > svg,
+.logo__site:focus > svg,
+.logo__site:hover > span,
+.logo__site:focus > span {
   color: $accentColor;
   stroke: $accentColor;
   fill: $accentColor;
 }
 
-.logo {
+.logo__svg {
   stroke: $mainLightColor;
 }
 
@@ -76,7 +76,7 @@
   display: none;
 }
 
-.logo-container > a {
+.logo > a {
   display: flex;
   align-items: center;
 }
@@ -90,7 +90,7 @@
   color: $mainLightColor;
 }
 
-.navigation-buttons {
+.authorization {
   position: absolute;
   right: 0;
   bottom: 0;
@@ -102,7 +102,7 @@
   }
 }
 
-.navigation-btn {
+.authorization__btn {
   transform: translateY(10%);
   width: fit-content;
   display: flex;
@@ -135,17 +135,17 @@
   }
 }
 
-.header-search-form {
+.header__form {
   display: flex;
   justify-content: center;
   padding-bottom: 20px;
 }
 
-.form-search {
+.header__form-search {
   position: relative;
 }
 
-.form-input {
+.header__input {
   font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
@@ -168,11 +168,11 @@
   }
 }
 
-.form-input::placeholder {
+.header__input::placeholder {
   color: $mainLightColor;
 }
 
-.search-btn {
+.header__search-btn {
   stroke: $mainLightColor;
   fill: $mainLightColor;
   position: absolute;
@@ -191,7 +191,7 @@
   }
 }
 
-.site-nav__link-current {
+.navigation-list__link-current {
   position: relative;
   display: block;
 
@@ -224,32 +224,32 @@
     line-height: 1.17;
   }
 
-  .logo-container {
+  .logo {
     display: flex;
     justify-content: center;
     align-items: baseline;
   }
 
-  .logo {
+  .logo__svg {
     margin-right: 10px;
   }
 
-  .form-input {
+  .header__input {
     width: 336px;
   }
 
-  .form-search {
+  .header__form-search {
     position: relative;
   }
 }
 
 @include desktop {
-  .form-input {
+  .header__input {
     width: 394px;
   }
 }
 
-.input-error {
+.header__input-error {
   display: flex;
   justify-content: center;
   color: $informationColor;
