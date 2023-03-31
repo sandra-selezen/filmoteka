@@ -35,7 +35,7 @@ export default class FetchFilms {
   }
 
   getPosters() {
-    this.posters = this.filmsData.map(
+    this.posters = this.filmsData.map(filmData =>
       filmData.poster_path
         ? `https://image.tmdb.org/t/p/w500${filmData.poster_path}`
         : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
