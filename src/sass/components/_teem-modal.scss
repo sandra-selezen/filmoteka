@@ -1,0 +1,112 @@
+.teem-modal {
+    background-color: $footerBgColor;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 280px;
+    height: 540px;
+    padding: 48px 20px;
+    overflow: auto;
+    text-align: center;
+    @include tablet {
+      padding: 30px 66px;
+      width: 704px;
+      height: 522px;
+      text-align: start;
+    }
+    @include desktop{
+      width: 806x;
+      height: 558px;
+    }
+  }
+  .team-modal__btn--close {
+    z-index: 2;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      fill: $buttonBgAccent;
+    }
+
+  }
+  .teem-modal__header {
+    text-align: center;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    @include tablet  {
+      padding-bottom: 15px;
+    }
+    color:$accentColor ;
+  }
+  .team-modal-list {
+    @include tablet  {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+  .teem-modal__item {
+    margin-bottom: 10px;
+    @include tablet {
+      display: flex;
+      flex-direction: column;
+      width: calc(100% / 3);
+      align-items: center;
+    }
+    @include desktop{
+    }
+  }
+  .teem-modal__img {
+    display: block;
+    margin: 0 auto;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    transition: transform 250ms;
+    @include tablet {
+      margin: 7px 5px;
+    }
+    @include desktop{
+    }
+    &:hover {
+      transform: scale(1.05);
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.6));
+    }
+  }
+  .teem-modal-sm {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 7px;
+    & li:first-child {
+      margin-right: 7px;
+    }
+    & a:hover,
+    & a:focus {
+      fill: $buttonBgAccent;
+    }
+    @include tablet {
+      margin-bottom: 0;
+      margin-top: 15px;
+    }
+  }
+  .team-modal__text-wrap {
+    @include tablet {
+      align-content: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      margin-left: 15px;
+      @include tablet {
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
+      }
+    }
+  }
+  .team-modal__span--orange {
+    display: block;
+    color: $footerTxtColor;
+    text-transform: uppercase;
+  }
