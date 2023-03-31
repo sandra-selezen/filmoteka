@@ -1,10 +1,11 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
-body {
-  color: $mainDarkColor;
-  background-color: $mainBgColor;
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  font-weight: 500;
-  line-height: 1.33;
+.section {
+  padding-top: 20px;
+  padding-bottom:  40px;
+
+  @include tablet {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
