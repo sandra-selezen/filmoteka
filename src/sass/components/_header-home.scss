@@ -1,3 +1,259 @@
-header {
-  background-color: #000000;
+.visually-hidden {
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  border: 0;
+  padding: 0;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  margin: -1px;
+}
+.header {
+  height: 216px;
+  position: relative;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.56);
+  background-image: url(../images/bg-home-mobile@1x-min.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include retina {
+    background-image: $bg-header-gradient,
+      url(../images/bg-home-mobile@2x-min.jpg);
+  }
+
+  @include tablet {
+    background-image: $bg-header-gradient,
+      url(../images/bg-home-tablet@1x-min.jpg);
+
+    @include retina {
+      background-image: $bg-header-gradient,
+        url(../images/bg-home-tablet@2x-min.jpg);
+    }
+  }
+
+  @include desktop {
+    background-image: $bg-header-gradient,
+      url(../images/bg-home-desktop@1x-min.jpg);
+
+    @include retina {
+      background-image: $bg-header-gradient,
+        url(../images/bg-home-desktop@2x-min.jpg);
+    }
+  }
+}
+
+.container-header {
+  position: relative;
+}
+
+.header-wraper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 54px;
+  position: relative;
+}
+
+.logo-site:hover > svg,
+.logo-site:focus > svg,
+.logo-site:hover > span,
+.logo-site:focus > span {
+  color: $accentColor;
+  stroke: $accentColor;
+  fill: $accentColor;
+}
+
+.logo {
+  stroke: $mainLightColor;
+}
+
+.logo__name {
+  display: none;
+}
+
+.logo-container > a {
+  display: flex;
+  align-items: center;
+}
+
+.navigation-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 0;
+}
+.navigation-list__link {
+  color: $mainLightColor;
+}
+
+.navigation-buttons {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  transform: translateY(-100%);
+
+  @include tablet {
+    transform: translateY(0);
+  }
+}
+
+.navigation-btn {
+  transform: translateY(10%);
+  width: fit-content;
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  line-height: 1.67;
+  font-weight: 500;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: $mainLightColor;
+  fill: $mainLightColor;
+
+  &:hover {
+    color: $accentColor;
+    fill: $accentColor;
+  }
+}
+
+.navigation-list__item {
+  font-weight: 500;
+  line-height: 1.17px;
+
+  &:not(:last-child) {
+    margin-right: 32px;
+  }
+}
+
+.header-search-form {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.form-search {
+  position: relative;
+}
+
+.form-input {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  color: $mainLightColor;
+  width: 280px;
+  position: relative;
+  border-bottom: 0.5px solid $mainLightColor;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: 0;
+  background: transparent;
+
+  @include tablet {
+    width: 336px;
+  }
+
+  @include desktop {
+    width: 394px;
+  }
+}
+
+.form-input::placeholder {
+  color: $mainLightColor;
+}
+
+.search-btn {
+  stroke: $mainLightColor;
+  fill: $mainLightColor;
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: -4px;
+  right: 0;
+  border: none;
+  border-radius: 50%;
+  background: url(../images/search-2.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  &:hover,
+  focus {
+    cursor: pointer;
+  }
+}
+
+.site-nav__link-current {
+  position: relative;
+  display: block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    transform: translateY(1px);
+    display: block;
+    width: 100%;
+    height: 3px;
+    border: none;
+    background-color: $informationColor;
+    transition: width 0.2s ease-in-out;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    width: 0;
+  }
+}
+
+@include tablet {
+  .logo__name {
+    display: block;
+    color: $mainLightColor;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.17;
+  }
+
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+  .logo {
+    margin-right: 10px;
+  }
+
+  .form-input {
+    width: 336px;
+  }
+
+  .form-search {
+    position: relative;
+  }
+}
+
+@include desktop {
+  .form-input {
+    width: 394px;
+  }
+}
+
+.input-error {
+  display: flex;
+  justify-content: center;
+  color: $informationColor;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
 }
