@@ -1,11 +1,10 @@
 .cards__list {  
   display: flex;
   flex-wrap: wrap;
-  row-gap: 20px;
+  gap: 20px;
 
   @include tablet {
-    row-gap: 32px;
-    column-gap: 32px;
+    gap: 32px;
   }
 }
 
@@ -15,10 +14,10 @@
   transition: transform $duration linear;
 
   @include tablet {
-    flex-basis: calc((100% / 2 ) - 32px);
+    flex-basis: calc((100% - 32px ) / 2);
   }
   @include desktop {
-    flex-basis: calc((100% / 3) - 32px);
+    flex-basis: calc((100% - 64px) / 3);
   }
 }
 
