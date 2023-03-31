@@ -1,15 +1,11 @@
 @import '~node_modules/modern-normalize/modern-normalize.css';
 
 .section {
-  margin-bottom: 60px;
-}
+  padding-top: 20px;
+  padding-bottom:  40px;
 
-.list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.link {
-  text-decoration: none;
+  @include tablet {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
 }
