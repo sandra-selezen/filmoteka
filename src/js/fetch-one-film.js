@@ -1,5 +1,6 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
+import defaultImage from '/src/images/no-poster.png'
 
 const body = document.querySelector('body');
 const listMovies = document.querySelector('.js-cards-list');
@@ -90,7 +91,7 @@ function getOneMovieInfo({
 }) {
   const posterPath = poster_path
     ? `https://image.tmdb.org/t/p/w300${poster_path}`
-    : `https://astoriamuseums.org/wp-content/uploads/2020/10/OFM-poster-not-available.png`;
+    : defaultImage;
 
   let genresMovie = [];
   genres.forEach(genre => {
