@@ -5,7 +5,9 @@
   width: 100vw;
   height: 100vh;
   z-index: 10;
+  opacity: 1;
   overflow-y: scroll;
+  transition: opacity $duration $timingFunction;
   background: rgba(0, 0, 0, 0.25);
   @include desktop {
     background: rgba(0, 0, 0, 0);
@@ -19,6 +21,10 @@
 }
 
 // модальне вікно
+.backdrop-movie.is-hidden .modal-movie {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
 .modal-movie {
   position: absolute;
   top: 50%;
@@ -32,6 +38,8 @@
   padding: 48px 20px 40px;
   // overflow: hidden;
   background: $mainLightColor;
+  
+  transition: transform $duration $timingFunction;
 
   @include tablet {
     width: 704px;

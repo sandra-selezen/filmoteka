@@ -26,11 +26,12 @@ backdropMovie.addEventListener('click', event => {
 //-----функції------
 
 async function onOpenModalMovieClick(event) {
+  cardMovie.innerHTML = '';
   // показує спінер
   Notiflix.Loading.circle();
-  // показую модалку
+  // показує модалку
   backdropMovie.classList.remove('is-hidden');
-  // отримую id конкретного фільму
+  // отримує id конкретного фільму
   const perentNodLi = event.target.closest('li');
   const idMovie = perentNodLi.dataset.id;
 
@@ -106,6 +107,7 @@ function getOneMovieInfo({
 
 // рендер модального вікна з фільмом
 function renderModalMovieInfo(movieInfo) {
+  // деструктуризація данних з функції getOneMovieInfo
   const {
     id,
     poster,
@@ -117,9 +119,7 @@ function renderModalMovieInfo(movieInfo) {
     voteAverage,
     voteCount,
   } = movieInfo;
-
-  cardMovie.innerHTML = '';
-
+  
   const markup = `<div class="modal-card__thumb-left">
   <img
     class="modal-card__img"
