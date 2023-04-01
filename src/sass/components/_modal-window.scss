@@ -6,12 +6,11 @@
   height: 100vh;
   z-index: 10;
   opacity: 1;
-  overflow-y: scroll;
   transition: opacity $duration $timingFunction;
   background: rgba(0, 0, 0, 0.25);
-  @include desktop {
-    background: rgba(0, 0, 0, 0);
-  }
+}
+.stop-scroll {
+  overflow: hidden;
 }
 
 // модалка схована
@@ -38,7 +37,7 @@
   padding: 48px 20px 40px;
   // overflow: hidden;
   background: $mainLightColor;
-  
+
   transition: transform $duration $timingFunction;
 
   @include tablet {

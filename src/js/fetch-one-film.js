@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
+const body = document.querySelector('body');
 const listMovies = document.querySelector('.js-cards-list');
 const btnCloseModalMovie = document.querySelector('.js-btn-close-modal');
 const cardMovie = document.querySelector('.js-modal-card');
@@ -39,6 +40,7 @@ async function onOpenModalMovieClick(event) {
   Notiflix.Loading.circle();
   // показує модалку
   backdropMovie.classList.remove('is-hidden');
+  body.classList.add('stop-scroll');
   // отримання інфо про конкретний фільм
   const response = await fetchData(idMovie);
   // console.log(response.data);
@@ -52,6 +54,7 @@ async function onOpenModalMovieClick(event) {
 // закриття модалки фільму
 function onCloseModalClick() {
   backdropMovie.classList.add('is-hidden');
+  body.classList.remove('stop-scroll');
 }
 
 // функція запиту на бекенд за idMovie
@@ -106,7 +109,7 @@ function getOneMovieInfo({
     voteAverage: vote_average.toFixed(1),
     voteCount: vote_count,
   };
-  
+
   return movieInfo;
 }
 
