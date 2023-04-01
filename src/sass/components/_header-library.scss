@@ -61,7 +61,7 @@
 
 .nav-list-link {
     text-transform: uppercase;
-    color: white;
+    color: $mainLightColor;
     line-height: 1.667;
     transition: color $duration $timingFunction;
 
@@ -96,13 +96,19 @@
 }
 
 .library-btn {
+    width: 130px;
+    height: 44px;
     border-radius: 5px;
     padding: 14px 38px;
     outline: none;
     border: none;
     cursor: pointer;
     text-transform: uppercase;
-    color: white;
+    color: $mainLightColor;
+
+    @include tablet {
+        width: 152px;
+    }
 }
 
 .enabled-btn {
@@ -114,12 +120,10 @@
 
 .disabled-btn {
     background-color: transparent;
-    border: 1px solid white;
+    border: 1px solid $mainLightColor;
     transition: background-color $duration $timingFunction,
         border $duration $timingFunction;
 }
-
-@media screen and (min-width: 320px) {}
 
 @media screen and (max-width: 768px) {
     .site-title {
@@ -131,14 +135,12 @@
     }
 }
 
-@media screen and (min-width: 768px) {
-    .search-form {
-        width: 336px;
-    }
+@include tablet {
+    // .search-form {
+    //     width: 336px;
+    // }
 
     .nav {
         margin-bottom: 38px;
     }
 }
-
-@media screen and (min-width: 1024px) {}
