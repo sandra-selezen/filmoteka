@@ -1,16 +1,27 @@
 import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { onSearch, nextPage } from './api';
+import FetchFilms from './fetch-films';
+
+export const settingsPagination = {
+  totalItems: null,
+  itemsPerPage: null,
+  page: 1,
+
+}
 
 
 // --------------------------------------
-export const startPagination = ({ totalPage, itemsPerPage1, currentPage }) => {
+export const startPagination = (settingsPagination) => {
+  console.log(settingsPagination.totalItems);
+  console.log(settingsPagination.itemsPerPage);
+  console.log(settingsPagination.page);
   //  об'єкт налаштувань tui-pagination
 const options = {
-  totalItems: totalPage,
-  itemsPerPage: itemsPerPage1,
+  totalItems: settingsPagination.totalItems,
+  itemsPerPage: settingsPagination.itemsPerPage,
   visiblePages: 5,
-  page: currentPage,
+  page: settingsPagination.page,
   centerAlign: false,
   firstItemClassName: 'tui-first-child',
   lastItemClassName: 'tui-last-child',
@@ -38,7 +49,7 @@ const pagination = new Pagination('pagination', options);
 pagination.on('afterMove', ({ page }) => {
   console.log(page);
   nextPage = page;
-  onSearch('die');
+  onSearch();
 });
   // повертаємо готову пагінацію
   return pagination;

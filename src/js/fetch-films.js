@@ -1,3 +1,4 @@
+import { startPagination, settingsPagination } from "./pagination";
 export default class FetchFilms {
   constructor(url, markupRef) {
     this.page = 1;
@@ -17,6 +18,7 @@ export default class FetchFilms {
     this.getFilmsId();
     this.createCards();
     this.createMarkup();
+    this.createPagination();
   }
 
   async doPromises() {
@@ -27,6 +29,9 @@ export default class FetchFilms {
     });
     const response = await Promise.all(arrayOfPromises);
     this.filmsData = response[0].results;
+    this.page = response[0].page;
+    this.totalItems = response[0].total_pages;
+    this.itemsPerPage = response[0].results.length;
     this.genresData = response[1].genres;
   }
 
@@ -82,5 +87,15 @@ export default class FetchFilms {
 
   createMarkup() {
     this.markupRef.insertAdjacentHTML('afterbegin', this.markup.join(''));
+  }
+
+  createPagination() {
+    console.log(this.page);
+    console.log(this.totalItems);
+    console.log(this.itemsPerPage);
+    settingsPagination.page = this.page;
+    settingsPagination.totalItems = this.totalItems;
+    settingsPagination.itemsPerPage = this.itemsPerPage;
+    startPagination(settingsPagination);
   }
 }
