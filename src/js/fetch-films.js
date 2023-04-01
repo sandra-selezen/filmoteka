@@ -1,4 +1,3 @@
-import { startPagination, settingsPagination } from "./pagination";
 import defaultImage from '/src/images/no-poster.png'
 
 export default class FetchFilms {
