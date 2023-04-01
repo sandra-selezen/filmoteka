@@ -100,7 +100,7 @@ function getOneMovieInfo({
     voteAverage: vote_average.toFixed(1),
     voteCount: vote_count,
   };
-  console.log(movieInfo);
+  // console.log(movieInfo);
   return movieInfo;
 }
 
