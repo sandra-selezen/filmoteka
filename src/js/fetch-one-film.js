@@ -164,10 +164,10 @@ function renderModalMovieInfo(movieInfo) {
   <p class="thumb-right__overview">${overview}</p>
 
   <div class="modal-card__btn-wrap">
-    <button class="modal-card__watched-btn" data-id="${id}" data-name="watch">
+    <button class="button-primary modal-card__watched-btn" data-id="${id}" data-name="watch">
       Add to watched
     </button>
-    <button class="modal-card__queue-btn" data-id="${id}" data-name="queue">
+    <button class="button-primary modal-card__queue-btn" data-id="${id}" data-name="queue">
       Add to queue
     </button>
   </div>

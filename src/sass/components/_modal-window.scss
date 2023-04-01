@@ -204,6 +204,18 @@
 
 .modal-card__watched-btn {
   margin-right: 15px;
+  background-color: $buttonBgAccent;
+  border-color: transparent;
+  transition: color $duration $timingFunction,
+              border $duration $timingFunction,
+              background-color $duration $timingFunction;
+
+  &:hover,
+  &:focus {
+    color: $mainDarkColor;
+    border: 1px solid $mainDarkColor;
+    background-color: $mainLightColor;
+  }
 }
 
 .modal-card__watched-btn,
@@ -212,6 +224,22 @@
   height: 44px;
   border-radius: 5px;
   text-transform: uppercase;
+}
+
+.modal-card__queue-btn {
+  color: $mainDarkColor;
+  background-color: $mainLightColor;
+  border: 1px solid $mainDarkColor;
+  transition: color $duration $timingFunction,
+              border $duration $timingFunction,
+              background-color $duration $timingFunction;
+
+  &:hover,
+  &:focus {
+    color: $mainLightColor;
+    background-color: $buttonBgAccent;
+    border-color: transparent;
+  }
 }
 
 // кнопка закриття модалки
