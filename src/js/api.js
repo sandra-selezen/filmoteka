@@ -17,7 +17,7 @@ export const onSearch = () => {
   refs.inputError.classList.add('visually-hidden');
 
   const search = new FetchFilms(
-    `${URL}/3/search/movie?api_key=${API_KEY}&query=${refs.input.value}&${nextPage}`,
+    `${URL}/3/search/movie?api_key=${API_KEY}&query=${refs.input.value}&page=${nextPage}`,
     document.querySelector('.js-cards-list')
   );
 
