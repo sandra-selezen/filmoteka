@@ -1,4 +1,4 @@
-import defaultImage from '/src/images/no-poster.png'
+import defaultImage from '/src/images/no-poster.png';
 
 export default class FetchFilms {
   constructor(url, markupRef) {
