@@ -1,56 +1,26 @@
-// header {
-//     max-height: 230px;
-//     background-color: rgb(8, 8, 8);
-// }
-
 .header-library {
-    padding-bottom: 62px;
+    background-image: $bg-header-gradient, url('../images/bg-library-mobile@1x-min.jpg');
+
+    @include retina {
+        background-image: $bg-header-gradient, url('../images/bg-library-mobile@2x-min.jpg');
+    }
 
     @include tablet {
-        padding-bottom: 60px;
+        background-image: $bg-header-gradient, url('../images/bg-library-tablet@1x-min.jpg');
+        
+        @include retina {
+            background-image: $bg-header-gradient, url('../images/bg-library-tablet@2x-min.jpg');
+        }
+    }
+
+    @include desktop {
+        background-image: $bg-header-gradient, url('../images/bg-library-desktop@1x-min.jpg');
+
+        @include retina {
+            background-image: $bg-header-gradient, url('../images/bg-library-desktop@2x-min.jpg');
+        }
     }
 }
-
-.header-library {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-        url('../images/bg-library-mobile@1x-min.jpg');
-
-    @media screen and (min-device-pixel-ratio: 2) and (min-width: 320px),
-    screen and (min-resolution: 192dpi) and (min-width: 320px),
-    screen and (min-resolution: 2dppx) and (min-width: 320px) {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url('../images/bg-library-mobile@2x-min.jpg');
-    }
-
-    @media screen and (min-width: 768px) {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url('../images/bg-library-tablet@1x-min.jpg');
-    }
-
-    @media screen and (min-device-pixel-ratio: 2) and (min-width: 768px),
-    screen and (min-resolution: 192dpi) and (min-width: 768px),
-    screen and (min-resolution: 2dppx) and (min-width: 768px) {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url('../images/bg-library-tablet@2x-min.jpg');
-    }
-
-    @media screen and (min-width: 1024px) {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url('../images/bg-library-desktop@1x-min.jpg');
-    }
-
-    @media screen and (min-device-pixel-ratio: 2) and (min-width: 1024px),
-    screen and (min-resolution: 192dpi) and (min-width: 1024px),
-    screen and (min-resolution: 2dppx) and (min-width: 1024px) {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)),
-            url('../images/bg-library-desktop@2x-min.jpg');
-    }
-}
-
-// .header .container {
-//     padding-top: 46px;
-//     padding-bottom: 97px;
-// }
 
 .nav {
     display: flex;
@@ -60,12 +30,11 @@
     margin-bottom: 41px;
 }
 
-
 .main-page-link {
     font-weight: 500;
     font-size: 30px;
     line-height: 1.667;
-    color: white;
+    color: $mainLightColor;
     stroke: #818181;
     transition: color $duration $timingFunction;
 
