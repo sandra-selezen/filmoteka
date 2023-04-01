@@ -1,22 +1,11 @@
-.visually-hidden {
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-  height: 1px;
-  overflow: hidden;
-  border: 0;
-  padding: 0;
-  clip: rect(0 0 0 0);
-  clip-path: inset(50%);
-  margin: -1px;
-}
 .header {
   height: 216px;
-  position: relative;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.56);
-  background-image: url(../images/bg-home-mobile@1x-min.jpg);
+  // position: relative;
+  // top: 0;
+  // left: 0;
+  padding-top: 40px;
+  background-color: $buttonBgColor;
+  background-image: $bg-header-gradient, url(../images/bg-home-mobile@1x-min.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
