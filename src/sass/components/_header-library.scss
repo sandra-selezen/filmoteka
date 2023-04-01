@@ -1,9 +1,14 @@
-header {
-    max-height: 230px;
-        background-color: rgb(8, 8, 8);
-        background-position: center;
-        background-repeat: no-repeat;
-        background-size: cover;
+// header {
+//     max-height: 230px;
+//     background-color: rgb(8, 8, 8);
+// }
+
+.header-library {
+    padding-bottom: 62px;
+
+    @include tablet {
+        padding-bottom: 60px;
+    }
 }
 
 .header-library {
@@ -42,10 +47,10 @@ header {
     }
 }
 
-.header .container {
-    padding-top: 46px;
-    padding-bottom: 97px;
-}
+// .header .container {
+//     padding-top: 46px;
+//     padding-bottom: 97px;
+// }
 
 .nav {
     display: flex;
@@ -160,10 +165,6 @@ header {
 @media screen and (min-width: 768px) {
     .search-form {
         width: 336px;
-    }
-
-    .header .container {
-        padding-top: 41px;
     }
 
     .nav {
