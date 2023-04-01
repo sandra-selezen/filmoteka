@@ -1,3 +1,5 @@
+import defaultImage from '/src/images/no-poster.png'
+
 export default class FetchFilms {
   constructor(url, markupRef) {
     this.page = 1;
@@ -38,7 +40,7 @@ export default class FetchFilms {
     this.posters = this.filmsData.map(filmData =>
       filmData.poster_path
         ? `https://image.tmdb.org/t/p/w500${filmData.poster_path}`
-        : 'https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg'
+        : defaultImage
     );
   }
 
