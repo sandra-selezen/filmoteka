@@ -70,17 +70,17 @@
 
 .logo__svg {
   stroke: $mainLightColor;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform $duration $timingFunction;
   &:hover,
-  focus {
+  &:focus {
     transform: scale(1.25);
   }
 }
 
 .logo__svg:hover,
-focus {
+.logo__svg:focus {
   transform: scale(1.25);
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform $duration $timingFunction;
 }
 
 .logo__name {
@@ -130,7 +130,7 @@ focus {
   text-transform: uppercase;
   color: $informationColor;
   fill: $informationColor;
-  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  transition: transform $duration $timingFunction;
   &:hover {
     transform: scale(1.25);
   }
@@ -140,9 +140,9 @@ focus {
   font-weight: 500;
   line-height: 1.17px;
   &:hover,
-  focus {
+  &:focus {
     transform: scale(1.25);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform $duration $timingFunction;
   }
   &:not(:last-child) {
     margin-right: 32px;
@@ -200,10 +200,10 @@ focus {
   background-repeat: no-repeat;
   background-position: center;
   &:hover,
-  focus {
+  &:focus {
     cursor: pointer;
     transform: scale(1.25);
-    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform $duration $timingFunction;
   }
 }
 
