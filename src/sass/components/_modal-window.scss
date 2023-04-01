@@ -1,0 +1,219 @@
+.backdrop-movie {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+  overflow-y: scroll;
+  background: rgba(0, 0, 0, 0.25);
+  @include desktop {
+    background: rgba(0, 0, 0, 0);
+  }
+}
+
+// модалка схована
+.backdrop-movie.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+// модальне вікно
+.modal-movie {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  overflow: scroll;
+  width: 280px;
+  max-height: 95vh;
+  height: auto;
+  padding: 48px 20px 40px;
+  // overflow: hidden;
+  background: $mainLightColor;
+
+  @include tablet {
+    width: 704px;
+    max-height: 552px;
+    padding: 40px 72px 40px 36px;
+  }
+
+  @include desktop {
+    width: 806px;
+    max-height: 558px;
+    padding: 40px 12px;
+  }
+}
+
+.modal-card {
+  @include tablet {
+    display: flex;
+    column-gap: 68px;
+  }
+  @include desktop {
+    column-gap: 16px;
+  }
+}
+
+.modal-card__thumb-left {
+  position: relative;
+  @include tablet {
+    max-width: 264px;
+    height: 374px;
+  }
+  @include desktop {
+    max-width: 375px;
+    height: 478px;
+  }
+}
+
+.modal-card__img {
+  display: block;
+  margin: 0;
+  max-width: 240px;
+  height: 357px;
+
+  @include tablet {
+    max-width: 264px;
+    height: 374px;
+  }
+
+  @include desktop {
+    max-width: 375px;
+    height: 478px;
+  }
+}
+
+.link-trailer {
+  position: absolute;
+  bottom: 20px;
+  right: 50%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 136px;
+  height: 44px;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: $mainLightColor;
+  background-color: $accentModalColor;
+  border: none;
+  border-radius: 5px;
+  transition: background-color $duration $timingFunction,
+    scale $duration $timingFunction;
+  transform: translate(50%, 0%);
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    scale: 1.01;
+    background-color: #ff001b;
+  }
+}
+
+.thumb-right__title {
+  font-size: 30px;
+  line-height: 1.17;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.thumb-right__details {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.thumb-right__name-details {
+  display: flex;
+  flex-direction: column;
+  row-gap: 8px;
+  margin-right: 40px;
+  @include desktop {
+    margin-right: 83px;
+  }
+}
+
+.thumb-right__name-item {
+  color: $secondModalColor;
+}
+
+.thumb-right__value-details {
+  display: flex;
+  flex-direction: column;
+  row-gap: 9px;
+}
+
+.thumb-right__value-item {
+  line-height: 1.17;
+  & > span {
+    text-transform: uppercase;
+  }
+}
+
+.thumb-right__vote {
+  background: $accentModalColor;
+  border-radius: 5px;
+  padding: 1px 9px;
+}
+
+.thumb-right__delimiter {
+  color: $secondModalColor;
+}
+
+.thumb-right__votes {
+  background: $footerBgColor;
+  border-radius: 5px;
+  padding: 1px 4px;
+}
+
+.thumb-right__about {
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.thumb-right__overview {
+  line-height: 1.67;
+  margin-bottom: 20px;
+}
+
+.modal-card__btn-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  @include tablet {
+    justify-content: start;
+    gap: 15px;
+  }
+
+  @include desktop {
+    margin-left: 8px;
+  }
+}
+
+.modal-card__watched-btn {
+  margin-right: 15px;
+}
+
+// кнопка закриття модалки
+.btn-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 30px;
+  height: 30px;
+  z-index: 10;
+  background-color: inherit;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-close__icon {
+  transition: fill $duration $timingFunction;
+  .btn-close:hover &,
+  .btn-close:focus & {
+    fill: $accentModalColor;
+  }
+}

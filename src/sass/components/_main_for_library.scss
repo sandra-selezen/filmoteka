@@ -1,0 +1,19 @@
+.library__text-empty {
+    text-align: center;
+    font-size: 18px;
+}
+
+.library__img-container {
+    width: 100%;
+    height: 100%;
+}
+
+.library__img {
+    max-height: 450px;
+    margin: auto;
+}
+
+.library__link {
+    color: $accentColor;
+    cursor: pointer;
+}

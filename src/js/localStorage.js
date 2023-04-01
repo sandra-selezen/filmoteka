@@ -23,3 +23,7 @@ export const removeStore = key => {
     console.error('Get state error: ', error.message);
   }
 };
+
+const addToWatchBtn = document.querySelector('.watched-button');
+
+const addToQuequeBtn = document.querySelector('.queque-button');
