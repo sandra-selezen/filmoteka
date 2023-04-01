@@ -26,19 +26,24 @@ backdropMovie.addEventListener('click', event => {
 //-----функції------
 
 async function onOpenModalMovieClick(event) {
+  // отримує id конкретного фільму
+  const perentNodLi = event.target.closest('li');
+  const idMovie = perentNodLi?.dataset?.id;
+  // перевірка що користувач клікнув саме на картку фільму
+  if (idMovie === undefined) {
+    return;
+  }
+  // чистимо модалку перед рендером
   cardMovie.innerHTML = '';
   // показує спінер
   Notiflix.Loading.circle();
   // показує модалку
   backdropMovie.classList.remove('is-hidden');
-  // отримує id конкретного фільму
-  const perentNodLi = event.target.closest('li');
-  const idMovie = perentNodLi.dataset.id;
-
+  // отримання інфо про конкретний фільм
   const response = await fetchData(idMovie);
   // console.log(response.data);
   const movieInfo = getOneMovieInfo(response.data);
-
+  // відображення модалки з інфо про фільм
   renderModalMovieInfo(movieInfo);
   // ховає спінер
   Notiflix.Loading.remove();
@@ -101,7 +106,7 @@ function getOneMovieInfo({
     voteAverage: vote_average.toFixed(1),
     voteCount: vote_count,
   };
-  // console.log(movieInfo);
+  
   return movieInfo;
 }
 
@@ -119,7 +124,7 @@ function renderModalMovieInfo(movieInfo) {
     voteAverage,
     voteCount,
   } = movieInfo;
-  
+
   const markup = `<div class="modal-card__thumb-left">
   <img
     class="modal-card__img"
