@@ -5,11 +5,12 @@
   width: 100vw;
   height: 100vh;
   z-index: 10;
-  overflow-y: scroll;
+  opacity: 1;
+  transition: opacity $duration $timingFunction;
   background: rgba(0, 0, 0, 0.25);
-  @include desktop {
-    background: rgba(0, 0, 0, 0);
-  }
+}
+.stop-scroll {
+  overflow: hidden;
 }
 
 // модалка схована
@@ -19,6 +20,10 @@
 }
 
 // модальне вікно
+.backdrop-movie.is-hidden .modal-movie {
+  transform: translate(-50%, -50%) scale(0.8);
+}
+
 .modal-movie {
   position: absolute;
   top: 50%;
@@ -32,6 +37,8 @@
   padding: 48px 20px 40px;
   // overflow: hidden;
   background: $mainLightColor;
+
+  transition: transform $duration $timingFunction;
 
   @include tablet {
     width: 704px;
@@ -58,9 +65,11 @@
 
 .modal-card__thumb-left {
   position: relative;
+  margin-bottom: 20px;
   @include tablet {
     max-width: 264px;
     height: 374px;
+    margin-bottom: 0;
   }
   @include desktop {
     max-width: 375px;
@@ -195,6 +204,43 @@
 
 .modal-card__watched-btn {
   margin-right: 15px;
+  color: $mainLightColor;
+  background-color: $buttonBgAccent;
+  border-color: transparent;
+  transition: color $duration $timingFunction,
+              border $duration $timingFunction,
+              background-color $duration $timingFunction;
+
+  &:hover,
+  &:focus {
+    color: $mainDarkColor;
+    border: 1px solid $mainDarkColor;
+    background-color: $mainLightColor;
+  }
+}
+
+.modal-card__watched-btn,
+.modal-card__queue-btn {
+  width: 136px;
+  height: 44px;
+  border-radius: 5px;
+  text-transform: uppercase;
+}
+
+.modal-card__queue-btn {
+  color: $mainDarkColor;
+  background-color: $mainLightColor;
+  border: 1px solid $mainDarkColor;
+  transition: color $duration $timingFunction,
+              border $duration $timingFunction,
+              background-color $duration $timingFunction;
+
+  &:hover,
+  &:focus {
+    color: $mainLightColor;
+    background-color: $buttonBgAccent;
+    border-color: transparent;
+  }
 }
 
 // кнопка закриття модалки
