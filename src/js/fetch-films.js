@@ -1,3 +1,6 @@
+import { startPagination, settingsPagination } from "./pagination";
+import defaultImage from '/src/images/no-poster.png'
+
 export default class FetchFilms {
   constructor(url, markupRef) {
     this.page = 1;

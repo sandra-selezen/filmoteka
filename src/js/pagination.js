@@ -2,11 +2,15 @@ import Pagination from 'tui-pagination';
 import 'tui-pagination/dist/tui-pagination.css';
 import { onSearch, nextPage } from './api';
 import FetchFilms from './fetch-films';
+// import { fetchPopularFilms } from './popular-films-fetch';
+
 
 export const settingsPagination = {
   totalItems: null,
   itemsPerPage: null,
   page: 1,
+  requestType: '',
+  pagination: null,
 
 }
 
@@ -43,14 +47,22 @@ const options = {
   }
 };
 // створюємо екземпляр tui-pagination
-const pagination = new Pagination('pagination', options);
+  const pagination = new Pagination('pagination', options);
+  settingsPagination.pagination = pagination;
 // після натискання кнопки отримуємо номер сторінки, що на кнопці.
 // передаємо цей номер в колбек та робимо запит до АPI для отримання данних відповідної сторінки
 pagination.on('afterMove', ({ page }) => {
   console.log(page);
   // nextPage = page;
   // console.log(nextPage);
-  onSearch(page);
+  switch (settingsPagination.requestType) {
+    case 'searchByWord':
+      onSearch(page);
+      break;
+    case 'popularFilm':
+      fetchPopularFilms(page);
+      break;
+  }
 });
   // повертаємо готову пагінацію
   return pagination;

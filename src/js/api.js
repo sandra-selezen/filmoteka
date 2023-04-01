@@ -1,6 +1,7 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import FetchFilms from './fetch-films';
+import { settingsPagination } from './pagination';
 
 const API_KEY = '959330b1b48c95e1fde96a992bbede29';
 const URL = 'https://api.themoviedb.org/';
@@ -38,6 +39,7 @@ export const onSearch = (nextPage=1) => {
   }
   load();
   Notiflix.Loading.remove();
+  settingsPagination.requestType = 'searchByWord';
 };
 
 refs.form.addEventListener('submit', e => {
