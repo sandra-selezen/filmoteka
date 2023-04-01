@@ -26,8 +26,12 @@ export default class FetchFilms {
       return response.json();
     });
     const response = await Promise.all(arrayOfPromises);
+    console.log('arrayOfPromises:', arrayOfPromises);
+
     this.filmsData = response[0].results;
+    console.log('filmsData:', this.filmsData);
     this.genresData = response[1].genres;
+    console.log('genresData:', this.genresData);
   }
 
   getFilmsId() {
