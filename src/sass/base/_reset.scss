@@ -28,7 +28,7 @@ a {
 }
 
 body {
-  color: $mainDarkColor;
+  color: var(--mainDarkColor);
   background-color: var(--mainLightColor);
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
