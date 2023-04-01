@@ -13,13 +13,13 @@
   position: absolute;
   top: 0;
   left: 0;
-  
+  transform: translate(var(--before-postionX), var(--before-postionY));
   width: 24px;
   height: 24px;
   border-radius: 50%;
   background-color: $header-focus;
   z-index: 0;
-  transition: transform 400ms linear;
+  transition: transform $duration $timingFunction;
 }
 .switch-icon{
   padding: 5px;

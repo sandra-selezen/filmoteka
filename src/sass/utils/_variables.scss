@@ -15,7 +15,11 @@ $bg-header-gradient: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
 
 :root[data-theme='light']{
   --mainLightColor: #ffffff;
+  --before-postionX: 2px;
+  --before-postionY: 2px;
 }
 :root[data-theme='dark']{
   --mainLightColor: #281f1f;
+  --before-postionX: 30px;
+  --before-postionY: 2px;
 }
