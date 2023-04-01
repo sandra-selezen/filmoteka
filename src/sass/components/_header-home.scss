@@ -69,7 +69,7 @@
 }
 
 .logo__svg {
-  stroke: $mainLightColor;
+  stroke: var(--mainLightColor);
   transition: transform $duration $timingFunction;
   &:hover,
   &:focus {
@@ -98,7 +98,7 @@
   flex-grow: 0;
 }
 .navigation-list__link {
-  color: $mainLightColor;
+  color: var(--mainLightColor);
   text-transform: uppercase;
 }
 
@@ -163,10 +163,10 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 1.14;
-  color: $mainLightColor;
+  color: var(--mainLightColor);
   width: 280px;
   position: relative;
-  border-bottom: 0.5px solid $mainLightColor;
+  border-bottom: 0.5px solid var(--mainLightColor);
   border-top: none;
   border-left: none;
   border-right: none;
@@ -183,12 +183,12 @@
 }
 
 .header__input::placeholder {
-  color: $mainLightColor;
+  color: var(--mainLightColor);
 }
 
 .header__search-btn {
-  stroke: $mainLightColor;
-  fill: $mainLightColor;
+  stroke: var(--mainLightColor);
+  fill: var(--mainLightColor);
   position: absolute;
   width: 22px;
   height: 22px;
@@ -234,7 +234,7 @@
 @include tablet {
   .logo__name {
     display: block;
-    color: $mainLightColor;
+    color: var(--mainLightColor);
     font-weight: 500;
     font-size: 30px;
     line-height: 1.17;

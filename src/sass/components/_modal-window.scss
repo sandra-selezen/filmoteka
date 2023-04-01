@@ -36,7 +36,7 @@
   height: auto;
   padding: 48px 20px 40px;
   // overflow: hidden;
-  background: $mainLightColor;
+  background: var(--mainLightColor);
 
   transition: transform $duration $timingFunction;
 
@@ -107,7 +107,7 @@
   height: 44px;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: $mainLightColor;
+  color: var(--mainLightColor);
   background-color: $accentModalColor;
   border: none;
   border-radius: 5px;
@@ -204,7 +204,7 @@
 
 .modal-card__watched-btn {
   margin-right: 15px;
-  color: $mainLightColor;
+  color: var(--mainLightColor);
   background-color: $buttonBgAccent;
   border-color: transparent;
   transition: color $duration $timingFunction,
@@ -215,7 +215,7 @@
   &:focus {
     color: $mainDarkColor;
     border: 1px solid $mainDarkColor;
-    background-color: $mainLightColor;
+    background-color: var(--mainLightColor);
   }
 }
 
@@ -229,7 +229,7 @@
 
 .modal-card__queue-btn {
   color: $mainDarkColor;
-  background-color: $mainLightColor;
+  background-color: var(--mainLightColor);
   border: 1px solid $mainDarkColor;
   transition: color $duration $timingFunction,
               border $duration $timingFunction,
@@ -237,7 +237,7 @@
 
   &:hover,
   &:focus {
-    color: $mainLightColor;
+    color: var(--mainLightColor);
     background-color: $buttonBgAccent;
     border-color: transparent;
   }

@@ -100,7 +100,7 @@
     font-weight: 500;
     font-size: 12px;
     line-height: calc(14 / 12);
-    color: $mainLightColor;
+    color: var(--mainLightColor);
     background-color: $accentColor;
     display: flex;
     align-items: center;

@@ -91,7 +91,7 @@
   height: 20px;
   font-size: 15px;
   line-height: 1.17;
-  color: $mainLightColor;
+  color: var(--mainLightColor);
   background-color: $accentColor;
   border-radius: 5px;
 }

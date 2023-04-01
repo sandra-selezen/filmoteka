@@ -1,5 +1,4 @@
 $mainDarkColor: #000000;
-$mainLightColor: #ffffff;
 $accentColor: #ff6b08;
 $informationColor: #ff001b;
 $mainBgColor: #e5e5e5;
@@ -13,3 +12,10 @@ $buttonBgAccent: #ff6b01;
 $duration: 250ms;
 $timingFunction: cubic-bezier(0.4, 0, 0.2, 1);
 $bg-header-gradient: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
+
+:root[data-theme='light']{
+  --mainLightColor: #ffffff;
+}
+:root[data-theme='dark']{
+  --mainLightColor: #281f1f;
+}

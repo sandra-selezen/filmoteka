@@ -11,7 +11,7 @@
   text-transform: uppercase;
   cursor: pointer;
 
-  color: $mainLightColor;
+  color: var(--mainLightColor);
 }
 
 .btn-watch {
@@ -22,7 +22,7 @@
 
 .btn-queue {
   background-color: transparent;
-  border: 1px solid $mainLightColor;
+  border: 1px solid var(--mainLightColor);
 }
 
 
@@ -36,7 +36,7 @@
 }
 
 .btn-queue-modal {
-  background-color: $mainLightColor;
+  background-color: var(--mainLightColor);
   border: 1px solid $mainDarkColor;
   color: $mainDarkColor;
   width: 110px;
