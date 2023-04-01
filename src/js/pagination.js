@@ -48,10 +48,12 @@ const pagination = new Pagination('pagination', options);
 // передаємо цей номер в колбек та робимо запит до АPI для отримання данних відповідної сторінки
 pagination.on('afterMove', ({ page }) => {
   console.log(page);
-  nextPage = page;
-  onSearch();
+  // nextPage = page;
+  // console.log(nextPage);
+  onSearch(page);
 });
   // повертаємо готову пагінацію
   return pagination;
 };
+
 
