@@ -17,11 +17,13 @@ const backdropMovie = document.querySelector('.js-backdrop-movie');
 listMovies.addEventListener('click', onOpenModalMovieClick);
 btnCloseModalMovie.addEventListener('click', onCloseModalClick);
 
-document.addEventListener('keydown', event => {
+document.addEventListener('keydown', onEscKeyDownModal);
+
+function onEscKeyDownModal(event) {
   if (event.code === 'Escape') {
     onCloseModalClick();
   }
-});
+}
 
 backdropMovie.addEventListener('click', event => {
   if (event.target === backdropMovie) {
@@ -30,6 +32,7 @@ backdropMovie.addEventListener('click', event => {
 });
 
 //-----функції------
+// Виніс змінну для idMovie для трейлеру
 let idMovie = undefined;
 async function onOpenModalMovieClick(event) {
   // отримує id конкретного фільму
@@ -187,6 +190,7 @@ function renderModalMovieInfo(movieInfo) {
 
 function onClickYouTube() {
   fetchVideoKey(idMovie).then(key => {
+    document.removeEventListener('keydown', onEscKeyDownModal);
     const instance = basicLightbox.create(
       `
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" frameborder="0" allowfullscreen></iframe>
@@ -194,6 +198,7 @@ function onClickYouTube() {
       {
         onClose: () => {
           window.removeEventListener('keydown', onEscKeyDown);
+          document.addEventListener('keydown', onEscKeyDownModal);
         },
       }
     );
