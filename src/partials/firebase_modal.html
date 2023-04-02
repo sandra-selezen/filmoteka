@@ -1,8 +1,35 @@
-<!-- The surrounding HTML is left untouched by FirebaseUI.
-     Your app may use that space for branding, controls and other customizations.
-    FirebaseUI не змінює навколишній HTML.
-      Ваша програма може використовувати цей простір для брендингу, елементів керування та інших налаштувань-->
-<h1>Welcome to My Awesome App</h1>
-<div id="auth-modal" class="backdrop firebase-backdrop"></div>
-<div id="firebaseui-auth-container"></div>
-<div id="loader">Loading...</div>
+<div class="backdrop is-hidden" data-modal-register>
+  <div class="modal">
+    <button class="modal__close-button" data-modal-close-register>
+      <svg class="modal__close-icon">
+        <use href="./images/icons.svg#icon-close"></use>
+      </svg>
+    </button>
+    <form class="order registration">
+      <p class="order__title">Hi! Let's register</p>
+      <label class="order__fild">
+        <span class="order__label">Email</span>
+        <input type="text" class="order__input" name="email" />
+        <svg class="order__icon">
+          <use href="./images/icons.svg#icon-email"></use>
+        </svg>
+      </label>
+      <label class="order__fild">
+        <span class="order__label">Password</span>
+        <input type="text" class="order__input" name="password" />
+        <svg class="order__icon">
+          <use href="./images/icons.svg#icon-person"></use>
+        </svg>
+      </label>
+      <label class="order__check">
+        <input class="order__checkbox" type="checkbox" name="check contract" />
+        <span class="order__checkbox-icon"></span>
+        <span class="order__checkbox-text"
+          >I accept the terms of
+          <a href="" class="order__contract-link">the privacy policy</a></span
+        >
+      </label>
+      <button class="order__form-button" type="submit">Register</button>
+    </form>
+  </div>
+</div>

@@ -5,3 +5,4 @@ import './js/teem-modal';
 import './js/fetch-one-film';
 import './js/fetchVideoKey';
 import './js/firebase/firebaseInit';
+import './js/register-modal';

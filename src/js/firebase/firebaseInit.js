@@ -23,15 +23,35 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 
-const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    // ..
-  });
+const refs = {
+  form: document.querySelector('.registration'),
+}
+
+
+
+const toRegister = async (email, password) => {
+  console.log(email, password);
+  const auth = getAuth();
+  await createUserWithEmailAndPassword(auth, email, password)
+    .then((userCredential) => {
+      // Signed in 
+      const user = userCredential.user;
+      // ...
+      console.log(user);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
+};
+
+
+const submitHandler = (e) => {
+  e.preventDefault();
+  const { email, password } = e.target.elements;
+  console.log(email.value, password.value)
+  toRegister(email.value, password.value);
+};
+
+  refs.form.addEventListener('submit', submitHandler)
