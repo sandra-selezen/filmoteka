@@ -13,13 +13,17 @@ $buttonBgAccent: #ff6b01;
 $duration: 250ms;
 $timingFunction: cubic-bezier(0.4, 0, 0.2, 1);
 $bg-header-gradient: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
- 
+
 
 
 :root[data-theme="light"]{
-  --body-and-modals-bgc: #ffffff
+  --body-and-modals-bgc: #ffffff;
+  --before-postionX: 2px; 
+  --before-postionY: 2px; 
 }
 :root[data-theme="dark"]{
-  --body-and-modals-bgc: #212121
+  --body-and-modals-bgc: #212121;
+  --before-postionX: 30px; 
+  --before-postionY: 2px; 
 
 }
