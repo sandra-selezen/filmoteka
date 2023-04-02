@@ -21,12 +21,17 @@
         </ul>
         <ul class="authorization">
           <li class="authorization__js-signIn">
-            <button class="authorization__btn">
+            <button type="button" class="authorization__btn is-hidden js-log-out">
+               Log out
+            </button>
+          </li>
+          <li class="authorization__js-signIn">
+            <button class="authorization__btn js-log-in">
                Log in
             </button>
           </li>
            <li class="authorization__js-signIn">
-            <button type="button" class="authorization__btn" data-modal-open-register>
+            <button type="button" class="authorization__btn js-sign-up" data-modal-open-reg>
               <svg width="16" height="16">
                 <use href="/src/images/icons.svg#icon-sign-in"></use>
               </svg>

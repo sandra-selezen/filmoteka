@@ -120,9 +120,15 @@
   color: $informationColor;
   fill: $informationColor;
   transition: transform $duration $timingFunction;
+  opacity: 1;
   &:hover {
     transform: scale(1.25);
   }
+}
+
+.authorization__btn.is-hidden {
+  opacity: 0;
+  pointer-events: none;
 }
 
 .navigation-list__item {

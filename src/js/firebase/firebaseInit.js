@@ -4,7 +4,9 @@ import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+
+import { actionsAfterEntry } from "./log-actions";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -28,8 +30,8 @@ const refs = {
 }
 
 
-
-const toRegister = async (email, password) => {
+// реєструє нового користувача
+export const toRegisterNewUser = async (email, password) => {
   console.log(email, password);
   const auth = getAuth();
   await createUserWithEmailAndPassword(auth, email, password)
@@ -38,20 +40,52 @@ const toRegister = async (email, password) => {
       const user = userCredential.user;
       // ...
       console.log(user);
+      actionsAfterEntry(user);
+      return user;
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
       // ..
+      return errorCode;
     });
 };
 
+// Автентифікація нового користувача
+// auth
+const entryUser = async (email, password) => {
+  const auth = getAuth();
+  setPersistence(auth, browserSessionPersistence);
+  return await signInWithEmailAndPassword(auth, email, password)
+    .then(userCredential => {
+      const user = userCredential.user;
+
+      return user;
+    })
+    .catch(error => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+
+      return errorCode;
+    });
+};
+
+// вихід з профілю користувача
+export const exitUser = async () => {
+  const auth = getAuth();
+  signOut(auth).then(() => {
+    // Sign-out successful.
+    console.log('singOut successful');
+  }).catch((error) => {
+    // An error happened.
+  });
+}; 
 
 const submitHandler = (e) => {
   e.preventDefault();
   const { email, password } = e.target.elements;
   console.log(email.value, password.value)
-  toRegister(email.value, password.value);
+  toRegisterNewUser(email.value, password.value);
 };
 
   refs.form.addEventListener('submit', submitHandler)
