@@ -1,6 +1,10 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
-import defaultImage from '/src/images/no-poster.png'
+import defaultImage from '/src/images/no-poster.png';
+//for Trailer
+import * as basicLightbox from 'basiclightbox';
+import 'basiclightbox/dist/basicLightbox.min.css';
+import fetchVideoKey from './fetchVideoKey';
 
 const body = document.querySelector('body');
 const listMovies = document.querySelector('.js-cards-list');
@@ -13,11 +17,13 @@ const backdropMovie = document.querySelector('.js-backdrop-movie');
 listMovies.addEventListener('click', onOpenModalMovieClick);
 btnCloseModalMovie.addEventListener('click', onCloseModalClick);
 
-document.addEventListener('keydown', event => {
+document.addEventListener('keydown', onEscKeyDownModal);
+
+function onEscKeyDownModal(event) {
   if (event.code === 'Escape') {
     onCloseModalClick();
   }
-});
+}
 
 backdropMovie.addEventListener('click', event => {
   if (event.target === backdropMovie) {
@@ -26,11 +32,12 @@ backdropMovie.addEventListener('click', event => {
 });
 
 //-----функції------
-
+// Виніс змінну для idMovie для трейлеру
+let idMovie = undefined;
 async function onOpenModalMovieClick(event) {
   // отримує id конкретного фільму
   const perentNodLi = event.target.closest('li');
-  const idMovie = perentNodLi?.dataset?.id;
+  idMovie = perentNodLi?.dataset?.id;
   // перевірка що користувач клікнув саме на картку фільму
   if (idMovie === undefined) {
     return;
@@ -50,6 +57,9 @@ async function onOpenModalMovieClick(event) {
   renderModalMovieInfo(movieInfo);
   // ховає спінер
   Notiflix.Loading.remove();
+  // слухач для трейлера
+  const iframeRef = document.querySelector('.js-iframe');
+  iframeRef.addEventListener('click', onClickYouTube);
 }
 
 // закриття модалки фільму
@@ -136,7 +146,7 @@ function renderModalMovieInfo(movieInfo) {
     alt="${title}"
     data-id="${id}"
     />
-  <a class="link-trailer">Trailer</a>
+  <a class="link-trailer js-iframe">Trailer</a>
 </div>
 <div class="modal-card__thumb-right">
   <p class="thumb-right__title">${title}</p>
@@ -174,4 +184,32 @@ function renderModalMovieInfo(movieInfo) {
 </div>`;
 
   cardMovie.insertAdjacentHTML('beforeend', markup);
+}
+
+// Trailer
+
+function onClickYouTube() {
+  fetchVideoKey(idMovie).then(key => {
+    document.removeEventListener('keydown', onEscKeyDownModal);
+    const instance = basicLightbox.create(
+      `
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/${key}" frameborder="0" allowfullscreen></iframe>
+	`,
+      {
+        onClose: () => {
+          window.removeEventListener('keydown', onEscKeyDown);
+          document.addEventListener('keydown', onEscKeyDownModal);
+        },
+      }
+    );
+    instance.show();
+
+    window.addEventListener('keydown', onEscKeyDown);
+    function onEscKeyDown(event) {
+      if (event.code === 'Escape') {
+        instance.close();
+      }
+      console.log(event);
+    }
+  });
 }

@@ -1,4 +1,5 @@
 import defaultImage from '/src/images/no-poster.png';
+import Notiflix from 'notiflix';
 
 export default class FetchFilms {
   constructor(url, markupRef) {
@@ -11,14 +12,13 @@ export default class FetchFilms {
   }
 
   async getFilms() {
+    Notiflix.Loading.circle();
+    this.reset();
     await this.doPromises();
-    this.getGenres();
-    this.getPosters();
-    this.getTitles();
-    this.getReleaseYear();
-    this.getFilmsId();
+    this.getFilmsInfo();
     this.createCards();
     this.createMarkup();
+    Notiflix.Loading.remove();
   }
 
   async doPromises() {
@@ -30,6 +30,8 @@ export default class FetchFilms {
     const response = await Promise.all(arrayOfPromises);
     this.filmsData = response[0].results;
     this.genresData = response[1].genres;
+    this.totalItems = response[0].total_results;
+    this.itemsPerPage = response[0].results.length;
   }
 
   getFilmsId() {
@@ -63,8 +65,16 @@ export default class FetchFilms {
       const res = filmData.genre_ids.map(
         genre_id => this.genresData.find(genre => genre.id === genre_id).name
       );
-      return [...res].join(', ');
+      return res.join(', ');
     });
+  }
+
+  getFilmsInfo() {
+    this.getGenres();
+    this.getPosters();
+    this.getTitles();
+    this.getReleaseYear();
+    this.getFilmsId();
   }
 
   createCards() {
@@ -86,5 +96,23 @@ export default class FetchFilms {
 
   createMarkup() {
     this.markupRef.insertAdjacentHTML('afterbegin', this.markup.join(''));
+  }
+
+  reset() {
+    this.markup = [];
+    document.querySelector('.js-cards-list').innerHTML = '';
+  }
+
+  async moveToPage(page) {
+    this.reset();
+    Notiflix.Loading.circle();
+    this.page = page;
+    const response = await fetch(`${this.url}&page=${this.page}`);
+    const parse = await response.json();
+    this.filmsData = parse.results;
+    this.getFilmsInfo();
+    this.createCards();
+    this.createMarkup();
+    Notiflix.Loading.remove();
   }
 }
