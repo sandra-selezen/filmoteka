@@ -214,8 +214,8 @@
 
   &:hover,
   &:focus {
-    color: $mainDarkColor;
-    border: 1px solid $mainDarkColor;
+    color: var(--mainDarkColor);
+    border: 1px solid var(--mainDarkColor);
     background-color: $mainLightColor;
   }
 }
@@ -229,9 +229,9 @@
 }
 
 .modal-card__queue-btn {
-  color: $mainDarkColor;
+  color: var(--mainDarkColor);
   background-color: $mainLightColor;
-  border: 1px solid $mainDarkColor;
+  border: 1px solid var(--mainDarkColor);
   transition: color $duration $timingFunction,
               border $duration $timingFunction,
               background-color $duration $timingFunction;

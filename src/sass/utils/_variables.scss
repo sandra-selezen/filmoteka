@@ -1,4 +1,3 @@
-$mainDarkColor: #000000;
 $mainLightColor: #ffffff;
 $accentColor: #ff6b08;
 $informationColor: #ff001b;
@@ -20,10 +19,12 @@ $bg-header-gradient: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
   --body-and-modals-bgc: #ffffff;
   --before-postionX: 2px; 
   --before-postionY: 2px; 
+--mainDarkColor: #000000;
 }
 :root[data-theme="dark"]{
   --body-and-modals-bgc: #212121;
   --before-postionX: 30px; 
   --before-postionY: 2px; 
+  --mainDarkColor: #ffffff;
 
 }
