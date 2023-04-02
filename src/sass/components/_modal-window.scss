@@ -214,7 +214,7 @@
 
   &:hover,
   &:focus {
-    color: var(--mainDarkColor);
+    color: $button-black-text;
     border: 1px solid var(--mainDarkColor);
     background-color: $mainLightColor;
   }
@@ -229,7 +229,7 @@
 }
 
 .modal-card__queue-btn {
-  color: var(--mainDarkColor);
+  color: $button-black-text;
   background-color: $mainLightColor;
   border: 1px solid var(--mainDarkColor);
   transition: color $duration $timingFunction,
