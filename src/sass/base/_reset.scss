@@ -34,6 +34,7 @@ body {
   font-size: 12px;
   font-weight: 500;
   line-height: 1.33;
+  transition: background-color $duration $timingFunction;
 }
 
 .backdrop {
