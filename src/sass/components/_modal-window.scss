@@ -30,12 +30,11 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
-  overflow: scroll;
+  overflow-y: scroll;
   width: 280px;
   max-height: 95vh;
   height: auto;
   padding: 48px 20px 40px;
-  // overflow: hidden;
   background: $mainLightColor;
 
   transition: transform $duration $timingFunction;
@@ -50,6 +49,7 @@
     width: 806px;
     max-height: 558px;
     padding: 40px 12px;
+    overflow-y: hidden;
   }
 }
 
