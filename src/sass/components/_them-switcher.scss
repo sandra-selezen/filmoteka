@@ -18,7 +18,7 @@
   width: 24px;
   height: 24px;
   border-radius: 50%;
-  background-color: $header-focus;
+  background-color: $scrollbar-and-circle-on-switcher-color;
   z-index: 0;
   transition: transform $duration $timingFunction;
 }
@@ -27,6 +27,6 @@
   padding: 5px;
   cursor: pointer;
   z-index: 1;
-  fill: rgb(123, 118, 118);
+  fill: $buttonBgColor;
 
 }

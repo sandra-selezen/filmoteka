@@ -54,7 +54,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #ccc;
+  background-color: $scrollbar-and-circle-on-switcher-color;
   border-radius: 5px;
 }
 
