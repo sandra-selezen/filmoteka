@@ -29,11 +29,12 @@ a {
 
 body {
   color: $mainDarkColor;
-  background-color: $mainLightColor;
+  background-color: var(--body-and-modals-bgc);
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.33;
+  transition: background-color $duration $timingFunction;
 }
 
 .backdrop {
