@@ -1,4 +1,6 @@
 const btnUp = document.querySelector('.up');
+btnUp.addEventListener('click', topFunction);
+
 // функція скролу
 function scrollFunction() {
   if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
