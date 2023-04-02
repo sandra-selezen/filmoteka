@@ -35,9 +35,10 @@
   max-height: 95vh;
   height: auto;
   padding: 48px 20px 40px;
-  background: $mainLightColor;
+  background: var(--body-and-modals-bgc);
 
   transition: transform $duration $timingFunction;
+  transition: background-color $duration $timingFunction;
 
   @include tablet {
     width: 704px;
