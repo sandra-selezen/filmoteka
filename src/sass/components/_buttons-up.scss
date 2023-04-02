@@ -1,0 +1,19 @@
+.up {
+    font-size: 30px;
+    position: fixed;
+    bottom: 1.25rem;
+    right: 1.875rem;
+    z-index: 99;
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgb(182, 237, 162);
+    cursor: pointer;
+    transition: all .2s ease-in-out;
+  }
+  .up:hover{
+    scale: 1.1;
+    background-color: rgb(118, 243, 73);
+    box-shadow: -2px -2px 5px #fff, 5px 5px 5px #babecc;
+  }
