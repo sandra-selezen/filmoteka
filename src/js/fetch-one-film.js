@@ -1,12 +1,14 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import defaultImage from '/src/images/no-poster.png'
-
+import { onBtnWatchedClick, onBtnQueueClick } from './localStorageData';
+  
 const body = document.querySelector('body');
 const listMovies = document.querySelector('.js-cards-list');
 const btnCloseModalMovie = document.querySelector('.js-btn-close-modal');
 const cardMovie = document.querySelector('.js-modal-card');
 const backdropMovie = document.querySelector('.js-backdrop-movie');
+
 
 //-----слухачі подій-----
 
@@ -164,14 +166,19 @@ function renderModalMovieInfo(movieInfo) {
   <p class="thumb-right__overview">${overview}</p>
 
   <div class="modal-card__btn-wrap">
-    <button class="modal-card__watched-btn" data-id="${id}" data-name="watch">
+    <button class="modal-card__watched-btn js-modal-btn__watched" data-id="${id}" data-name="watch">
       Add to watched
     </button>
-    <button class="modal-card__queue-btn" data-id="${id}" data-name="queue">
+    <button class="modal-card__queue-btn js-modal-btn__queue" data-id="${id}" data-name="queue">
       Add to queue
     </button>
   </div>
 </div>`;
 
   cardMovie.insertAdjacentHTML('beforeend', markup);
+
+  const toWatchedBtn = document.querySelector('.js-modal-btn__watched');
+  const toQueueBtn = document.querySelector('.js-modal-btn__queue');
+  toWatchedBtn.addEventListener("click", onBtnWatchedClick);
+  toQueueBtn.addEventListener("click", onBtnQueueClick);
 }
