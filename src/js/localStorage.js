@@ -9,24 +9,23 @@ export const load = key => {
 
 export const save = (key, value) => {
   try {
-    const storage = load(key);
-    console.log(storage);
-    const filmCurrent = JSON.parse(value);
-    const filmIncluded = storage.find(film => film.id === filmCurrent.id);
-    if (storage.length === 0 || !filmIncluded) {
-      storage.push(filmCurrent);
-    }
-
-    localStorage.setItem(key, JSON.stringify(storage));
+    const serializedState = JSON.stringify(value);
+    localStorage.setItem(key, serializedState);
   } catch (error) {
-    console.error('Set state error: ', error.message);
+    console.error('Set items error: ', error.message);
   }
 };
 
-export const removeStore = key => {
+export const removeLocal = (key, id) => {
   try {
-    localStorage.removeItem(key);
+    const locStorage = load(key);
+    const restFilms = [...locStorage].filter(film => film.id != id);
+    localStorage.setItem(key, JSON.stringify(restFilms));
   } catch (error) {
     console.error('Get state error: ', error.message);
   }
+};
+
+export const clearLocal = () => {
+  localStorage.clear();
 };
