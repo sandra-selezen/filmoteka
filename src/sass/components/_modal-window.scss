@@ -174,7 +174,7 @@
 }
 
 .thumb-right__votes {
-  background: $footerBgColor;
+  background: var(--footerBgColor);
   border-radius: 5px;
   padding: 1px 4px;
 }

@@ -2,8 +2,8 @@ $mainLightColor: #ffffff;
 $accentColor: #ff6b08;
 $informationColor: #ff001b;
 $mainBgColor: #e5e5e5;
-$footerBgColor: #f7f7f7;
-$footerTxtColor: #545454;
+// var(--footerBgColor): #f7f7f7;
+// var(--footerTxtColor): #545454;
 $buttonBgColor: rgba(0, 0, 0, 0.56);
 $header-focus: rgba(255, 143, 68, 0.863);
 $accentModalColor: #ff6b01;
@@ -21,11 +21,16 @@ $button-black-text: #000000;
   --before-postionX: 2px; 
   --before-postionY: 2px; 
 --mainDarkColor: #000000;
+  --footerBgColor: #f7f7f7;
+  --footerTxtColor: #545454;
+  
 }
 :root[data-theme="dark"]{
   --body-and-modals-bgc: #212121;
   --before-postionX: 30px; 
   --before-postionY: 2px; 
   --mainDarkColor: #ffffff;
+  --footerBgColor: #212121;
+  --footerTxtColor: #ffffff;
 
 }
