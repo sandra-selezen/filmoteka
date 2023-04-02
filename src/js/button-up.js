@@ -1,6 +1,8 @@
 const btnUp = document.querySelector('.up');
+btnUp.style.display = 'none';
+
 btnUp.addEventListener('click', topFunction);
-// btnUp.style.display = 'none';
+window.addEventListener('scroll', scrollFunction);
 
 // функція скролу
 function scrollFunction() {
