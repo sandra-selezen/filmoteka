@@ -67,6 +67,10 @@
 
 .card__title {
   text-transform: uppercase;
+
+  @media screen and (max-width: 480px) {
+    width: 280px;
+  }
 }
 
 .card__text {
