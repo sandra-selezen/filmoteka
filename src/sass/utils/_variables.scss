@@ -22,11 +22,12 @@ $pagination-background: #F7F7F7;
   --body-and-modals-bgc: #ffffff;
   --before-postionX: 2px; 
   --before-postionY: 2px; 
---mainDarkColor: #000000;
+  --mainDarkColor: #000000;
   --footerBgColor: #f7f7f7;
   --footerTxtColor: #545454;
   --backgroundPage: transparent;
   
+  --team-sm-bnt-accent: #ff6b01;
 }
 :root[data-theme="dark"]{
   --body-and-modals-bgc: #212121;
@@ -37,4 +38,5 @@ $pagination-background: #F7F7F7;
   --footerTxtColor: #ffffff;
   --backgroundPage: #ffffff;
 
+  --team-sm-bnt-accent: #932727;
 }
