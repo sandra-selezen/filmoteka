@@ -51,7 +51,6 @@ export const toRegisterNewUser = async (email, password) => {
 };
 
 // Автентифікація користувача
-// auth
 const entryUser = async (email, password) => {
   const auth = getAuth();
   setPersistence(auth, browserSessionPersistence);
@@ -69,8 +68,6 @@ const entryUser = async (email, password) => {
       return errorCode;
     });
 };
-
-// antpetrenko23@gmail.com
 
 // вихід з профілю користувача
 export const exitUser = async () => {
@@ -103,4 +100,4 @@ const submitHandler = (e) => {
   };
 };
 
-  refs.form.addEventListener('submit', submitHandler)
+refs.form.addEventListener('submit', submitHandler);

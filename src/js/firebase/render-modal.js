@@ -1,4 +1,3 @@
-
 export const refs = {
     openModalBtn: document.querySelector("[data-modal-open-reg]"),
     // closeModalBtn: document.querySelector("[data-modal-close-reg]"),
@@ -36,7 +35,6 @@ export function closeRegModal() {
         refs.regModal.removeEventListener('keydown', closeRegModal);
 
 };
-
 
 export function renderRegModal(type) {
   let titleString = '';
