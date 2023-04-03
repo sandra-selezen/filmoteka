@@ -67,16 +67,6 @@ async function onOpenModalMovieClick(event) {
 
     // відображення модалки з інфо про фільм
     renderModalMovieInfo(movieInfo);
-      if (localStorage.getItem('watched').includes(movieInfo.id)) {
-        document.querySelector('.modal-card__watched-btn').disabled = true;
-        document.querySelector('.modal-card__watched-btn').textContent =
-          'Added to watched';
-      }
-      if (localStorage.getItem('queue').includes(movieInfo.id)) {
-        document.querySelector('.modal-card__watched-btn').textContent =
-          'Added to queue';
-        document.querySelector('.modal-card__watched-btn').disabled = true;
-      }
   addEventListenersOnButtons();
   // ховає спінер
   Notiflix.Loading.remove();
