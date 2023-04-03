@@ -10,6 +10,8 @@ const refs = {
   form: document.querySelector('.js-header__form'),
   input: document.querySelector('.js-header__input'),
   inputError: document.querySelector('.header__js-input-error'),
+  pages: document.querySelector('.tui-pagination'),
+  notFound: document.querySelector('.not-found'),
 };
 
 export const onSearch = (nextPage=1) => {
@@ -30,8 +32,12 @@ export const onSearch = (nextPage=1) => {
         console.log(error)
     }
     finally {
+      refs.notFound.classList.add('visually-hidden');
+      refs.pages.classList.remove('visually-hidden');
       if (fetchFilms.ids.length === 0) {
         refs.inputError.classList.remove('visually-hidden');
+        refs.pages.classList.add('visually-hidden');
+        refs.notFound.classList.remove('visually-hidden');
       }
     }
   }
