@@ -9,7 +9,6 @@
         padding-top: 93px;
         padding-bottom: 94px;
 
-
         background: rgba(0, 0, 0, 0.2);
 
         opacity: 1;
@@ -30,6 +29,7 @@
     .modal {      
     
         background-color: #ffffff;
+        border-radius: 8px;
 
         @media screen and (min-width: 480px) {
             position: absolute;
@@ -46,45 +46,7 @@
         }     
     }
 
-    .modal__close-button {
-        position: absolute;
-        top: 8px;
-        right: 8px;
-
-        display: flex;
-        align-items: center;
-        width: 30px;
-        height: 30px;
-       
-        background: #ffffff;
-        border: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: 50%;
-        
-        &:hover,
-        &:focus {
-        cursor: pointer;
-    }
-    }
-
-
-    .modal__close-icon {
-        top: 0;
-        right: 0;
-
-        width: 18px;
-        height: 18px;
-
-        fill: #000000;
-
-        transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
-        
-        .modal__close-button:hover &,
-        .modal__close-button:focus & {
-        fill: #2196F3;
-    }
-    }
-
-    .order {
+    .registration {
     padding-top: 40px;
     padding-left: 41px;
     padding-right: 39px;
@@ -94,10 +56,11 @@
     line-height: 1.17;
     letter-spacing: 0.01em;
 
-    color: #757575;
+    color: $reg-form-title-color;
+
 }
 
-.order__title {
+.registration__title {
     margin-bottom: 12px;
 
     font-weight: 700;
@@ -105,9 +68,9 @@
     line-height: 23px;
     text-align: center;
 
-    color: #212121;
+    color: $reg-form-title-color;
 }
-.order__fild {
+.registration__fild {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -115,7 +78,7 @@
 
 }
 
-.order__input {
+.registration__input {
     position: relative;
     padding-left: 42px;
     padding-top: 12px;
@@ -130,90 +93,47 @@
 
     
     &:focus {
-    border-color: #2196F3;
+    border-color: $informationColor;
 }
 }
 
-.order__icon {
+.registration__icon {
     position: absolute;
     top: 50%;
     left: 12px;
     width: 18px;
     height: 18px;
-    fill: #212121;
+    fill: $reg-form-title-color;
 
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
-    .order__input:focus + & {
-    fill: #2196F3;
+    .registration__input:focus + & {
+    fill: $informationColor;
 }
 }
 
-.order__label {
+.registration__label {
     display: block;
     margin-bottom: 4px;
 }
 
-.order__comments-area {
-    padding: 12px 16px;
-    resize: none;
-
-    border: 1px solid rgba(33, 33, 33, 0.2);
-    border-radius: 4px;
-    outline: none;
-
-    transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.order__comments-area:focus {
-    border-color: #2196F3;
-}
-
-.order__comments-area::placeholder {
-    color: rgba(117, 117, 117, 0.5);
-}
-
-.order__check {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 30px;
-
-}
-
-.order__checkbox {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-
-    position: absolute;
-}
-
-.order__checkbox-icon {
-    display: block;
-    width: 16px;
-    height: 15px;
-    margin-right: 7px;
-    // background-image: url(../../images/icon-check-off.svg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    
-    .order__checkbox:checked + & {
-    // background-image: url(../../images/icon-check-on.svg);
-}
-}
-
-.order__checkbox-text {
+.registration__text {
+    color: $reg-form-title-color;
     font-size: 14px;
     line-height: 1.71;
 }
 
-.order__contract-link{
+.registration__contract-link{
     text-decoration: underline;
-    color: #2196F3;
+    color: $scrollbar-and-circle-on-switcher-color;
+
+    &:hover,
+    &:focus {
+    color: $informationColor;
+}
 }
 
-.order__form-button {
+.registration__form-button {
     display: block;
     padding: 10px 52px;
     margin: 0 auto;
@@ -225,7 +145,7 @@
 
     color: #ffffff;
 
-    background: #2196F3;
+    background: $scrollbar-and-circle-on-switcher-color;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
     border-radius: 4px;
     border: transparent;
@@ -234,7 +154,7 @@
     
     &:hover,
     &:focus {
-    background: #188CE8;
+    background: $informationColor;
 }
 }
 

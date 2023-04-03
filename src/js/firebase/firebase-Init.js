@@ -3,10 +3,13 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
+// More methods fore use firbase
+// https://firebase.google.com/docs/reference/js
 
-import { getAuth, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import {  getAuth,  createUserWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence, signInWithEmailAndPassword } from "firebase/auth";
 
-import { actionsAfterEntry } from "./log-actions";
+import { actionsAfterRegistration } from "./log-actions";
+import { refs } from "./render-modal";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -25,10 +28,6 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 
-const refs = {
-  form: document.querySelector('.registration'),
-}
-
 
 // реєструє нового користувача
 export const toRegisterNewUser = async (email, password) => {
@@ -39,8 +38,8 @@ export const toRegisterNewUser = async (email, password) => {
       // Signed in 
       const user = userCredential.user;
       // ...
-      console.log(user);
-      actionsAfterEntry(user);
+      console.log('SignUp is OK!');
+      actionsAfterRegistration(user);
       return user;
     })
     .catch((error) => {
@@ -51,7 +50,7 @@ export const toRegisterNewUser = async (email, password) => {
     });
 };
 
-// Автентифікація нового користувача
+// Автентифікація користувача
 // auth
 const entryUser = async (email, password) => {
   const auth = getAuth();
@@ -59,7 +58,8 @@ const entryUser = async (email, password) => {
   return await signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       const user = userCredential.user;
-
+      console.log('LogIn is OK!');
+      actionsAfterRegistration(user);
       return user;
     })
     .catch(error => {
@@ -70,6 +70,8 @@ const entryUser = async (email, password) => {
     });
 };
 
+// antpetrenko23@gmail.com
+
 // вихід з профілю користувача
 export const exitUser = async () => {
   const auth = getAuth();
@@ -78,14 +80,27 @@ export const exitUser = async () => {
     console.log('singOut successful');
   }).catch((error) => {
     // An error happened.
+    const errorCode = error.code;
+    const errorMessage = error.message;
+
+    return errorCode;
   });
 }; 
 
 const submitHandler = (e) => {
   e.preventDefault();
+  
   const { email, password } = e.target.elements;
-  console.log(email.value, password.value)
-  toRegisterNewUser(email.value, password.value);
+
+  if (email.hasAttribute('data-action-signUp')) {
+    toRegisterNewUser(email.value, password.value);
+    return
+  };
+
+  if (password.hasAttribute('data-action-logIn')) {
+    entryUser(email.value, password.value);
+    return
+  };
 };
 
   refs.form.addEventListener('submit', submitHandler)
