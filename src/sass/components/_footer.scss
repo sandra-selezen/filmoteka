@@ -1,5 +1,5 @@
 .footer {
-    background: $footerBgColor;
+    background: var(--footerBgColor);
 
     font-size: 14px;
     line-height: 16px;
@@ -8,7 +8,7 @@
     padding-bottom: 29px;
     padding-top: 28px;
 
-    color: $footerTxtColor;
+    color: var(--footerTxtColor);
     padding-bottom: 29px;
     padding-top: 28px;
 
@@ -30,9 +30,9 @@
 }
 
 .footer__link {
-    color: $footerTxtColor;
+    color: var(--footerTxtColor);
     transition: color $duration $timingFunction;
-    border-bottom: $footerTxtColor 1px solid;
+    border-bottom: var(--footerTxtColor) 1px solid;
 
     &:hover, &:focus {
     color: $accentColor;

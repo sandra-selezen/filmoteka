@@ -30,15 +30,15 @@
   left: 50%;
   transform: translate(-50%, -50%) scale(1);
   opacity: 1;
-  overflow: scroll;
+  overflow-y: scroll;
   width: 280px;
   max-height: 95vh;
   height: auto;
   padding: 48px 20px 40px;
-  // overflow: hidden;
-  background: $mainLightColor;
+  background: var(--body-and-modals-bgc);
 
   transition: transform $duration $timingFunction;
+  transition: background-color $duration $timingFunction;
 
   @include tablet {
     width: 704px;
@@ -174,7 +174,7 @@
 }
 
 .thumb-right__votes {
-  background: $footerBgColor;
+  background: var(--footerBgColor);
   border-radius: 5px;
   padding: 1px 4px;
 }
@@ -214,8 +214,8 @@
 
   &:hover,
   &:focus {
-    color: $mainDarkColor;
-    border: 1px solid $mainDarkColor;
+    color: $button-black-text;
+    border: 1px solid var(--mainDarkColor);
     background-color: $mainLightColor;
   }
 }
@@ -229,9 +229,9 @@
 }
 
 .modal-card__queue-btn {
-  color: $mainDarkColor;
+  color: $button-black-text;
   background-color: $mainLightColor;
-  border: 1px solid $mainDarkColor;
+  border: 1px solid var(--mainDarkColor);
   transition: color $duration $timingFunction,
               border $duration $timingFunction,
               background-color $duration $timingFunction;

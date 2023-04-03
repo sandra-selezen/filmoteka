@@ -57,6 +57,7 @@
 .card__text {
   font-size: 12px;
   line-height: 1.33;
+  transition: color $duration $timingFunction;
   
   @include desktop {
     font-size: 20px;
