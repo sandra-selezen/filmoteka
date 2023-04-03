@@ -10,6 +10,7 @@ const refs = {
   form: document.querySelector('.js-header__form'),
   input: document.querySelector('.js-header__input'),
   inputError: document.querySelector('.header__js-input-error'),
+  pages: document.querySelector('.tui-pagination'),
 };
 
 export const onSearch = (nextPage=1) => {
@@ -30,8 +31,10 @@ export const onSearch = (nextPage=1) => {
         console.log(error)
     }
     finally {
+      refs.pages.classList.remove('visually-hidden');
       if (fetchFilms.ids.length === 0) {
         refs.inputError.classList.remove('visually-hidden');
+        refs.pages.classList.add('visually-hidden');
       }
     }
   }
