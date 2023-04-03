@@ -1,5 +1,5 @@
 .teem-modal {
-    background-color: $footerBgColor;
+    background-color: var(--footerBgColor);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -12,12 +12,12 @@
     @include tablet {
       padding: 30px 66px;
       width: 704px;
-      height: 700px;
+      height: 522px;
       text-align: start;
     }
     @include desktop{
-      width: 1000px;
-      height: 700px;
+      width: 806x;
+      height: 558px;
     }
   }
   .team-modal__btn--close {
@@ -48,25 +48,20 @@
     }
   }
   .teem-modal__item {
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     @include tablet {
       display: flex;
       flex-direction: column;
-      width: calc(100% / 4);
+      width: calc(100% / 3);
       align-items: center;
     }
     @include desktop{
-      display: flex;
-      flex-direction: column;
-      width: calc(100% / 6);
-      align-items: center;
     }
-
   }
   .teem-modal__img {
     display: block;
     margin: 0 auto;
-    border-radius: 20px;
+    border-radius: 4px;
     margin-bottom: 5px;
     transition: transform 250ms;
     @include tablet {
@@ -76,7 +71,7 @@
     }
     &:hover {
       transform: scale(1.05);
-      filter: drop-shadow(0px 4px 4px rgba(255, 107, 8, 1));
+      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.6));
     }
   }
   .teem-modal-sm {
@@ -112,6 +107,6 @@
   }
   .team-modal__span--orange {
     display: block;
-    color: $accentColor;
+    color: var(--footerTxtColor);
     text-transform: uppercase;
   }

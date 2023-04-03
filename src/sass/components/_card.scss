@@ -1,8 +1,11 @@
 .cards__list {  
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  
+  @media screen and (max-width: 767px) {
+    justify-content: center;
+    gap: 20px;
+  }
 
   @include tablet {
     gap: 32px;
@@ -54,6 +57,7 @@
 .card__text {
   font-size: 12px;
   line-height: 1.33;
+  transition: color $duration $timingFunction;
   
   @include desktop {
     font-size: 20px;

@@ -1,3 +1,264 @@
-header {
-  background-color: #000000;
+.header {
+  height: 216px;
+  // position: relative;
+  // top: 0;
+  // left: 0;
+  padding-top: 40px;
+  background-color: $buttonBgColor;
+  background-image: $bg-header-gradient, url(../images/bg-home-mobile@1x-min.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  @include retina {
+    background-image: $bg-header-gradient,
+      url(../images/bg-home-mobile@2x-min.jpg);
+  }
+
+  @include tablet {
+    background-image: $bg-header-gradient,
+      url(../images/bg-home-tablet@1x-min.jpg);
+
+    @include retina {
+      background-image: $bg-header-gradient,
+        url(../images/bg-home-tablet@2x-min.jpg);
+    }
+  }
+
+  @include desktop {
+    background-image: $bg-header-gradient,
+      url(../images/bg-home-desktop@1x-min.jpg);
+
+    @include retina {
+      background-image: $bg-header-gradient,
+        url(../images/bg-home-desktop@2x-min.jpg);
+    }
+  }
+}
+
+.header__container {
+  position: relative;
+}
+
+.header__wraper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 54px;
+  position: relative;
+}
+
+.logo__site:hover > svg,
+.logo__site:focus > svg,
+.logo__site:hover > span,
+.logo__site:focus > span {
+  color: $informationColor;
+  stroke: $informationColor;
+  fill: $informationColor;
+}
+
+.logo__svg {
+  stroke: $mainLightColor;
+  transition: transform $duration $timingFunction;
+  &:hover,
+  &:focus {
+    transform: scale(1.25);
+  }
+}
+
+.logo__svg:hover,
+.logo__svg:focus {
+  transform: scale(1.25);
+  transition: transform $duration $timingFunction;
+}
+
+.logo__name {
+  display: none;
+}
+
+.logo > a {
+  display: flex;
+  align-items: center;
+}
+
+.navigation-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-grow: 0;
+}
+.navigation-list__link {
+  color: $mainLightColor;
+  text-transform: uppercase;
+}
+
+.authorization {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  transform: translateY(-100%);
+  @include tablet {
+    transform: translateY(0);
+  }
+}
+
+.authorization__btn {
+  transform: translateY(10%);
+  width: fit-content;
+  display: flex;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+  line-height: 1.67;
+  font-weight: 500;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  text-transform: uppercase;
+  color: $informationColor;
+  fill: $informationColor;
+  transition: transform $duration $timingFunction;
+  &:hover {
+    transform: scale(1.25);
+  }
+}
+
+.navigation-list__item {
+  font-weight: 500;
+  line-height: 1.17px;
+  &:hover,
+  &:focus {
+    transform: scale(1.25);
+    transition: transform $duration $timingFunction;
+  }
+  &:not(:last-child) {
+    margin-right: 32px;
+  }
+}
+
+.header__form {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.header__form-search {
+  position: relative;
+}
+
+.header__input {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  color: $mainLightColor;
+  width: 280px;
+  position: relative;
+  border-bottom: 0.5px solid $mainLightColor;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: 0;
+  background: transparent;
+
+  @include tablet {
+    width: 336px;
+  }
+
+  @include desktop {
+    width: 394px;
+  }
+}
+
+.header__input::placeholder {
+  color: $mainLightColor;
+}
+
+.header__search-btn {
+  stroke: $mainLightColor;
+  fill: $mainLightColor;
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  top: -4px;
+  right: 0;
+  border: none;
+  border-radius: 50%;
+  background: url(../images/search-2.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  &:hover,
+  &:focus {
+    cursor: pointer;
+    transform: scale(1.25);
+    transition: transform $duration $timingFunction;
+  }
+}
+
+.navigation-list__link-current {
+  position: relative;
+  display: block;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    transform: translateY(1px);
+    display: block;
+    width: 100%;
+    height: 3px;
+    border: none;
+    background-color: $informationColor;
+    transition: width 0.2s ease-in-out;
+  }
+
+  &:hover::after,
+  &:focus::after {
+    width: 0;
+  }
+}
+
+@include tablet {
+  .logo__name {
+    display: block;
+    color: $mainLightColor;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: 1.17;
+  }
+
+  .logo {
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+  .logo__svg {
+    margin-right: 10px;
+  }
+
+  .header__input {
+    width: 336px;
+  }
+
+  .header__form-search {
+    position: relative;
+  }
+}
+
+@include desktop {
+  .header__input {
+    width: 394px;
+  }
+}
+
+.header__input-error {
+  display: flex;
+  justify-content: center;
+  color: $informationColor;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
 }

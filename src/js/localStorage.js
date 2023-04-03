@@ -1,18 +1,25 @@
-export const save = (key, value) => {
-  try {
-    const serializedState = JSON.stringify(value);
-    localStorage.setItem(key, serializedState);
-  } catch (error) {
-    console.error('Set state error: ', error.message);
-  }
-};
-
 export const load = key => {
   try {
     const serializedState = localStorage.getItem(key);
     return serializedState === null ? [] : JSON.parse(serializedState);
   } catch (error) {
     console.error('Get state error: ', error.message);
+  }
+};
+
+export const save = (key, value) => {
+  try {
+    const storage = load(key);
+    console.log(storage);
+    const filmCurrent = JSON.parse(value);
+    const filmIncluded = storage.find(film => film.id === filmCurrent.id);
+    if (storage.length === 0 || !filmIncluded) {
+      storage.push(filmCurrent);
+    }
+
+    localStorage.setItem(key, JSON.stringify(storage));
+  } catch (error) {
+    console.error('Set state error: ', error.message);
   }
 };
 
@@ -23,7 +30,3 @@ export const removeStore = key => {
     console.error('Get state error: ', error.message);
   }
 };
-
-const addToWatchBtn = document.querySelector('.watched-button');
-
-const addToQuequeBtn = document.querySelector('.queque-button');

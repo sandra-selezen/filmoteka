@@ -28,12 +28,13 @@ a {
 }
 
 body {
-  color: $mainDarkColor;
-  background-color: $mainLightColor;
+  color: var(--mainDarkColor);
+  background-color: var(--body-and-modals-bgc);
   font-family: 'Roboto', sans-serif;
   font-size: 12px;
   font-weight: 500;
   line-height: 1.33;
+  transition: background-color $duration $timingFunction;
 }
 
 .backdrop {
@@ -44,4 +45,34 @@ body {
   height: 100%;
   z-index: 1;
   background-color: rgba(0, 0, 0, 0.56);
+}
+
+/* Webkit-based browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $scrollbar-and-circle-on-switcher-color;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #aaa;
+}
+
+/* Firefox */
+::-moz-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-moz-scrollbar-thumb {
+  background-color: #ccc;
+  border-radius: 5px;
+}
+
+::-moz-scrollbar-thumb:hover {
+  background-color: #aaa;
 }
