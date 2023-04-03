@@ -13,6 +13,7 @@ export const actionsAfterRegistration = (user) => {
         refs.logOutBtn.classList.remove('is-hidden');
         refs.logOutBtn.classList.add('is-visible');
         refs.logOutBtn.addEventListener("click", logOutHandler);
+        settingsOpportunities.isEntry = true;
         console.log('OK')
     };
 };
@@ -22,4 +23,9 @@ const logOutHandler = () => {
     refs.logInBtn.classList.remove('is-hidden');
     refs.signUpBtn.classList.remove('is-hidden');
     refs.logOutBtn.classList.add('is-hidden');
+    settingsOpportunities.isEntry = false;
+};
+
+const settingsOpportunities = {
+    isEntry: false,
 };
