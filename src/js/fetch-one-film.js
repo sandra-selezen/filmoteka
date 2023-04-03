@@ -1,20 +1,31 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import defaultImage from '/src/images/no-poster.png';
-//for Trailer
+
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import fetchVideoKey from './fetchVideoKey';
+import addEventListenersOnButtons from './buttons-modal';
 
 const body = document.querySelector('body');
-const listMovies = document.querySelector('.js-cards-list');
+
 const btnCloseModalMovie = document.querySelector('.js-btn-close-modal');
 const cardMovie = document.querySelector('.js-modal-card');
 const backdropMovie = document.querySelector('.js-backdrop-movie');
 
 //-----слухачі подій-----
 
-listMovies.addEventListener('click', onOpenModalMovieClick);
+if (document.querySelector('.js-cards-list')) {
+  const mainPageListMovies = document.querySelector('.js-cards-list');
+  mainPageListMovies.addEventListener('click', onOpenModalMovieClick);
+} else {
+  const mainPageListMovies = document.querySelector('.js-cards-list-library');
+  mainPageListMovies.addEventListener('click', onOpenModalMovieClick);
+}
+
+// const mainPageListMovies = document.querySelector('.js-cards-list');
+// mainPageListMovies.addEventListener('click', onOpenModalMovieClick);
+
 btnCloseModalMovie.addEventListener('click', onCloseModalClick);
 
 document.addEventListener('keydown', onEscKeyDownModal);
@@ -53,8 +64,10 @@ async function onOpenModalMovieClick(event) {
   const response = await fetchData(idMovie);
   // console.log(response.data);
   const movieInfo = getOneMovieInfo(response.data);
-  // відображення модалки з інфо про фільм
-  renderModalMovieInfo(movieInfo);
+
+    // відображення модалки з інфо про фільм
+    renderModalMovieInfo(movieInfo);
+  addEventListenersOnButtons();
   // ховає спінер
   Notiflix.Loading.remove();
   // слухач для трейлера
