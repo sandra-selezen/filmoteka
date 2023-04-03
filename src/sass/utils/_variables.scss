@@ -14,6 +14,7 @@ $timingFunction: cubic-bezier(0.4, 0, 0.2, 1);
 $bg-header-gradient: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
 $button-black-text: #000000;
 $scrollbar-and-circle-on-switcher-color: #932727;
+$pagination-background: #F7F7F7;
 
 
 
@@ -24,6 +25,8 @@ $scrollbar-and-circle-on-switcher-color: #932727;
   --mainDarkColor: #000000;
   --footerBgColor: #f7f7f7;
   --footerTxtColor: #545454;
+  --backgroundPage: transparent;
+  
   --team-sm-bnt-accent: #ff6b01;
 }
 :root[data-theme="dark"]{
@@ -33,5 +36,7 @@ $scrollbar-and-circle-on-switcher-color: #932727;
   --mainDarkColor: #ffffff;
   --footerBgColor: #212121;
   --footerTxtColor: #ffffff;
+  --backgroundPage: #ffffff;
+
   --team-sm-bnt-accent: #932727;
 }

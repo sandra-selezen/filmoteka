@@ -123,3 +123,15 @@
 //     background-color: #ff6b01;
 //     color: #fff;
 // }
+
+.not-found {
+    display: flex;
+    justify-content: center;
+}
+
+@include tablet {
+.not-found_img {
+    width: 500px;
+    height: 382px;
+}
+}
