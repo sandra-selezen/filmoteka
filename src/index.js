@@ -8,5 +8,4 @@ import './js/them-switcher';
 import './js/button-up';
 import './js/firebase/render-modal';
 import './js/firebase/firebase-init';
-import './js/register-modal';
 import './js/firebase/log-actions';
