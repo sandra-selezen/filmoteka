@@ -1,14 +1,15 @@
 import Pagination from 'tui-pagination';
-// import 'tui-pagination/dist/tui-pagination.css';
-import { fetchFilms } from './popular-films-fetch';
+import 'tui-pagination/dist/tui-pagination.css';
 
 
-export default function createPagination(requestType = '') {
-  const pagination = new Pagination('pagination', {
-    totalItems: fetchFilms.totalItems,
-    itemsPerPage: fetchFilms.itemsPerPage,
+export default class CreatePagination {
+  constructor(object, requestType = '') {
+    this.object = object;
+    this.options = {
+    totalItems: object.totalItems,
+    itemsPerPage: object.itemsPerPage,
     visiblePages: 5,
-    page: fetchFilms.page,
+    page: object.page,
     centerAlign: false,
     requestType: requestType,
     firstItemClassName: 'tui-first-child',
@@ -30,8 +31,13 @@ export default function createPagination(requestType = '') {
         '<span class="tui-ico-ellip">...</span>' +
         '</a>',
     },
+  }
+  }
+
+  activatePagination() {
+    const pagination = new Pagination('pagination', this.options);
+      pagination.on('afterMove', ({ page }) => {
+    this.object.moveToPage(page);
   });
-  pagination.on('afterMove', ({ page }) => {
-    fetchFilms.moveToPage(page);
-  });
+  }
 }
