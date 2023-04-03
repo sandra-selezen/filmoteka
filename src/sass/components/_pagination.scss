@@ -55,7 +55,7 @@
     display: flex;
     align-items: center;
 
-    color: #000000;
+    color: var(--mainDarkColor);
 
     @include tablet {
     padding: 20px 18px;
