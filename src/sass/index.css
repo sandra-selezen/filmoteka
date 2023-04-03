@@ -1339,14 +1339,6 @@ button {
   user-select: none;
 }
 
-.tui-ico-ellipsis,
-.tui-ico-first,
-.tui-ico-last,
-.tui-ico-next,
-.tui-ico-prev {
-  overflow: hidden;
-}
-
 @media screen and (min-width: 480px) {
   .tui-is-disabled {
     display: none;
@@ -1376,7 +1368,6 @@ button {
   font-weight: 500;
   font-size: 12px;
   line-height: 16px;
-  /* identical to box height, or 133% */
   display: flex;
   align-items: center;
   color: var(--mainDarkColor);
@@ -1389,14 +1380,10 @@ button {
 
 .tui-pagination .tui-is-selected,
 .tui-pagination strong {
-  color: #fff;
+  color: #ffffff;
   background: #ff6b08;
   cursor: default;
   border-radius: 5px;
-}
-
-.tui-pagination .tui-is-selected:hover {
-  background-color: #ff6b08;
 }
 
 .tui-pagination .tui-first-child.tui-is-selected,
@@ -1474,8 +1461,9 @@ button {
   }
 }
 
-.tui-next, .tui-prev {
-  background-color: #f4f4f4;
+.tui-next,
+.tui-prev {
+  background-color: #F7F7F7;
   border-radius: 5px;
 }
 
@@ -1518,45 +1506,13 @@ button {
   background-position: 0px -24px;
 }
 
-.tui-pagination .tui-is-disabled:hover {
-  background: #fff;
-  cursor: default;
-}
-
-.tui-pagination .tui-is-disabled .tui-ico-prev {
-  background-position: -46px 0;
-}
-
-.tui-pagination .tui-is-disabled .tui-ico-first {
-  background-position: -46px 0;
-}
-
-.tui-pagination .tui-is-disabled .tui-ico-next {
-  background-position: -46px 0;
-}
-
-.tui-pagination .tui-is-disabled .tui-ico-last {
-  background-position: -46px 0;
+.tui-pagination .tui-is-disabled {
+  display: none;
 }
 
 .tui-page-inputs {
   display: inline-block;
   vertical-align: top;
-}
-
-.tui-page-inputs .tui-page-input {
-  display: inline-block;
-  width: 10px;
-  height: 12px;
-  padding: 8px 0 6px;
-  font-size: 12px;
-  text-align: center;
-  color: #333;
-  outline: none;
-}
-
-.tui-page-inputs .tui-page-current {
-  color: #ff6b08;
 }
 
 .tui-page-separator {
@@ -1568,7 +1524,12 @@ button {
 }
 
 .tui-pagination .tui-page-btn:hover {
-  background-color: #f4f4f4;
+  background-color: #F7F7F7;
   border-radius: 5px;
-  color: black;
+  color: #000000;
+}
+
+.tui-pagination .tui-is-selected:hover {
+  background-color: #ff6b08;
+  color: #ffffff;
 }/*# sourceMappingURL=index.css.map */
