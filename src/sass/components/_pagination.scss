@@ -39,7 +39,7 @@
     display: inline-block;
     position: relative;
     // width: 28px;
-    padding: 20px 18px;
+    padding: 20px 15px;
     margin-left: 0;
     text-decoration: none;
     vertical-align: middle;
@@ -56,6 +56,10 @@
     align-items: center;
 
     color: #000000;
+
+    @include tablet {
+    padding: 20px 18px;
+    }
 }
 
 .tui-pagination .tui-page-btn:hover {
@@ -152,6 +156,11 @@
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-next-is-ellip {
     line-height: 1;
+        @include tablet {
+                display: flex;
+            }
+        
+            display: none;
 }
 
 .tui-pagination .tui-prev {
@@ -167,11 +176,21 @@
 .tui-pagination .tui-first {
     margin-right: 10px;
     padding: 20px 14px;
+        @include tablet {
+                display: flex;
+            }
+        
+            display: none;
 }
 
 .tui-pagination .tui-last {
     margin-left: 10px;
     padding: 20px 14px;
+
+    @include tablet {
+            display: flex;
+    }
+    display: none;
 }
 
 .tui-next, .tui-prev {

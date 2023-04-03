@@ -1340,6 +1340,11 @@ button {
   overflow: hidden;
 }
 
+@media screen and (min-width: 480px) {
+  .tui-is-disabled {
+    display: none;
+  }
+}
 .tui-pagination {
   height: 28px;
   margin: 14px 0 12px;
@@ -1355,7 +1360,7 @@ button {
 .tui-pagination .tui-page-btn {
   display: inline-block;
   position: relative;
-  padding: 20px 18px;
+  padding: 20px 15px;
   margin-left: 0;
   text-decoration: none;
   vertical-align: middle;
@@ -1368,6 +1373,11 @@ button {
   display: flex;
   align-items: center;
   color: #000000;
+}
+@media screen and (min-width: 768px) {
+  .tui-pagination .tui-page-btn {
+    padding: 20px 18px;
+  }
 }
 
 .tui-pagination .tui-page-btn:hover {
@@ -1407,7 +1417,6 @@ button {
 }
 
 .tui-pagination .tui-ico-first,
-.tui-pagination .tui-ico-prev,
 .tui-pagination .tui-ico-next,
 .tui-pagination .tui-ico-last,
 .tui-pagination .tui-ico-ellip {
@@ -1420,38 +1429,82 @@ button {
 .tui-pagination .tui-prev-is-ellip,
 .tui-pagination .tui-next-is-ellip {
   line-height: 1;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .tui-pagination .tui-prev-is-ellip,
+.tui-pagination .tui-next-is-ellip {
+    display: flex;
+  }
 }
 
 .tui-pagination .tui-prev {
   margin-right: 10px;
+  padding: 20px 14px;
 }
 
 .tui-pagination .tui-next {
   margin-left: 10px;
+  padding: 20px 14px;
+}
+
+.tui-pagination .tui-first {
+  margin-right: 10px;
+  padding: 20px 14px;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .tui-pagination .tui-first {
+    display: flex;
+  }
+}
+
+.tui-pagination .tui-last {
+  margin-left: 10px;
+  padding: 20px 14px;
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  .tui-pagination .tui-last {
+    display: flex;
+  }
+}
+
+.tui-next, .tui-prev {
+  background-color: #f4f4f4;
+  border-radius: 5px;
+}
+
+.tui-pagination .tui-is-disabled {
+  background: none;
 }
 
 .tui-pagination .tui-ico-first {
-  width: 11px;
-  height: 10px;
-  background-position: 0px 0px;
+  width: 15px;
+  height: 15px;
+  background-image: url("/src/images/arrow-first.svg");
+  background-repeat: no-repeat;
 }
 
 .tui-pagination .tui-ico-prev {
-  width: 6px;
-  height: 10px;
-  background-position: -26px 0px;
+  width: 15px;
+  height: 15px;
+  background-image: url("/src/images/arrow-left.svg");
+  background-repeat: no-repeat;
 }
 
 .tui-pagination .tui-ico-next {
-  width: 6px;
-  height: 10px;
-  background-position: -13px -24px;
+  width: 15px;
+  height: 15px;
+  background-image: url("/src/images/arrow-right.svg");
+  background-repeat: no-repeat;
 }
 
 .tui-pagination .tui-ico-last {
-  width: 11px;
-  height: 10px;
-  background-position: 0px -12px;
+  width: 15px;
+  height: 15px;
+  background-image: url("/src/images/arrow-last.svg");
+  background-repeat: no-repeat;
 }
 
 .tui-pagination .tui-ico-ellip {
