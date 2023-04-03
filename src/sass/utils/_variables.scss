@@ -24,6 +24,7 @@ $scrollbar-and-circle-on-switcher-color: #932727;
 --mainDarkColor: #000000;
   --footerBgColor: #f7f7f7;
   --footerTxtColor: #545454;
+  --backgroundPage: transparent;
   
 }
 :root[data-theme="dark"]{
@@ -33,5 +34,6 @@ $scrollbar-and-circle-on-switcher-color: #932727;
   --mainDarkColor: #ffffff;
   --footerBgColor: #212121;
   --footerTxtColor: #ffffff;
+  --backgroundPage: #ffffff;
 
 }
