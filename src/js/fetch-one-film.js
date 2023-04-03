@@ -1,20 +1,31 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import defaultImage from '/src/images/no-poster.png';
-//for Trailer
+
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import fetchVideoKey from './fetchVideoKey';
+import addEventListenersOnButtons from './buttons-modal';
 
 const body = document.querySelector('body');
-const listMovies = document.querySelector('.js-cards-list');
+
 const btnCloseModalMovie = document.querySelector('.js-btn-close-modal');
 const cardMovie = document.querySelector('.js-modal-card');
 const backdropMovie = document.querySelector('.js-backdrop-movie');
 
 //-----слухачі подій-----
 
-listMovies.addEventListener('click', onOpenModalMovieClick);
+if (document.querySelector('.js-cards-list')) {
+  const mainPageListMovies = document.querySelector('.js-cards-list');
+  mainPageListMovies.addEventListener('click', onOpenModalMovieClick);
+} else {
+  const mainPageListMovies = document.querySelector('.js-cards-list-library');
+  mainPageListMovies.addEventListener('click', onOpenModalMovieClick);
+}
+
+// const mainPageListMovies = document.querySelector('.js-cards-list');
+// mainPageListMovies.addEventListener('click', onOpenModalMovieClick);
+
 btnCloseModalMovie.addEventListener('click', onCloseModalClick);
 
 document.addEventListener('keydown', onEscKeyDownModal);
@@ -53,8 +64,10 @@ async function onOpenModalMovieClick(event) {
   const response = await fetchData(idMovie);
   // console.log(response.data);
   const movieInfo = getOneMovieInfo(response.data);
-  // відображення модалки з інфо про фільм
-  renderModalMovieInfo(movieInfo);
+
+    // відображення модалки з інфо про фільм
+    renderModalMovieInfo(movieInfo);
+  addEventListenersOnButtons();
   // ховає спінер
   Notiflix.Loading.remove();
   // слухач для трейлера
@@ -146,7 +159,8 @@ function renderModalMovieInfo(movieInfo) {
     alt="${title}"
     data-id="${id}"
     />
-  <a class="link-trailer js-iframe">Trailer</a>
+  <a class="link-trailer js-iframe">
+  <svg height="130" width="130"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 461.001 461.001" xml:space="preserve"><path fill:#f61c0d class="icon-youtube" d="M365.257 67.393H95.744C42.866 67.393 0 110.259 0 163.137v134.728c0 52.878 42.866 95.744 95.744 95.744h269.513c52.878 0 95.744-42.866 95.744-95.744V163.137c0-52.878-42.866-95.744-95.744-95.744zm-64.751 169.663-126.06 60.123c-3.359 1.602-7.239-.847-7.239-4.568V168.607c0-3.774 3.982-6.22 7.348-4.514l126.06 63.881c3.748 1.899 3.683 7.274-.109 9.082z"/></svg></a>
 </div>
 <div class="modal-card__thumb-right">
   <p class="thumb-right__title">${title}</p>
