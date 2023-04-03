@@ -37,8 +37,8 @@
 
 .btn-queue-modal {
   background-color: $mainLightColor;
-  border: 1px solid $mainDarkColor;
-  color: $mainDarkColor;
+  border: 1px solid var(--mainDarkColor);
+  color: var(--mainDarkColor);
   width: 110px;
   @media screen and (min-width: 768px) {
     width: 125px;

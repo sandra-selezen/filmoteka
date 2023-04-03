@@ -1,5 +1,5 @@
 .teem-modal {
-    background-color: $footerBgColor;
+    background-color: var(--footerBgColor);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -107,6 +107,6 @@
   }
   .team-modal__span--orange {
     display: block;
-    color: $footerTxtColor;
+    color: var(--footerTxtColor);
     text-transform: uppercase;
   }
