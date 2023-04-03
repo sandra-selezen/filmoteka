@@ -720,6 +720,11 @@ button {
   }
 }
 
+.not-found {
+  display: flex;
+  justify-content: center;
+}
+
 .footer {
   background: var(--footerBgColor);
   font-size: 14px;
