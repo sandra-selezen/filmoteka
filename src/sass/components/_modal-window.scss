@@ -97,33 +97,27 @@
 
 .link-trailer {
   position: absolute;
-  bottom: 20px;
-  right: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  width: 136px;
-  height: 44px;
-  text-transform: uppercase;
-  letter-spacing: 3px;
-  color: $mainLightColor;
-  background-color: $accentModalColor;
-  border: none;
-  border-radius: 5px;
+  // background-color: $accentModalColor;
+ 
   transition: background-color $duration $timingFunction,
     scale $duration $timingFunction;
-  transform: translate(50%, 0%);
+
   cursor: pointer;
 
+  fill:#f61d0db8;
   &:hover,
   &:focus {
-    scale: 1.01;
-    background-color: #ff001b;
-  }
-}
+    fill: rgba(0, 0, 0, 0.5);
+}}
 
+// .icon-youtube {
+//   ;
+//   }
+// }
 .thumb-right__title {
   font-size: 30px;
   line-height: 1.17;
@@ -208,9 +202,8 @@
   color: $mainLightColor;
   background-color: $buttonBgAccent;
   border-color: transparent;
-  transition: color $duration $timingFunction,
-              border $duration $timingFunction,
-              background-color $duration $timingFunction;
+  transition: color $duration $timingFunction, border $duration $timingFunction,
+    background-color $duration $timingFunction;
 
   &:hover,
   &:focus {
@@ -232,9 +225,8 @@
   color: $button-black-text;
   background-color: $mainLightColor;
   border: 1px solid var(--mainDarkColor);
-  transition: color $duration $timingFunction,
-              border $duration $timingFunction,
-              background-color $duration $timingFunction;
+  transition: color $duration $timingFunction, border $duration $timingFunction,
+    background-color $duration $timingFunction;
 
   &:hover,
   &:focus {
