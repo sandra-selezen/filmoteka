@@ -1,19 +1,15 @@
+.library__container {
+    display: flex;
+    flex-direction: column;
+}
+
 .library__text-empty {
+    margin-bottom: 20px;
     text-align: center;
     font-size: 18px;
 }
 
-.library__img-container {
-    width: 100%;
-    height: 100%;
-}
-
-.library__img {
-    max-height: 450px;
-    margin: auto;
-}
-
 .library__link {
-    color: $accentColor;
+    color: var(--team-sm-bnt-accent);
     cursor: pointer;
 }
