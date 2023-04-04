@@ -11,34 +11,35 @@ export const refs = {
 };
 
 refs.openModalBtn.addEventListener("click", openHandlerSignUp);
-refs.backdrop.addEventListener("click", onBackdropClik);
 refs.logInBtn.addEventListener("click", openHandlerlogIn);
 
 document.addEventListener('keydown', (evt) => {
-    if (evt.code === "Escape") {
-        closeRegModal();
-    }
+  if (evt.code === "Escape") {
+    closeRegModal();
+  }
 });
 
 function openHandlerSignUp() {
-    refs.regModal.classList.remove("is-hidden");
+  refs.regModal.classList.remove("is-hidden");
+  refs.backdrop.addEventListener("click", onBackdropClik);
     renderRegModal('signUp');
 };
 
 function openHandlerlogIn() {
-    refs.regModal.classList.remove("is-hidden");
+  refs.regModal.classList.remove("is-hidden");
+  refs.backdrop.addEventListener("click", onBackdropClik);
     renderRegModal('logIn');
 };
   
 export function closeRegModal() {
-        refs.regModal.classList.add("is-hidden");
-        refs.regModal.removeEventListener('keydown', closeRegModal);
+  refs.regModal.classList.add("is-hidden");
+  refs.regModal.removeEventListener('keydown', closeRegModal);
+  refs.backdrop.removeEventListener("click", onBackdropClik);
 
 };
 
 function onBackdropClik(e) {
   if (e.currentTarget === e.target) {
-    console.log('Кликнули именно в бекдроп!!!!');
     closeRegModal();
   };
 };
