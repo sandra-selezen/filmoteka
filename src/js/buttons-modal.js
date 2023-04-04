@@ -2,6 +2,8 @@ import { load, save, removeStore } from './localStorage';
 import fetchData from './fetch-one-film';
 import getOneMovieInfo from './fetch-one-film';
 import { movieInfo } from './fetch-one-film';
+import { settingsOpportunities } from './firebase/log-actions';
+import { Notify } from 'notiflix';
 
 const URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '959330b1b48c95e1fde96a992bbede29';
@@ -63,6 +65,13 @@ const QUEUE_KEY = 'Queue';
 // ------------------------------------------ //
 
 function saveToWatched(event) {
+  console.log('to watched!');
+  
+  if (!settingsOpportunities.isEntry) {
+    Notify.failure('Please sign up or log in to access advanced features');
+    return
+  };
+
   const filmId = document.querySelector('.js-modal-card img').dataset.id;
   if (localStorage.getItem('watched')) {
     const watched = localStorage.getItem('watched');
@@ -84,6 +93,13 @@ function saveToWatched(event) {
 }
 
 function saveToQueue(event) {
+  console.log('to quevue!');
+
+  if (!settingsOpportunities.isEntry) {
+    Notify.failure('Please sign up or log in to access advanced features');
+    return
+  };
+
   const filmId = document.querySelector('.js-modal-card img').dataset.id;
     event.preventDefault();
   event.target.textContent = 'Added to queue';

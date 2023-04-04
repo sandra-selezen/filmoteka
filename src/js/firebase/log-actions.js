@@ -26,6 +26,6 @@ const logOutHandler = () => {
     settingsOpportunities.isEntry = false;
 };
 
-const settingsOpportunities = {
+export const settingsOpportunities = {
     isEntry: false,
 };

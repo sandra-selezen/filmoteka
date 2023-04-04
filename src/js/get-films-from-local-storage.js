@@ -34,7 +34,6 @@ export default class GetFilmsFromLocalStorage {
     this.data = await Promise.all(arrayOfPromises);
     this.genresData = this.data[this.data.length - 1].genres;
     this.data.pop();
-    console.log(this.data);
   }
 
   getPosters() {
