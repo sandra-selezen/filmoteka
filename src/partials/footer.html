@@ -13,18 +13,18 @@
 </footer>
 
 <!-- модалка -->
-<div class="visually-hidden backdrop" data-modal-team>
-  <div class="visually-hidden team-modal">
-    <div class="team-modal__btn--close">
+<div class="visually-hidden backdrop">
+  <div class="team-modal">
+    <button type="button" class="team-modal__btn--close" aria-label="Close">
       <svg width="32" height="32" class="team-modal__svg">
         <use href="/src/images/icons.svg#icon-close-black"></use>
       </svg>
-    </div>
+    </button>
     <h2 class="team-modal__header">Developers</h2>
     <ul class="team-modal-list list">
   
     <li class="team-modal__item">
-        <img src="/src/images/team-photo/sandra-selezen.jpg" alt="Photo Oleksandra Selezen" width="120" height="120" class="team-modal__img">
+        <img src="/src/images/team-photo/sandra-selezen.jpg" alt="Photo Oleksandra Selezen" width="120" height="120" class="team-modal__img" loading="lazy">
         <div class="team-modal__text-wrap">
           <p>
             <span class="team-modal__span--orange">
@@ -50,7 +50,7 @@
         </div>
       </li>
     <li class="team-modal__item">
-      <img src="/src/images/team-photo/yaroslav-yakovenko.jpg" alt="Photo Yaroslav Yakovenko" width="120" height="120" class="team-modal__img">
+      <img src="/src/images/team-photo/yaroslav-yakovenko.jpg" alt="Photo Yaroslav Yakovenko" width="120" height="120" class="team-modal__img" loading="lazy">
       <div class="team-modal__text-wrap">
         <p>
           <span class="team-modal__span--orange">
@@ -74,7 +74,7 @@
             </li>
           </li>
     <li class="team-modal__item">
-      <img src="/src/images/team-photo/anton-petrenko.jpg" alt="Photo Anton Petrenko" width="120" height="120" class="team-modal__img">
+      <img src="/src/images/team-photo/anton-petrenko.jpg" alt="Photo Anton Petrenko" width="120" height="120" class="team-modal__img" loading="lazy">
         <div class="team-modal__text-wrap">
           <p>
             <span class="team-modal__span--orange">
@@ -98,7 +98,7 @@
     </li>
   </li>
     <li class="team-modal__item">
-      <img src="/src/images/team-photo/diane-khomenko.jpeg" alt="Photo Diane Khomenko" width="120" height="120" class="team-modal__img">
+      <img src="/src/images/team-photo/diane-khomenko.jpg" alt="Photo Diane Khomenko" width="120" height="120" class="team-modal__img" loading="lazy">
         <div class="team-modal__text-wrap">
           <p>
             <span class="team-modal__span--orange">
@@ -122,7 +122,7 @@
               </li>
     </li>
     <li class="team-modal__item">
-      <img src="/src/images/team-photo/dmytro-petrenko.jpg" alt="Photo Dmytro Petrenko" width="120" height="120" class="team-modal__img">
+      <img src="/src/images/team-photo/dmytro-petrenko.jpg" alt="Photo Dmytro Petrenko" width="120" height="120" class="team-modal__img" loading="lazy">
         <div class="team-modal__text-wrap">
           <p>
             <span class="team-modal__span--orange">
@@ -144,33 +144,33 @@
                   </svg>
                 </a>
               </li>
-            </li>
-            <li class="team-modal__item">
-              <img src="/src/images/team-photo/elina-dubrovska.jpg" alt="Photo Elina Dubrovska" width="120" height="120" class="team-modal__img">
-                <div class="team-modal__text-wrap">
-                  <p>
-                    <span class="team-modal__span--orange">
-                      Elina Dubrovska
-                    </span>Developer
-                  </p>
-                  <ul class="list team-modal-sm">
-                    <li>
-                       <a href="https://www.linkedin.com/" target="_blank">
-                          <svg width="24" height="24" class="team-modal__svg">
-                              <use href="/src/images/icons.svg#icon-linkedin2"></use>
-                          </svg>
-                        </a>
-                      </li>
-                    <li>
-                      <a href="https://github.com/ElinaDubrovska" target="_blank">
-                        <svg width="24" height="24" class="team-modal__svg">
-                          <use href="/src/images/icons.svg#icon-github"></use>
-                        </svg>
-                      </a>
-                    </li>
-                  </li>
+    </li>
     <li class="team-modal__item">
-      <img src="/src/images/team-photo/olena-kvasko.jpg" alt="Photo Olena Kvasko" width="120" height="120" class="team-modal__img">
+      <img src="/src/images/team-photo/elina-dubrovska.jpg" alt="Photo Elina Dubrovska" width="120" height="120" class="team-modal__img" loading="lazy">
+        <div class="team-modal__text-wrap">
+          <p>
+            <span class="team-modal__span--orange">
+              Elina Dubrovska
+            </span>Developer
+          </p>
+          <ul class="list team-modal-sm">
+            <li>
+              <a href="https://www.linkedin.com/" target="_blank">
+                <svg width="24" height="24" class="team-modal__svg">
+                    <use href="/src/images/icons.svg#icon-linkedin2"></use>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/ElinaDubrovska" target="_blank">
+                <svg width="24" height="24" class="team-modal__svg">
+                  <use href="/src/images/icons.svg#icon-github"></use>
+                </svg>
+              </a>
+            </li>
+            </li>
+    <li class="team-modal__item">
+      <img src="/src/images/team-photo/olena-kvasko.jpg" alt="Photo Olena Kvasko" width="120" height="120" class="team-modal__img" loading="lazy">
         <div class="team-modal__text-wrap">
           <p>
             <span class="team-modal__span--orange">
@@ -194,7 +194,7 @@
               </li>
             </li>
   <li class="team-modal__item">
- <img src="/src/images/team-photo/mark-zemlianskyi.jpg" alt="Photo Mark Zemlianskyi " width="120" height="120" class="team-modal__img">
+    <img src="/src/images/team-photo/mark-zemlianskyi.jpg" alt="Photo Mark Zemlianskyi " width="120" height="120" class="team-modal__img" loading="lazy">
                 <div class="team-modal__text-wrap">
                   <p>
                     <span class="team-modal__span--orange">
@@ -218,7 +218,7 @@
                               </li>
                             </li>
             <li class="team-modal__item">
-              <img src="/src/images/team-photo/nataliia-zelena.png" alt="Photo " width="120" height="120" class="team-modal__img">
+              <img src="/src/images/team-photo/nataliia-zelena.jpg" alt="Photo " width="120" height="120" class="team-modal__img" loading="lazy">
                 <div class="team-modal__text-wrap">
                   <p>
                     <span class="team-modal__span--orange">
@@ -243,7 +243,7 @@
                     </li>
   
  <li class="team-modal__item">
-    <img src="/src/images/team-photo/skvortsov-denis.jpg" alt="Photo Skvortsov Denis" width="120" height="120" class="team-modal__img">
+    <img src="/src/images/team-photo/skvortsov-denis.jpg" alt="Photo Skvortsov Denis" width="120" height="120" class="team-modal__img" loading="lazy">
                 <div class="team-modal__text-wrap">
                   <p>
                     <span class="team-modal__span--orange">
@@ -267,23 +267,23 @@
                                       </li>
                                     </li>
                                     <li class="team-modal__item">
-                                      <img src="https://place-hold.it/120x175" alt="Photo " width="120" height="120" class="team-modal__img">
+                                      <img src="/src/images/team-photo/daniil-vasylenko.jpg" alt="Photo " width="120" height="120" class="team-modal__img" loading="lazy">
                 <div class="team-modal__text-wrap">
                   <p>
                     <span class="team-modal__span--orange">
-                      name
+                      Daniil Vasylenko
                     </span>Developer
                   </p>
                                             <ul class="list team-modal-sm">
                                               <li>
-                                                <a href="https://www.linkedin.com/"atarget="_blank">
+                                                <a href="https://www.linkedin.com/" target="_blank">
                                                   <svg width="24" height="24" class="team-modal__svg">
                                                     <use href="/src/images/icons.svg#icon-linkedin2"></use>
                                                   </svg>
                                                 </a>
                                               </li>
                                               <li>
-                                                <a href="https://github.com/ElenaAlexk" target="_blank">
+                                                <a href="https://github.com/vasylenkodi" target="_blank">
                                                   <svg width="24" height="24" class="team-modal__svg">
                                                     <use href="/src/images/icons.svg#icon-github"></use>
                                                   </svg>
@@ -291,7 +291,7 @@
                                               </li>
                                             </li>         
       <li class="team-modal__item">
-                <img src="/src/images/team-photo/veronika-didun.jpg" alt="Photo Veronika Didun" width="120" height="120" class="team-modal__img">
+                <img src="/src/images/team-photo/veronika-didun.jpg" alt="Photo Veronika Didun" width="120" height="120" class="team-modal__img" loading="lazy">
                   <div class="team-modal__text-wrap">
                     <p>
                       <span class="team-modal__span--orange">
@@ -300,7 +300,7 @@
                     </p>
                     <ul class="list team-modal-sm">
                       <li>
-                         <a href="https://www.linkedin.com/mwlite/in/вероніка-дідун-882195264" target="_blank">
+                        <a href="https://www.linkedin.com/mwlite/in/вероніка-дідун-882195264" target="_blank">
                             <svg width="24" height="24" class="team-modal__svg">
                                 <use href="/src/images/icons.svg#icon-linkedin2"></use>
                             </svg>
