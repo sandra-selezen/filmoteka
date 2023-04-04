@@ -1,7 +1,7 @@
-.cards__list {  
+.cards__list {
   display: flex;
   flex-wrap: wrap;
-  
+
   @media screen and (max-width: 767px) {
     justify-content: center;
     gap: 20px;
@@ -18,7 +18,7 @@
   transition: transform $duration linear;
 
   @include tablet {
-    flex-basis: calc((100% - 32px ) / 2);
+    flex-basis: calc((100% - 32px) / 2);
   }
   @include desktop {
     flex-basis: calc((100% - 64px) / 3);
@@ -40,8 +40,8 @@
     height: 455px;
   }
   @include desktop {
-  width: 395px;
-  height: 574px;
+    width: 395px;
+    height: 574px;
   }
 }
 
@@ -58,7 +58,7 @@
   font-size: 12px;
   line-height: 1.33;
   transition: color $duration $timingFunction;
-  
+
   @include desktop {
     font-size: 20px;
     line-height: 1.2;
@@ -66,6 +66,7 @@
 }
 
 .card__title {
+  font-weight: 500;
   text-transform: uppercase;
 
   @media screen and (max-width: 480px) {
@@ -75,7 +76,7 @@
 
 .card__text {
   display: flex;
-  color: $accentColor;  
+  color: $accentColor;
 }
 
 .genres {
