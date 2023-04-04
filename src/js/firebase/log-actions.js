@@ -13,13 +13,23 @@ export const actionsAfterRegistration = (user) => {
         refs.logOutBtn.classList.remove('is-hidden');
         refs.logOutBtn.classList.add('is-visible');
         refs.logOutBtn.addEventListener("click", logOutHandler);
-        console.log('OK')
     };
 };
 
-const logOutHandler = () => {
+export const logOutHandler = () => {
     exitUser();
     refs.logInBtn.classList.remove('is-hidden');
     refs.signUpBtn.classList.remove('is-hidden');
     refs.logOutBtn.classList.add('is-hidden');
+};
+
+
+export const actionsAfterFindingUser = (user) => {
+    if (user.email) {
+        refs.logOutBtn.classList.add('is-visible');
+        refs.logInBtn.classList.add('is-hidden');
+        refs.signUpBtn.classList.add('is-hidden');
+        refs.logOutBtn.classList.remove('is-hidden');
+        refs.logOutBtn.addEventListener("click", logOutHandler);
+    };
 };

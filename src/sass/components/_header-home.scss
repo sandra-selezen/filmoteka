@@ -94,9 +94,9 @@
 .authorization {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: 6px;
   display: flex;
-  transform: translateY(-100%);
+  // transform: translateY(-100%);
   @include tablet {
     transform: translateY(0);
   }
@@ -107,7 +107,6 @@
 }
 
 .authorization__btn {
-  transform: translateY(10%);
   width: fit-content;
   display: flex;
   flex-wrap: nowrap;
@@ -119,7 +118,7 @@
   font-weight: 500;
   background-color: transparent;
   border: none;
-  cursor: pointer;
+  // cursor: pointer;
   text-transform: uppercase;
   color: $informationColor;
   fill: $informationColor;
@@ -127,8 +126,9 @@
   border-color: #ff001b;
   border-style: ridge;
   border-radius: 7px;
-  font-size: 16px;
+  font-size: 14px;
   opacity: 1;
+  // transform: translateY(10%);
   &:hover {
     transform: scale(1.25);
   }
@@ -165,6 +165,12 @@
 
 .header__form-search {
   position: relative;
+  margin-top: 35px;
+
+  @include desktop {
+    margin-top: 0;
+  }
+  
 }
 
 .header__input {
