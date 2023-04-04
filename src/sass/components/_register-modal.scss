@@ -94,6 +94,10 @@
     
     &:focus {
     border-color: $informationColor;
+
+    &:focus::placeholder {
+        color: $informationColor;
+    }
 }
 }
 
