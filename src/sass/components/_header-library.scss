@@ -35,16 +35,17 @@
     font-size: 30px;
     line-height: 1.667;
     color: $mainLightColor;
-    stroke: #818181;
-    transition: color $duration $timingFunction;
+    transition: color $duration $timingFunction,
+                transform $duration $timingFunction;
 
     &:hover,
     &:focus {
-        color: $accentColor;
-        stroke: $header-focus;
-        outline: none;
+        transform: scale(1.25);
     }
+}
 
+.main-page-link:hover .site-title {
+    color: $accentColor;
 }
 
 .nav-list {

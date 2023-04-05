@@ -1,22 +1,22 @@
 import CreatePagination from './pagination';
 import GetFilmsFromLocalStorage from './get-films-from-local-storage';
+// import ModalLibrary from './modal-library';
 
-const SEARCH_URL = 'https://api.themoviedb.org/3/movie/';
 const libraryMarkupRef = document.querySelector('.js-cards-list-library');
+const modalMarkupRef = document.querySelector('.js-modal-card');
+// const modalRef = document.querySelector('.js-cards-list-library');
 
 export const getWatched = new GetFilmsFromLocalStorage(
   JSON.parse(localStorage.getItem('watched')),
-  SEARCH_URL,
   libraryMarkupRef
 );
 
 export const getQueued = new GetFilmsFromLocalStorage(
   JSON.parse(localStorage.getItem('queue')),
-  SEARCH_URL,
   libraryMarkupRef
 );
 
-export default async function initializeLibrary() {
+export default function initializeLibrary() {
   const watchedButtonRef = document.querySelector('.js-watched');
   const queueButtonRef = document.querySelector('.js-queue');
 
@@ -26,14 +26,24 @@ export default async function initializeLibrary() {
   doWatchedLibrary();
 }
 
-async function doWatchedLibrary() {
-  await getWatched.getFilms();
+function doWatchedLibrary() {
+  getWatched.getFilms();
   const watchedPagination = new CreatePagination(getWatched);
   watchedPagination.activatePagination();
 }
 
-async function doQueueLibrary() {
-  await getQueued.getFilms();
-    const queuedPagination = new CreatePagination(getQueued);
+function doQueueLibrary() {
+  getQueued.getFilms();
+  const queuedPagination = new CreatePagination(getQueued);
   queuedPagination.activatePagination();
 }
+
+
+
+// const modalLibrary = new ModalLibrary(modalMarkupRef);
+// modalLibrary.id = 76600;
+// modalLibrary.createModal();
+
+// function openModal(event) {
+//   console.log(event.target);
+// }

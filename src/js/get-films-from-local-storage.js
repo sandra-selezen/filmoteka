@@ -1,18 +1,15 @@
+import defaultImage from '/src/images/no-poster.png';
+
 export default class GetFilmsFromLocalStorage {
-  constructor(ids, url, markupRef) {
+  constructor(filmsData, markupRef) {
     this.page = 1;
-    this.ids = ids;
-    this.apiKey = '959330b1b48c95e1fde96a992bbede29';
-    this.url = url;
+    this.filmsData = filmsData;
     this.markupRef = markupRef;
-    this.genresUrl =
-      'https://api.themoviedb.org/3/genre/movie/list?api_key=959330b1b48c95e1fde96a992bbede29&language=en-US';
     this.markup = [];
   }
 
   async getFilms() {
-      this.reset();
-    await this.doPromises();
+    this.reset();
     this.getPaginationInfo();
     this.parcelling();
     this.getCurrentPageIds();
@@ -25,23 +22,9 @@ export default class GetFilmsFromLocalStorage {
     this.createMarkup();
   }
 
-  async doPromises() {
-    const arrayOfPromises = this.ids.map(async id => {
-      const response = await fetch(`${this.url}${id}?api_key=${this.apiKey}`);
-      return response.json();
-    });
-    arrayOfPromises.push(await (await fetch(this.genresUrl)).json());
-    this.data = await Promise.all(arrayOfPromises);
-    this.genresData = this.data[this.data.length - 1].genres;
-    this.data.pop();
-    console.log(this.data);
-  }
-
   getPosters() {
     this.posters = this.currentPage.map(filmData =>
-      filmData.poster_path
-        ? `https://image.tmdb.org/t/p/w500${filmData.poster_path}`
-        : defaultImage
+      filmData.poster
     );
   }
 
@@ -61,18 +44,12 @@ export default class GetFilmsFromLocalStorage {
 
   getVoteAverage() {
     this.votes = this.currentPage.map(filmData =>
-      filmData.vote_average.toFixed(1)
+      filmData.voteAverage
     );
   }
 
   getGenres() {
-    this.genres = this.currentPage.map(filmData => {
-      const res = filmData.genres.map(
-        genre =>
-          this.genresData.find(genreData => genre.id === genreData.id).name
-      );
-      return res.join(', ');
-    });
+    this.genres = this.currentPage.map(filmData => filmData.genresMovie);
   }
 
   getCurrentPageIds() {
@@ -109,11 +86,14 @@ export default class GetFilmsFromLocalStorage {
 
   parcelling() {
     const pageToElements = 20 * (this.page - 1);
-    this.currentPage = this.data.slice(pageToElements, pageToElements + 20);
+    this.currentPage = this.filmsData.slice(
+      pageToElements,
+      pageToElements + 20
+    );
   }
 
   getPaginationInfo() {
-    this.totalItems = this.data.length;
+    this.totalItems = this.filmsData.length;
     this.itemsPerPage = 20;
   }
 
