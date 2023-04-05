@@ -1,4 +1,3 @@
-import axios from 'axios';
 import Notiflix from 'notiflix';
 import { fetchFilms } from './popular-films-fetch';
 import CreatePagination from './pagination';

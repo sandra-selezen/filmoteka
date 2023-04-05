@@ -1,20 +1,9 @@
 import CreatePagination from './pagination';
 import GetFilmsFromLocalStorage from './get-films-from-local-storage';
-// import ModalLibrary from './modal-library';
 
 const libraryMarkupRef = document.querySelector('.js-cards-list-library');
 const modalMarkupRef = document.querySelector('.js-modal-card');
 // const modalRef = document.querySelector('.js-cards-list-library');
-
-export const getWatched = new GetFilmsFromLocalStorage(
-  JSON.parse(localStorage.getItem('watched')),
-  libraryMarkupRef
-);
-
-export const getQueued = new GetFilmsFromLocalStorage(
-  JSON.parse(localStorage.getItem('queue')),
-  libraryMarkupRef
-);
 
 export default function initializeLibrary() {
   const watchedButtonRef = document.querySelector('.js-watched');
@@ -27,23 +16,38 @@ export default function initializeLibrary() {
 }
 
 function doWatchedLibrary() {
-  getWatched.getFilms();
-  const watchedPagination = new CreatePagination(getWatched);
-  watchedPagination.activatePagination();
+  const getWatched = new GetFilmsFromLocalStorage(
+    JSON.parse(localStorage.getItem('watched')),
+    libraryMarkupRef
+  );
+  if (JSON.parse(localStorage.getItem('watched'))) {
+    getWatched.getFilms();
+    const watchedPagination = new CreatePagination(getWatched);
+    watchedPagination.activatePagination();
+  }
+    document
+      .querySelector('.js-watched')
+      .setAttribute('class', 'library-btn enabled-btn js-watched');
+    document
+      .querySelector('.js-queue')
+      .setAttribute('class', 'library-btn disabled-btn js-queue');
 }
 
 function doQueueLibrary() {
-  getQueued.getFilms();
-  const queuedPagination = new CreatePagination(getQueued);
-  queuedPagination.activatePagination();
+  const getQueued = new GetFilmsFromLocalStorage(
+    JSON.parse(localStorage.getItem('queue')),
+    libraryMarkupRef
+  );
+  if (JSON.parse(localStorage.getItem('queue'))) {
+    getQueued.getFilms();
+    const queuedPagination = new CreatePagination(getQueued);
+    queuedPagination.activatePagination();
+  }
+  document
+    .querySelector('.js-watched')
+    .setAttribute('class', 'library-btn disabled-btn js-watched');
+  document
+    .querySelector('.js-queue')
+    .setAttribute('class', 'library-btn enabled-btn js-queue');
 }
 
-
-
-// const modalLibrary = new ModalLibrary(modalMarkupRef);
-// modalLibrary.id = 76600;
-// modalLibrary.createModal();
-
-// function openModal(event) {
-//   console.log(event.target);
-// }
