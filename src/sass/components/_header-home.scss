@@ -44,7 +44,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 54px;
+  margin-bottom: 54px;
   position: relative;
 }
 
@@ -93,6 +93,7 @@
 
 .authorization {
   position: absolute;
+  top: 54px;
   right: 0;
   bottom: 0;
   display: flex;
@@ -179,9 +180,9 @@
   stroke: $mainLightColor;
   fill: $mainLightColor;
   position: absolute;
-  width: 22px;
-  height: 22px;
-  top: -4px;
+  width: 30px;
+  height: 30px;
+  top: -6px;
   right: 0;
   border: none;
   border-radius: 50%;
