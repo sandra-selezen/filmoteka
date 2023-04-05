@@ -7,7 +7,6 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 import fetchVideoKey from './fetchVideoKey';
 import addEventListenersOnButtons from './buttons-modal';
 
-
 export let movieInfo = {};
 
 const body = document.querySelector('body');
@@ -15,7 +14,7 @@ const body = document.querySelector('body');
 const btnCloseModalMovie = document.querySelector('.js-btn-close-modal');
 const cardMovie = document.querySelector('.js-modal-card');
 const backdropMovie = document.querySelector('.js-backdrop-movie');
-
+const buttonUp = document.querySelector('.up');
 //-----слухачі подій-----
 
 if (document.querySelector('.js-cards-list')) {
@@ -79,13 +78,15 @@ async function onOpenModalMovieClick(event) {
   // слухач для трейлера
   const iframeRef = document.querySelector('.js-iframe');
   iframeRef.addEventListener('click', onClickYouTube);
+  buttonUp.style.display = 'none';
 }
-
 
 // закриття модалки фільму
 function onCloseModalClick() {
   backdropMovie.classList.add('is-hidden');
   body.classList.remove('stop-scroll');
+  console.log('close');
+  buttonUp.style.display = 'block';
 }
 
 // функція запиту на бекенд за idMovie
@@ -161,9 +162,7 @@ function renderModalMovieInfo(movieInfo) {
     voteCount,
   } = movieInfo;
 
-
-
-     const  markup = `<div class="modal-card__thumb-left">
+  const markup = `<div class="modal-card__thumb-left">
   <img
     class="modal-card__img"
     src="${poster}"
@@ -207,9 +206,6 @@ function renderModalMovieInfo(movieInfo) {
     </button>
   </div>
 </div>`;
-
-
-
 
   cardMovie.insertAdjacentHTML('beforeend', markup);
 }
