@@ -25,6 +25,12 @@ function doWatchedLibrary() {
     const watchedPagination = new CreatePagination(getWatched);
     watchedPagination.activatePagination();
   }
+    document
+      .querySelector('.js-watched')
+      .setAttribute('class', 'library-btn enabled-btn js-watched');
+    document
+      .querySelector('.js-queue')
+      .setAttribute('class', 'library-btn disabled-btn js-queue');
 }
 
 function doQueueLibrary() {
@@ -32,9 +38,16 @@ function doQueueLibrary() {
     JSON.parse(localStorage.getItem('queue')),
     libraryMarkupRef
   );
-  if (JSON.parse(localStorage.getItem('watched'))) {
+  if (JSON.parse(localStorage.getItem('queue'))) {
     getQueued.getFilms();
     const queuedPagination = new CreatePagination(getQueued);
     queuedPagination.activatePagination();
   }
+  document
+    .querySelector('.js-watched')
+    .setAttribute('class', 'library-btn disabled-btn js-watched');
+  document
+    .querySelector('.js-queue')
+    .setAttribute('class', 'library-btn enabled-btn js-queue');
 }
+
