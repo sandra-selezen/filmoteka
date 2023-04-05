@@ -6,9 +6,9 @@ import { getAnalytics } from "firebase/analytics";
 // More methods fore use firbase
 // https://firebase.google.com/docs/reference/js
 
-import {  getAuth,  createUserWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence, signInWithEmailAndPassword } from "firebase/auth";
+import {  getAuth,  createUserWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
 
-import { actionsAfterRegistration } from "./log-actions";
+import { actionsAfterRegistration, actionsAfterFindingUser} from "./log-actions";
 import { refs } from "./render-modal";
 
 // Your web app's Firebase configuration
@@ -28,17 +28,40 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
 
+// Get the currently signed -in user
+// Отримати поточного користувача, що вже здійснив вхід
+// https://firebase.google.com/docs/auth/web/manage-users#get_the_currently_signed-in_user
+
+const auth = getAuth();
+
+onAuthStateChanged(auth, myUser => {
+  if (myUser) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = myUser.uid;
+        actionsAfterFindingUser(myUser);
+    // makeLoggedHtml(` user logged as ${myUser.email} `);
+    // ...
+  } else {
+    // User is signed out
+    // ...
+
+    // logOutHandler();
+  }
+});
+
+
+
+
 
 // реєструє нового користувача
 export const toRegisterNewUser = async (email, password) => {
-  console.log(email, password);
   const auth = getAuth();
   await createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
       // ...
-      console.log('SignUp is OK!');
       actionsAfterRegistration(user);
       return user;
     })
@@ -57,7 +80,6 @@ const entryUser = async (email, password) => {
   return await signInWithEmailAndPassword(auth, email, password)
     .then(userCredential => {
       const user = userCredential.user;
-      console.log('LogIn is OK!');
       actionsAfterRegistration(user);
       return user;
     })
@@ -74,7 +96,6 @@ export const exitUser = async () => {
   const auth = getAuth();
   signOut(auth).then(() => {
     // Sign-out successful.
-    console.log('singOut successful');
   }).catch((error) => {
     // An error happened.
     const errorCode = error.code;

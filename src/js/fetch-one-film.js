@@ -7,12 +7,14 @@ import 'basiclightbox/dist/basicLightbox.min.css';
 import fetchVideoKey from './fetchVideoKey';
 import addEventListenersOnButtons from './buttons-modal';
 
+export let movieInfo = {};
+
 const body = document.querySelector('body');
 
 const btnCloseModalMovie = document.querySelector('.js-btn-close-modal');
 const cardMovie = document.querySelector('.js-modal-card');
 const backdropMovie = document.querySelector('.js-backdrop-movie');
-
+const buttonUp = document.querySelector('.up');
 //-----слухачі подій-----
 
 if (document.querySelector('.js-cards-list')) {
@@ -62,23 +64,29 @@ async function onOpenModalMovieClick(event) {
   body.classList.add('stop-scroll');
   // отримання інфо про конкретний фільм
   const response = await fetchData(idMovie);
+  console.log(response);
   // console.log(response.data);
-  const movieInfo = getOneMovieInfo(response.data);
+  movieInfo = getOneMovieInfo(response.data);
+  console.log(movieInfo);
 
-    // відображення модалки з інфо про фільм
-    renderModalMovieInfo(movieInfo);
+  // відображення модалки з інфо про фільм
+  renderModalMovieInfo(movieInfo);
   addEventListenersOnButtons();
+
   // ховає спінер
   Notiflix.Loading.remove();
   // слухач для трейлера
   const iframeRef = document.querySelector('.js-iframe');
   iframeRef.addEventListener('click', onClickYouTube);
+  buttonUp.style.display = 'none';
 }
 
 // закриття модалки фільму
 function onCloseModalClick() {
   backdropMovie.classList.add('is-hidden');
   body.classList.remove('stop-scroll');
+  console.log('close');
+  buttonUp.style.display = 'block';
 }
 
 // функція запиту на бекенд за idMovie
@@ -111,6 +119,7 @@ function getOneMovieInfo({
   overview,
   vote_average,
   vote_count,
+  release_date,
 }) {
   const posterPath = poster_path
     ? `https://image.tmdb.org/t/p/w300${poster_path}`
@@ -132,6 +141,7 @@ function getOneMovieInfo({
     popularity: popularity.toFixed(1),
     voteAverage: vote_average.toFixed(1),
     voteCount: vote_count,
+    release_date: release_date,
   };
 
   return movieInfo;
@@ -188,10 +198,10 @@ function renderModalMovieInfo(movieInfo) {
   <p class="thumb-right__overview">${overview}</p>
 
   <div class="modal-card__btn-wrap">
-    <button class="modal-card__watched-btn" data-id="${id}" data-name="watch">
+    <button class="modal-card__watched-btn js-add-watched-btn" data-id="${id}" data-name="watch">
       Add to watched
     </button>
-    <button class="modal-card__queue-btn" data-id="${id}" data-name="queue">
+    <button class="modal-card__queue-btn js-add-queue-btn" data-id="${id}" data-name="queue">
       Add to queue
     </button>
   </div>

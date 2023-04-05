@@ -18,7 +18,7 @@ export const actionsAfterRegistration = (user) => {
     };
 };
 
-const logOutHandler = () => {
+export const logOutHandler = () => {
     exitUser();
     refs.logInBtn.classList.remove('is-hidden');
     refs.signUpBtn.classList.remove('is-hidden');

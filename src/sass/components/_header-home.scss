@@ -1,5 +1,7 @@
 .header {
+  max-width: 1600px;
   height: 216px;
+  margin: 0 auto;
   // position: relative;
   // top: 0;
   // left: 0;
@@ -44,42 +46,60 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 54px;
+  margin-bottom: 54px;
   position: relative;
 }
 
-.logo__site:hover > svg,
-.logo__site:focus > svg,
-.logo__site:hover > span,
-.logo__site:focus > span {
-  color: $informationColor;
-  stroke: $informationColor;
-  fill: $informationColor;
-}
+.logo__site {
+  display: flex;
+  align-items: center;
+  color: $mainLightColor;
+  fill: $mainLightColor;
+  transition: color $duration $timingFunction,
+              transform $duration $timingFunction;
 
-.logo__svg {
-  stroke: $mainLightColor;
-  transition: transform $duration $timingFunction;
   &:hover,
   &:focus {
     transform: scale(1.25);
   }
 }
 
-.logo__svg:hover,
-.logo__svg:focus {
-  transform: scale(1.25);
-  transition: transform $duration $timingFunction;
+.logo__site:hover .logo__name {
+  color: $accentColor;
 }
+
+// .logo__site:hover > svg,
+// .logo__site:focus > svg,
+// .logo__site:hover > span,
+// .logo__site:focus > span {
+//   color: $informationColor;
+//   stroke: $informationColor;
+//   fill: $informationColor;
+// }
+
+// .logo__svg {
+//   stroke: $mainLightColor;
+//   transition: transform $duration $timingFunction;
+//   &:hover,
+//   &:focus {
+//     transform: scale(1.25);
+//   }
+// }
+
+// .logo__svg:hover,
+// .logo__svg:focus {
+//   transform: scale(1.25);
+//   transition: transform $duration $timingFunction;
+// }
 
 .logo__name {
   display: none;
 }
 
-.logo > a {
-  display: flex;
-  align-items: center;
-}
+// .logo > a {
+//   display: flex;
+//   align-items: center;
+// }
 
 .navigation-list {
   display: flex;
@@ -87,16 +107,33 @@
   flex-grow: 0;
 }
 .navigation-list__link {
-  color: $mainLightColor;
   text-transform: uppercase;
+  color: $mainLightColor;
+  line-height: 1.667;
+  transition: color $duration $timingFunction;
+  &:hover {
+    color: $accentColor;
+    cursor: pointer;
+    outline: none;
+  }
+}
+
+.navigation-list__link-current::after {
+  bottom: -3px;
+
+  display: block;
+  content: '';
+  width: 100%;
+  height: 3px;
+  background-color: $accentColor;
 }
 
 .authorization {
   position: absolute;
   right: 0;
-  bottom: 0;
+  bottom: -59px;
   display: flex;
-  transform: translateY(-100%);
+  // transform: translateY(-100%);
   @include tablet {
     transform: translateY(0);
   }
@@ -107,7 +144,6 @@
 }
 
 .authorization__btn {
-  transform: translateY(10%);
   width: fit-content;
   display: flex;
   flex-wrap: nowrap;
@@ -119,16 +155,17 @@
   font-weight: 500;
   background-color: transparent;
   border: none;
-  cursor: pointer;
+  // cursor: pointer;
   text-transform: uppercase;
   color: $informationColor;
   fill: $informationColor;
   transition: transform $duration $timingFunction;
-  border-color: #ff001b;
-  border-style: ridge;
-  border-radius: 7px;
-  font-size: 16px;
+  // border-color: #ff001b;
+  // border-style: ridge;
+  // border-radius: 7px;
+  font-size: 14px;
   opacity: 1;
+  // transform: translateY(10%);
   &:hover {
     transform: scale(1.25);
   }
@@ -147,11 +184,11 @@
 .navigation-list__item {
   font-weight: 500;
   line-height: 1.17px;
-  &:hover,
-  &:focus {
-    transform: scale(1.25);
-    transition: transform $duration $timingFunction;
-  }
+  // &:hover,
+  // &:focus {
+  //   transform: scale(1.25);
+  //   transition: transform $duration $timingFunction;
+  // }
   &:not(:last-child) {
     margin-right: 32px;
   }
@@ -165,6 +202,12 @@
 
 .header__form-search {
   position: relative;
+  margin-top: 35px;
+
+  @include desktop {
+    margin-top: 0;
+  }
+  
 }
 
 .header__input {
@@ -198,15 +241,13 @@
   stroke: $mainLightColor;
   fill: $mainLightColor;
   position: absolute;
-  width: 22px;
-  height: 22px;
-  top: -4px;
+  width: 30px;
+  height: 30px;
+  top: -8px;
   right: 0;
   border: none;
   border-radius: 50%;
-  background: url(../images/search-2.svg);
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: transparent;
   &:hover,
   &:focus {
     cursor: pointer;
@@ -215,29 +256,29 @@
   }
 }
 
-.navigation-list__link-current {
-  position: relative;
-  display: block;
+// .navigation-list__link-current {
+//   position: relative;
+//   display: block;
 
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 0;
-    transform: translateY(1px);
-    display: block;
-    width: 100%;
-    height: 3px;
-    border: none;
-    background-color: $informationColor;
-    transition: width 0.2s ease-in-out;
-  }
+//   &::after {
+//     content: '';
+//     position: absolute;
+//     bottom: -10px;
+//     left: 0;
+//     transform: translateY(1px);
+//     display: block;
+//     width: 100%;
+//     height: 3px;
+//     border: none;
+//     background-color: $informationColor;
+//     transition: width 0.2s ease-in-out;
+//   }
 
-  &:hover::after,
-  &:focus::after {
-    width: 0;
-  }
-}
+//   &:hover::after,
+//   &:focus::after {
+//     width: 0;
+//   }
+// }
 
 @include tablet {
   .logo__name {
