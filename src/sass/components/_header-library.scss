@@ -27,7 +27,11 @@
     align-items: baseline;
     justify-content: space-between;
 
-    margin-bottom: 41px;
+    margin-bottom: 60px;
+
+//     @include tablet {
+//         margin-bottom: 0px;
+//     }
 }
 
 .main-page-link {
@@ -35,16 +39,17 @@
     font-size: 30px;
     line-height: 1.667;
     color: $mainLightColor;
-    stroke: #818181;
-    transition: color $duration $timingFunction;
+    transition: color $duration $timingFunction,
+                transform $duration $timingFunction;
 
     &:hover,
     &:focus {
-        color: $accentColor;
-        stroke: $header-focus;
-        outline: none;
+        transform: scale(1.25);
     }
+}
 
+.main-page-link:hover .site-title {
+    color: $accentColor;
 }
 
 .nav-list {
@@ -83,6 +88,16 @@
     height: 3px;
     background-color: $accentColor;
 }
+
+.authorization--bottom {
+  bottom: 58px;
+  margin-right: auto;  
+  right: 20px;
+@include tablet {
+    right: 30px;
+}
+}
+
 
 
 .buttons {
@@ -135,12 +150,4 @@
     }
 }
 
-@include tablet {
-    // .search-form {
-    //     width: 336px;
-    // }
 
-    .nav {
-        margin-bottom: 38px;
-    }
-}

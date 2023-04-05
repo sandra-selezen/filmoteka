@@ -6,3 +6,6 @@ import './js/fetch-one-film';
 import './js/fetchVideoKey';
 import './js/them-switcher';
 import './js/button-up';
+import './js/firebase/render-modal';
+import './js/firebase/firebase-Init';
+import './js/firebase/log-actions';
