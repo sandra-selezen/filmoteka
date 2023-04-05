@@ -46,8 +46,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 54px;
+  margin-bottom: 34px;
   position: relative;
+
+  @include tablet {
+    margin-bottom: 54px;
+  }
 }
 
 .logo__site {
