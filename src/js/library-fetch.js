@@ -3,8 +3,8 @@ import GetFilmsFromLocalStorage from './get-films-from-local-storage';
 
 const libraryMarkupRef = document.querySelector('.js-cards-list-library');
 const modalMarkupRef = document.querySelector('.js-modal-card');
-// const modalRef = document.querySelector('.js-cards-list-library');
-
+const libraryContainer = document.querySelector('.library__container');
+const libraryTitle = document.querySelector('.library__title');
 export default function initializeLibrary() {
   const watchedButtonRef = document.querySelector('.js-watched');
   const queueButtonRef = document.querySelector('.js-queue');
@@ -20,17 +20,40 @@ function doWatchedLibrary() {
     JSON.parse(localStorage.getItem('watched')),
     libraryMarkupRef
   );
+
+  const storageIsNotEmpty = JSON.parse(localStorage.getItem('watched'));
+
+  let storageCondition;
+  if (`${storageIsNotEmpty}` === '') {
+    storageCondition = 0;
+  } else if (storageIsNotEmpty === null) {
+    storageCondition = storageIsNotEmpty;
+  } else {
+    storageCondition = storageIsNotEmpty;
+  }
+
+  if (storageCondition) {
+    libraryContainer.setAttribute(
+      'class',
+      'library__container visually-hidden'
+    );
+  } else {
+    libraryContainer.setAttribute('class', 'library__container');
+  }
+
   if (JSON.parse(localStorage.getItem('watched'))) {
     getWatched.getFilms();
     const watchedPagination = new CreatePagination(getWatched);
     watchedPagination.activatePagination();
+  } else {
+    libraryMarkupRef.innerHTML = '';
   }
-    document
-      .querySelector('.js-watched')
-      .setAttribute('class', 'library-btn enabled-btn js-watched');
-    document
-      .querySelector('.js-queue')
-      .setAttribute('class', 'library-btn disabled-btn js-queue');
+  document
+    .querySelector('.js-watched')
+    .setAttribute('class', 'library-btn enabled-btn js-watched');
+  document
+    .querySelector('.js-queue')
+    .setAttribute('class', 'library-btn disabled-btn js-queue');
 }
 
 function doQueueLibrary() {
@@ -38,10 +61,34 @@ function doQueueLibrary() {
     JSON.parse(localStorage.getItem('queue')),
     libraryMarkupRef
   );
+
+  const qStorageIsNotEmpty = JSON.parse(localStorage.getItem('queue'));
+
+  let qStorageConition;
+  if (`${qStorageIsNotEmpty}` === '') {
+    qStorageConition = 0;
+  } else if (qStorageIsNotEmpty === null) {
+    qStorageConition = qStorageIsNotEmpty;
+  } else {
+    qStorageConition = qStorageIsNotEmpty;
+  }
+
+
+  if (qStorageConition) {
+    libraryContainer.setAttribute(
+      'class',
+      'library__container visually-hidden'
+    );
+  } else {
+    libraryContainer.setAttribute('class', 'library__container');
+  }
+
   if (JSON.parse(localStorage.getItem('queue'))) {
     getQueued.getFilms();
     const queuedPagination = new CreatePagination(getQueued);
     queuedPagination.activatePagination();
+  } else {
+    libraryMarkupRef.innerHTML = '';
   }
   document
     .querySelector('.js-watched')
@@ -50,4 +97,3 @@ function doQueueLibrary() {
     .querySelector('.js-queue')
     .setAttribute('class', 'library-btn enabled-btn js-queue');
 }
-

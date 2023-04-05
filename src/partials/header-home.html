@@ -48,20 +48,26 @@
           </li>
         </ul>
         <ul class="authorization">
-          <li class="authorization__js-signIn">
-            <button class="authorization__btn">
-              <svg width="16" height="16">
-                <use href="/src/images/icons.svg#icon-sign-in"></use>
-              </svg>
-              &nbsp; Sign in
-            </button>
-          </li>
-          <li class="authorization__js-signOut visually-hidden">
-            <button class="authorization__btn">
+          <li class="authorization__item">
+            <button class="authorization__btn is-hidden js-log-out">
               Sign out &nbsp;
               <svg width="16" height="16">
                 <use href="/src/images/icons.svg#icon-sign-out"></use>
               </svg>
+            </button>
+          </li>
+          <li class="authorization__item">
+            <button class="authorization__btn js-log-in">
+              <svg width="16" height="16">
+                <use href="/src/images/icons.svg#icon-sign-in"></use>
+              </svg>
+              &nbsp; 
+               Log in
+            </button>
+          </li>
+           <li class="authorization__item">
+            <button type="button" class="authorization__btn js-sign-up" data-modal-open-reg>
+              Sign up
             </button>
           </li>
         </ul>

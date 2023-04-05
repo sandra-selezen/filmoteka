@@ -131,35 +131,54 @@
 .authorization {
   position: absolute;
   right: 0;
-  bottom: -44px;
+  bottom: -59px;
   display: flex;
-  transform: translateY(-100%);
+  // transform: translateY(-100%);
   @include tablet {
     transform: translateY(0);
   }
 }
 
+.authorization__item {
+  margin-left: 30px;
+}
+
 .authorization__btn {
-  transform: translateY(10%);
   width: fit-content;
   display: flex;
   flex-wrap: nowrap;
   white-space: nowrap;
   align-items: center;
   margin: 0;
-  padding: 0;
+  padding: 5;
   line-height: 1.67;
   font-weight: 500;
   background-color: transparent;
   border: none;
-  cursor: pointer;
+  // cursor: pointer;
   text-transform: uppercase;
   color: $informationColor;
   fill: $informationColor;
   transition: transform $duration $timingFunction;
+  // border-color: #ff001b;
+  // border-style: ridge;
+  // border-radius: 7px;
+  font-size: 14px;
+  opacity: 1;
+  // transform: translateY(10%);
   &:hover {
     transform: scale(1.25);
   }
+}
+
+.authorization__btn.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.authorization__btn.is-visible {
+  transform: translate(205%);
+
 }
 
 .navigation-list__item {
@@ -183,6 +202,12 @@
 
 .header__form-search {
   position: relative;
+  margin-top: 35px;
+
+  @include desktop {
+    margin-top: 0;
+  }
+  
 }
 
 .header__input {

@@ -27,7 +27,11 @@
     align-items: baseline;
     justify-content: space-between;
 
-    margin-bottom: 41px;
+    margin-bottom: 60px;
+
+//     @include tablet {
+//         margin-bottom: 0px;
+//     }
 }
 
 .main-page-link {
@@ -85,6 +89,16 @@
     background-color: $accentColor;
 }
 
+.authorization--bottom {
+  bottom: 58px;
+  margin-right: auto;  
+  right: 20px;
+@include tablet {
+    right: 30px;
+}
+}
+
+
 
 .buttons {
     display: flex;
@@ -136,12 +150,4 @@
     }
 }
 
-@include tablet {
-    // .search-form {
-    //     width: 336px;
-    // }
 
-    .nav {
-        margin-bottom: 38px;
-    }
-}

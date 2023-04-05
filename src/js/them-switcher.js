@@ -4,7 +4,6 @@ const themSwitcherFunction = () => {
   let newTheme = dataAtribute === 'light' ? 'dark' : 'light';
   rootElement.setAttribute('data-theme', newTheme);
   localStorage.setItem('theme', newTheme);
-  console.log('click');
 };
 document
   .querySelector('.theme-switcher')
