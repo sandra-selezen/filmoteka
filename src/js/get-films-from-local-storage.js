@@ -24,7 +24,7 @@ export default class GetFilmsFromLocalStorage {
 
   getPosters() {
     this.posters = this.currentPage.map(filmData =>
-      filmData.poster
+      filmData.poster ? filmData.poster : defaultImage
     );
   }
 
@@ -43,9 +43,7 @@ export default class GetFilmsFromLocalStorage {
   }
 
   getVoteAverage() {
-    this.votes = this.currentPage.map(filmData =>
-      filmData.voteAverage
-    );
+    this.votes = this.currentPage.map(filmData => filmData.voteAverage);
   }
 
   getGenres() {
