@@ -1,7 +1,3 @@
-import { load, save, removeStore } from './localStorage';
-import fetchData from './fetch-one-film';
-import getOneMovieInfo from './fetch-one-film';
-// import { movieInfo } from './fetch-one-film';
 import { movieInfo } from './fetch-one-film';
 
 const URL = 'https://api.themoviedb.org/3/movie/';
@@ -10,57 +6,7 @@ const API_KEY = '959330b1b48c95e1fde96a992bbede29';
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
 
-// const movieInfo = {
-//   id: id,
-//   poster: posterPath,
-//   originalTitle: original_title,
-//   title,
-//   overview,
-//   genresMovie,
-//   popularity: popularity.toFixed(1),
-//   voteAverage: vote_average.toFixed(1),
-//   voteCount: vote_count,
-// };
-
-// checkInStore(WATCHED_KEY, movieInfo, addToWatchedBtn, 'Added to watched');
-// checkInStore(QUEUE_KEY, movieInfo, addToQueueBtn, 'Added to queue');
-
-// function onModalBtnWatchedClick(event) {
-//   event.preventDefault();
-//   event.target.textContent = 'Added to watched';
-//   event.target.disabled = true;
-
-//   save(WATCHED_KEY, event.target.dataset.id);
-// }
-
-// function onModalBtnQueueClick(event) {
-//   event.preventDefault();
-//   event.target.textContent = 'Added to queue';
-//   event.target.disabled = true;
-
-//   save(QUEUE_KEY, event.target.dataset.id);
-// }
-// export default function addEventListenersOnButtons() {
-//   const addToWatchedBtn = document.querySelector('.modal-card__watched-btn');
-//   const addToQueueBtn = document.querySelector('.modal-card__queue-btn');
-
-// addToWatchedBtn.addEventListener('click', onModalBtnWatchedClick);
-// addToQueueBtn.addEventListener('click', onModalBtnQueueClick);
-// }
-
-// function checkInStore(key, movieInfo) {
-//   const storage = load(key);
-//   const filmCurrent = movieInfo;
-//   const filmIncluded = storage.find(film => film.id === filmCurrent.id);
-
-//   if (filmIncluded) {
-//     console.log('film included')
-//   }
-// }
-
-// ------------------------------------------ //
-
-export default function saveToWatched() {
+function saveToWatched() {
   const currentLocalStorageContent = JSON.parse(
     localStorage.getItem(WATCHED_KEY)
   );
@@ -84,7 +30,6 @@ export default function saveToWatched() {
     }
   } else {
     watchedArray.push(movieInfo);
-    console.log(watchedArray);
     localStorage.setItem(WATCHED_KEY, JSON.stringify(watchedArray));
   }
 
@@ -143,7 +88,6 @@ function checkInWatchedStore() {
     const currentLocalStorageContent = JSON.parse(
     localStorage.getItem(WATCHED_KEY)
   );
-  console.log(currentLocalStorageContent);
   const filmId = document.querySelector('.js-modal-card img').dataset.id;
   const watchedArray = [];
 
@@ -161,7 +105,6 @@ function checkInQueueStore() {
     const currentLocalStorageContent = JSON.parse(
     localStorage.getItem(QUEUE_KEY)
   );
-  console.log(currentLocalStorageContent);
   const filmId = document.querySelector('.js-modal-card img').dataset.id;
   const queueArray = [];
 

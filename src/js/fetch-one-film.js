@@ -71,7 +71,12 @@ async function onOpenModalMovieClick(event) {
 
   // відображення модалки з інфо про фільм
   renderModalMovieInfo(movieInfo);
-  addEventListenersOnButtons();
+  if (document.querySelector('.js-cards-list')) {
+    addEventListenersOnButtons();
+  } else {
+    addEventListenersOnButtons();
+  }
+  
 
   // ховає спінер
   Notiflix.Loading.remove();
