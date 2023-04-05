@@ -34,22 +34,18 @@ const analytics = getAnalytics(app);
 
 const auth = getAuth();
 
-onAuthStateChanged(auth, myUser => {
-  if (myUser) {
+onAuthStateChanged(auth, (user) => {
+  if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = myUser.uid;
-        actionsAfterFindingUser(myUser);
-    // makeLoggedHtml(` user logged as ${myUser.email} `);
+    const uid = user.uid;
+    actionsAfterFindingUser(uid);
     // ...
   } else {
     // User is signed out
     // ...
-
-    // logOutHandler();
   }
 });
-
 
 
 

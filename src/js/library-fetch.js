@@ -1,6 +1,8 @@
 import CreatePagination from './pagination';
 import GetFilmsFromLocalStorage from './get-films-from-local-storage';
 // import ModalLibrary from './modal-library';
+import { settingsOpportunities } from './firebase/log-actions';
+import { Notify } from 'notiflix';
 
 const libraryMarkupRef = document.querySelector('.js-cards-list-library');
 const modalMarkupRef = document.querySelector('.js-modal-card');
@@ -27,12 +29,24 @@ export default function initializeLibrary() {
 }
 
 function doWatchedLibrary() {
+
+  if (!settingsOpportunities.isEntry) {
+    Notify.failure('Please sign up or log in to access advanced features');
+    return
+  };
+
   getWatched.getFilms();
   const watchedPagination = new CreatePagination(getWatched);
   watchedPagination.activatePagination();
 }
 
 function doQueueLibrary() {
+
+  if (!settingsOpportunities.isEntry) {
+    Notify.failure('Please sign up or log in to access advanced features');
+    return
+  };
+
   getQueued.getFilms();
   const queuedPagination = new CreatePagination(getQueued);
   queuedPagination.activatePagination();

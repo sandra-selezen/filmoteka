@@ -63,14 +63,20 @@ const QUEUE_KEY = 'queue';
 // ------------------------------------------ //
 
 // function saveToWatched(event) {
-//   console.log('to watched!');
+  // console.log('to watched!');
   
-//   if (!settingsOpportunities.isEntry) {
-//     Notify.failure('Please sign up or log in to access advanced features');
-//     return
-//   };
+  // if (!settingsOpportunities.isEntry) {
+  //   Notify.failure('Please sign up or log in to access advanced features');
+  //   return
+  // };
 
 export default function saveToWatched() {
+    console.log('to watched!');
+  
+  if (!settingsOpportunities.isEntry) {
+    Notify.failure('Please sign up or log in to access advanced features');
+    return
+  };
   const currentLocalStorageContent = JSON.parse(
     localStorage.getItem(WATCHED_KEY)
   );
@@ -101,14 +107,20 @@ export default function saveToWatched() {
 }
 
 // function saveToQueue(event) {
-//   console.log('to quevue!');
+  // console.log('to quevue!');
 
-//   if (!settingsOpportunities.isEntry) {
-//     Notify.failure('Please sign up or log in to access advanced features');
-//     return
-//   };
+  // if (!settingsOpportunities.isEntry) {
+  //   Notify.failure('Please sign up or log in to access advanced features');
+  //   return
+  // };
 
 function saveToQueue() {
+  console.log('to quevue!');
+
+  if (!settingsOpportunities.isEntry) {
+    Notify.failure('Please sign up or log in to access advanced features');
+    return
+  };
   const currentLocalStorageContent = JSON.parse(
     localStorage.getItem(QUEUE_KEY)
   );

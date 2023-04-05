@@ -5,7 +5,7 @@ import { refs, closeRegModal } from "./render-modal";
 
 
 export const actionsAfterRegistration = (user) => {
-    if (user.email) {
+    if (usesr) {
         Notify.success('You are registered! Choose a movie and prepare popcorn!')
         closeRegModal();
         refs.logInBtn.classList.add('is-hidden');
@@ -14,7 +14,6 @@ export const actionsAfterRegistration = (user) => {
         refs.logOutBtn.classList.add('is-visible');
         refs.logOutBtn.addEventListener("click", logOutHandler);
         settingsOpportunities.isEntry = true;
-        console.log('OK')
     };
 };
 
@@ -28,4 +27,18 @@ export const logOutHandler = () => {
 
 export const settingsOpportunities = {
     isEntry: false,
+};
+
+
+export const actionsAfterFindingUser = (uid) => {
+    if (uid) {
+        Notify.success('You are registered! Choose a movie and prepare popcorn!')
+        closeRegModal();
+        refs.logInBtn.classList.add('is-hidden');
+        refs.signUpBtn.classList.add('is-hidden');
+        refs.logOutBtn.classList.remove('is-hidden');
+        refs.logOutBtn.classList.add('is-visible');
+        refs.logOutBtn.addEventListener("click", logOutHandler);
+        settingsOpportunities.isEntry = true;
+    };
 };
