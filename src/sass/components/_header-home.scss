@@ -131,7 +131,7 @@
 .authorization {
   position: absolute;
   right: 0;
-  bottom: -44px;
+  bottom: -59px;
   display: flex;
   // transform: translateY(-100%);
   @include tablet {
@@ -160,9 +160,9 @@
   color: $informationColor;
   fill: $informationColor;
   transition: transform $duration $timingFunction;
-  border-color: #ff001b;
-  border-style: ridge;
-  border-radius: 7px;
+  // border-color: #ff001b;
+  // border-style: ridge;
+  // border-radius: 7px;
   font-size: 14px;
   opacity: 1;
   // transform: translateY(10%);
