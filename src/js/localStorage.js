@@ -10,7 +10,6 @@ export const load = key => {
 export const save = (key, value) => {
   try {
     const storage = load(key);
-    console.log(storage);
     const filmCurrent = JSON.parse(value);
     const filmIncluded = storage.find(film => film.id === filmCurrent.id);
     if (storage.length === 0 || !filmIncluded) {

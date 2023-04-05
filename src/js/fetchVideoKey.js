@@ -16,9 +16,7 @@ export default async function fetchVideoKey(id) {
   Notiflix.Loading.circle();
   try {
     const { data } = await axios.get(url);
-    console.log('data:', data);
     const filmKey = data.results[0].key;
-    console.log('filmKey:', filmKey);
     return filmKey;
   } catch (error) {
     console.log('error:', error);

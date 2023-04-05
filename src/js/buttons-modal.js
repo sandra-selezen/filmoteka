@@ -10,7 +10,6 @@ function saveToWatched() {
   const currentLocalStorageContent = JSON.parse(
     localStorage.getItem(WATCHED_KEY)
   );
-  console.log(currentLocalStorageContent);
   const filmId = document.querySelector('.js-modal-card img').dataset.id;
   const watchedArray = [];
 
@@ -38,7 +37,6 @@ function saveToQueue() {
   const currentLocalStorageContent = JSON.parse(
     localStorage.getItem(QUEUE_KEY)
   );
-  console.log(currentLocalStorageContent);
   const filmId = document.querySelector('.js-modal-card img').dataset.id;
   const queueArray = [];
 
@@ -58,7 +56,6 @@ function saveToQueue() {
     }
   } else {
     queueArray.push(movieInfo);
-    console.log(queueArray);
     localStorage.setItem(QUEUE_KEY, JSON.stringify(queueArray));
   }
 }
@@ -66,6 +63,8 @@ function saveToQueue() {
 export default function addEventListenersOnButtons() {
   const watchedButton = document.querySelector('.js-add-watched-btn');
   const queueButton = document.querySelector('.js-add-queue-btn');
+  watchedButton.blur();
+  queueButton.blur();
 
   if (checkInWatchedStore()) {
     watchedButton.textContent = 'Remove from watched';
@@ -122,11 +121,19 @@ function onWatchedModalButton(event) {
   if (currentButton === 'Add to watched') {
     saveToWatched();
     event.currentTarget.textContent = 'Remove from watched';
-    // event.currentTarget.setAttribute('style', 'background-color: #fff');
+    event.currentTarget.setAttribute(
+      'class',
+      'modal-card__queue-btn js-add-watched-btn'
+    );
+    event.currentTarget.blur();
   } else {
     removeFromWatched();
     event.currentTarget.textContent = 'Add to watched';
-    // event.currentTarget.setAttribute('style', 'background-color: #ff6b01');
+    event.currentTarget.setAttribute(
+      'class',
+      'modal-card__watched-btn js-add-watched-btn'
+    );
+    event.currentTarget.blur();
   }
 }
 
@@ -136,11 +143,19 @@ function onQueueModalButton(event) {
   if (currentButton === 'Add to queue') {
     saveToQueue();
     event.currentTarget.textContent = 'Remove from queue';
-    // event.currentTarget.setAttribute('style', 'background-color: #ff6b01');
+    event.currentTarget.setAttribute(
+      'class',
+      'modal-card__watched-btn js-add-queue-btn'
+    );
+    event.currentTarget.blur();
   } else {
     removeFromQueue();
     event.currentTarget.textContent = 'Add to queue';
-    // event.currentTarget.setAttribute('style', 'background-color: #fff');
+    event.currentTarget.setAttribute(
+      'class',
+      'modal-card__queue-btn js-add-queue-btn'
+    );
+    event.currentTarget.blur();
   }
 }
 
@@ -168,8 +183,3 @@ function removeFromQueue() {
   localStorage.setItem('queue', JSON.stringify(parsedFilms));
 }
 
-// оранжевая - modal-card__watched-btn #ff6b01
-// белая - modal-card__queue-btn #fff
-
-// watched - modal-card__watched-btn js-add-watched-btn
-// queue - modal-card__queue-btn js-add-queue-btn
