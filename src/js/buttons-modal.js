@@ -1,7 +1,3 @@
-import { load, save, removeStore } from './localStorage';
-import fetchData from './fetch-one-film';
-import getOneMovieInfo from './fetch-one-film';
-// import { movieInfo } from './fetch-one-film';
 import { movieInfo } from './fetch-one-film';
 
 const URL = 'https://api.themoviedb.org/3/movie/';
@@ -10,61 +6,10 @@ const API_KEY = '959330b1b48c95e1fde96a992bbede29';
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
 
-// const movieInfo = {
-//   id: id,
-//   poster: posterPath,
-//   originalTitle: original_title,
-//   title,
-//   overview,
-//   genresMovie,
-//   popularity: popularity.toFixed(1),
-//   voteAverage: vote_average.toFixed(1),
-//   voteCount: vote_count,
-// };
-
-// checkInStore(WATCHED_KEY, movieInfo, addToWatchedBtn, 'Added to watched');
-// checkInStore(QUEUE_KEY, movieInfo, addToQueueBtn, 'Added to queue');
-
-// function onModalBtnWatchedClick(event) {
-//   event.preventDefault();
-//   event.target.textContent = 'Added to watched';
-//   event.target.disabled = true;
-
-//   save(WATCHED_KEY, event.target.dataset.id);
-// }
-
-// function onModalBtnQueueClick(event) {
-//   event.preventDefault();
-//   event.target.textContent = 'Added to queue';
-//   event.target.disabled = true;
-
-//   save(QUEUE_KEY, event.target.dataset.id);
-// }
-// export default function addEventListenersOnButtons() {
-//   const addToWatchedBtn = document.querySelector('.modal-card__watched-btn');
-//   const addToQueueBtn = document.querySelector('.modal-card__queue-btn');
-
-// addToWatchedBtn.addEventListener('click', onModalBtnWatchedClick);
-// addToQueueBtn.addEventListener('click', onModalBtnQueueClick);
-// }
-
-// function checkInStore(key, movieInfo) {
-//   const storage = load(key);
-//   const filmCurrent = movieInfo;
-//   const filmIncluded = storage.find(film => film.id === filmCurrent.id);
-
-//   if (filmIncluded) {
-//     console.log('film included')
-//   }
-// }
-
-// ------------------------------------------ //
-
-export default function saveToWatched() {
+function saveToWatched() {
   const currentLocalStorageContent = JSON.parse(
     localStorage.getItem(WATCHED_KEY)
   );
-  console.log(currentLocalStorageContent);
   const filmId = document.querySelector('.js-modal-card img').dataset.id;
   const watchedArray = [];
 
@@ -84,17 +29,14 @@ export default function saveToWatched() {
     }
   } else {
     watchedArray.push(movieInfo);
-    console.log(watchedArray);
     localStorage.setItem(WATCHED_KEY, JSON.stringify(watchedArray));
   }
-
 }
 
 function saveToQueue() {
   const currentLocalStorageContent = JSON.parse(
     localStorage.getItem(QUEUE_KEY)
   );
-  console.log(currentLocalStorageContent);
   const filmId = document.querySelector('.js-modal-card img').dataset.id;
   const queueArray = [];
 
@@ -114,36 +56,35 @@ function saveToQueue() {
     }
   } else {
     queueArray.push(movieInfo);
-    console.log(queueArray);
     localStorage.setItem(QUEUE_KEY, JSON.stringify(queueArray));
   }
-
 }
 
 export default function addEventListenersOnButtons() {
   const watchedButton = document.querySelector('.js-add-watched-btn');
   const queueButton = document.querySelector('.js-add-queue-btn');
+  watchedButton.blur();
+  queueButton.blur();
 
   if (checkInWatchedStore()) {
     watchedButton.textContent = 'Remove from watched';
   } else {
     watchedButton.textContent = 'Add to watched';
   }
-    if (checkInQueueStore()) {
+  if (checkInQueueStore()) {
     queueButton.textContent = 'Remove from queue';
   } else {
     queueButton.textContent = 'Add to queue';
-  }  
+  }
 
   watchedButton.addEventListener('click', onWatchedModalButton);
   queueButton.addEventListener('click', onQueueModalButton);
 }
 
 function checkInWatchedStore() {
-    const currentLocalStorageContent = JSON.parse(
+  const currentLocalStorageContent = JSON.parse(
     localStorage.getItem(WATCHED_KEY)
   );
-  console.log(currentLocalStorageContent);
   const filmId = document.querySelector('.js-modal-card img').dataset.id;
   const watchedArray = [];
 
@@ -158,10 +99,9 @@ function checkInWatchedStore() {
 }
 
 function checkInQueueStore() {
-    const currentLocalStorageContent = JSON.parse(
+  const currentLocalStorageContent = JSON.parse(
     localStorage.getItem(QUEUE_KEY)
   );
-  console.log(currentLocalStorageContent);
   const filmId = document.querySelector('.js-modal-card img').dataset.id;
   const queueArray = [];
 
@@ -181,21 +121,41 @@ function onWatchedModalButton(event) {
   if (currentButton === 'Add to watched') {
     saveToWatched();
     event.currentTarget.textContent = 'Remove from watched';
+    event.currentTarget.setAttribute(
+      'class',
+      'modal-card__queue-btn js-add-watched-btn'
+    );
+    event.currentTarget.blur();
   } else {
     removeFromWatched();
     event.currentTarget.textContent = 'Add to watched';
+    event.currentTarget.setAttribute(
+      'class',
+      'modal-card__watched-btn js-add-watched-btn'
+    );
+    event.currentTarget.blur();
   }
 }
 
 function onQueueModalButton(event) {
-    const currentButton = event.currentTarget.textContent;
+  const currentButton = event.currentTarget.textContent;
 
   if (currentButton === 'Add to queue') {
     saveToQueue();
     event.currentTarget.textContent = 'Remove from queue';
+    event.currentTarget.setAttribute(
+      'class',
+      'modal-card__watched-btn js-add-queue-btn'
+    );
+    event.currentTarget.blur();
   } else {
-    removeFromQueue()
+    removeFromQueue();
     event.currentTarget.textContent = 'Add to queue';
+    event.currentTarget.setAttribute(
+      'class',
+      'modal-card__queue-btn js-add-queue-btn'
+    );
+    event.currentTarget.blur();
   }
 }
 
@@ -222,3 +182,4 @@ function removeFromQueue() {
 
   localStorage.setItem('queue', JSON.stringify(parsedFilms));
 }
+

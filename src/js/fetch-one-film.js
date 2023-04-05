@@ -64,14 +64,17 @@ async function onOpenModalMovieClick(event) {
   body.classList.add('stop-scroll');
   // отримання інфо про конкретний фільм
   const response = await fetchData(idMovie);
-  console.log(response);
   // console.log(response.data);
   movieInfo = getOneMovieInfo(response.data);
-  console.log(movieInfo);
 
   // відображення модалки з інфо про фільм
   renderModalMovieInfo(movieInfo);
-  addEventListenersOnButtons();
+  if (document.querySelector('.js-cards-list')) {
+    addEventListenersOnButtons();
+  } else {
+    addEventListenersOnButtons();
+  }
+  
 
   // ховає спінер
   Notiflix.Loading.remove();
@@ -85,7 +88,6 @@ async function onOpenModalMovieClick(event) {
 function onCloseModalClick() {
   backdropMovie.classList.add('is-hidden');
   body.classList.remove('stop-scroll');
-  console.log('close');
   buttonUp.style.display = 'block';
 }
 
@@ -101,7 +103,6 @@ async function fetchData(idMovie) {
   };
   try {
     const response = await axios.get(API_URL, options);
-    // console.log(response);
     return response;
   } catch (error) {
     console.log(error);
@@ -233,7 +234,6 @@ function onClickYouTube() {
       if (event.code === 'Escape') {
         instance.close();
       }
-      console.log(event);
     }
   });
 }
