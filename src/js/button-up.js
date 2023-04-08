@@ -1,15 +1,16 @@
-const btnUp = document.querySelector('.up');
-btnUp.style.display = 'none';
+import { refs } from './refs';
+// const btnUp = document.querySelector('.up');
+refs.btnUp.style.display = 'none';
 
-btnUp.addEventListener('click', topFunction);
+refs.btnUp.addEventListener('click', topFunction);
 window.addEventListener('scroll', scrollFunction);
 
 // функція скролу
 function scrollFunction() {
   if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) {
-    btnUp.style.display = 'block';
+    refs.btnUp.style.display = 'block';
   } else {
-    btnUp.style.display = 'none';
+    refs.btnUp.style.display = 'none';
   }
 }
 

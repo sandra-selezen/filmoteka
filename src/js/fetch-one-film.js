@@ -74,7 +74,6 @@ async function onOpenModalMovieClick(event) {
   } else {
     addEventListenersOnButtons();
   }
-  
 
   // ховає спінер
   Notiflix.Loading.remove();
