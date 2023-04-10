@@ -5,12 +5,6 @@ import Notiflix from 'notiflix';
 const API_KEY = '959330b1b48c95e1fde96a992bbede29';
 const BASE_URL = 'https://api.themoviedb.org/';
 
-
-// const iframeRef = document.querySelector('.js-iframe');
-// iframeRef.addEventListener('click', onClickYouTube);
-
-
-
 export default async function fetchVideoKey(id) {
   const url = `${BASE_URL}/3/movie/${id}/videos?api_key=${API_KEY}&language=en-US`;
   Notiflix.Loading.circle();

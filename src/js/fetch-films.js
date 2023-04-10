@@ -9,6 +9,7 @@ export default class FetchFilms {
       'https://api.themoviedb.org/3/genre/movie/list?api_key=959330b1b48c95e1fde96a992bbede29&language=en-US';
     this.markupRef = markupRef;
     this.markup = [];
+    this.markupSwiper = [];
   }
 
   async getFilms() {
@@ -114,5 +115,35 @@ export default class FetchFilms {
     this.createCards();
     this.createMarkup();
     Notiflix.Loading.remove();
+  }
+
+  // Swiper
+
+  async getFilmsSwiper() {
+    Notiflix.Loading.circle();
+    await this.doPromises();
+    this.getFilmsInfoSwiper();
+    this.createCardsSwiper();
+    this.createMarkupSwiper();
+    Notiflix.Loading.remove();
+  }
+
+  getFilmsInfoSwiper() {
+    this.getPosters();
+    this.getTitles();
+    this.getFilmsId();
+  }
+
+  createCardsSwiper() {
+    for (let i = 0; i < this.filmsData.length; i += 1) {
+      this.markupSwiper.push(`<li class="swiper-slide">
+        <a class="swiper-link" href="#" data-id="${this.ids[i]}"><img src="https://image.tmdb.org/t/p/w500/${this.posters[i]}" alt="${this.titles[i]}" />
+        </a>
+      </li>`);
+    }
+  }
+
+  createMarkupSwiper() {
+    this.markupRef.insertAdjacentHTML('afterbegin', this.markupSwiper.join(''));
   }
 }
