@@ -136,9 +136,9 @@ export default class FetchFilms {
 
   createCardsSwiper() {
     for (let i = 0; i < this.filmsData.length; i += 1) {
-      this.markupSwiper.push(`<li class="swiper-slide">
-        <a class="swiper-link" href="#" data-id="${this.ids[i]}"><img src="https://image.tmdb.org/t/p/w500/${this.posters[i]}" alt="${this.titles[i]}" />
-        </a>
+      this.markupSwiper.push(`<li class="swiper-slide" data-id="${this.ids[i]}">
+        <div><img src="https://image.tmdb.org/t/p/w500/${this.posters[i]}" alt="${this.titles[i]}" />
+        </div>
       </li>`);
     }
   }

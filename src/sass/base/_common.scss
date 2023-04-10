@@ -40,6 +40,14 @@
     }
   }
 }
+.swiper-slide {
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform $duration linear;
+  &:hover {
+    transform: scale(1.03);
+  }
+}
 
 button {
   cursor: pointer;
