@@ -1,6 +1,7 @@
 .cards__list {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 20px;
 
   @media screen and (max-width: 767px) {
     justify-content: center;
@@ -9,6 +10,7 @@
 
   @include tablet {
     gap: 32px;
+    margin-top: 40px;
   }
 }
 
@@ -47,7 +49,7 @@
 
 .card__content {
   padding-top: 10px;
-  
+
   @media screen and (max-width: 320px) {
     width: 280px;
   }
