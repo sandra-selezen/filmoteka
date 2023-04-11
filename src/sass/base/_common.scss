@@ -18,12 +18,34 @@
 }
 
 .section {
-  padding-top: 20px;
+  padding-top: 10px;
   padding-bottom: 40px;
 
   @include tablet {
-    padding-top: 60px;
+    padding-top: 20px;
     padding-bottom: 60px;
+  }
+  &__title {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    line-height: 1.33;
+    font-weight: 500;
+    margin-bottom: 10px;
+
+    @include desktop {
+      font-size: 20px;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+  }
+}
+.swiper-slide {
+  cursor: pointer;
+  transform: scale(1);
+  transition: transform $duration linear;
+  &:hover {
+    transform: scale(1.03);
   }
 }
 

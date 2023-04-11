@@ -24,7 +24,11 @@ if (document.querySelector('.js-cards-list')) {
   const mainPageListMovies = document.querySelector('.js-cards-list-library');
   mainPageListMovies.addEventListener('click', onOpenModalMovieClick);
 }
-
+//Swiper modal
+if (document.querySelector('.js-swiper')) {
+  const mainPageListMovies = document.querySelector('.js-swiper');
+  mainPageListMovies.addEventListener('click', onOpenModalMovieClick);
+}
 // const mainPageListMovies = document.querySelector('.js-cards-list');
 // mainPageListMovies.addEventListener('click', onOpenModalMovieClick);
 
