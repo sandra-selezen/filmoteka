@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import defaultImage from '/src/images/no-poster.png';
-
+import { refs } from './refs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import fetchVideoKey from './fetchVideoKey';
@@ -9,12 +9,11 @@ import addEventListenersOnButtons from './buttons-modal';
 
 export let movieInfo = {};
 
-const body = document.querySelector('body');
-
-const btnCloseModalMovie = document.querySelector('.js-btn-close-modal');
-const cardMovie = document.querySelector('.js-modal-card');
-const backdropMovie = document.querySelector('.js-backdrop-movie');
-const buttonUp = document.querySelector('.up');
+// const body = document.querySelector('body');
+// const btnCloseModalMovie = document.querySelector('.js-btn-close-modal');
+// const cardMovie = document.querySelector('.js-modal-card');
+// const backdropMovie = document.querySelector('.js-backdrop-movie');
+// const buttonUp = document.querySelector('.up');
 //-----слухачі подій-----
 
 if (document.querySelector('.js-cards-list')) {
@@ -32,7 +31,7 @@ if (document.querySelector('.js-swiper')) {
 // const mainPageListMovies = document.querySelector('.js-cards-list');
 // mainPageListMovies.addEventListener('click', onOpenModalMovieClick);
 
-btnCloseModalMovie.addEventListener('click', onCloseModalClick);
+refs.btnCloseModalMovie.addEventListener('click', onCloseModalClick);
 
 document.addEventListener('keydown', onEscKeyDownModal);
 
@@ -42,8 +41,8 @@ function onEscKeyDownModal(event) {
   }
 }
 
-backdropMovie.addEventListener('click', event => {
-  if (event.target === backdropMovie) {
+refs.backdropMovie.addEventListener('click', event => {
+  if (event.target === refs.backdropMovie) {
     onCloseModalClick();
   }
 });
@@ -60,12 +59,12 @@ async function onOpenModalMovieClick(event) {
     return;
   }
   // чистимо модалку перед рендером
-  cardMovie.innerHTML = '';
+  refs.cardMovie.innerHTML = '';
   // показує спінер
   Notiflix.Loading.circle();
   // показує модалку
-  backdropMovie.classList.remove('is-hidden');
-  body.classList.add('stop-scroll');
+  refs.backdropMovie.classList.remove('is-hidden');
+  refs.body.classList.add('stop-scroll');
   // отримання інфо про конкретний фільм
   const response = await fetchData(idMovie);
   // console.log(response.data);
@@ -84,14 +83,14 @@ async function onOpenModalMovieClick(event) {
   // слухач для трейлера
   const iframeRef = document.querySelector('.js-iframe');
   iframeRef.addEventListener('click', onClickYouTube);
-  buttonUp.style.display = 'none';
+  refs.buttonUp.style.display = 'none';
 }
 
 // закриття модалки фільму
 function onCloseModalClick() {
-  backdropMovie.classList.add('is-hidden');
-  body.classList.remove('stop-scroll');
-  buttonUp.style.display = 'block';
+  refs.backdropMovie.classList.add('is-hidden');
+  refs.body.classList.remove('stop-scroll');
+  refs.buttonUp.style.display = 'block';
 }
 
 // функція запиту на бекенд за idMovie
@@ -211,7 +210,7 @@ function renderModalMovieInfo(movieInfo) {
   </div>
 </div>`;
 
-  cardMovie.insertAdjacentHTML('beforeend', markup);
+  refs.cardMovie.insertAdjacentHTML('beforeend', markup);
 }
 
 // Trailer

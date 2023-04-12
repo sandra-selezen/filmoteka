@@ -1,10 +1,11 @@
 import CreatePagination from './pagination';
 import GetFilmsFromLocalStorage from './get-films-from-local-storage';
+import { refs } from './refs';
 
-const libraryMarkupRef = document.querySelector('.js-cards-list-library');
-const modalMarkupRef = document.querySelector('.js-modal-card');
-const libraryContainer = document.querySelector('.library__container');
-const libraryTitle = document.querySelector('.library__title');
+// const libraryMarkupRef = document.querySelector('.js-cards-list-library');
+// const modalMarkupRef = document.querySelector('.js-modal-card');
+// const libraryContainer = document.querySelector('.library__container');
+// const libraryTitle = document.querySelector('.library__title');
 export default function initializeLibrary() {
   const watchedButtonRef = document.querySelector('.js-watched');
   const queueButtonRef = document.querySelector('.js-queue');
@@ -18,7 +19,7 @@ export default function initializeLibrary() {
 function doWatchedLibrary() {
   const getWatched = new GetFilmsFromLocalStorage(
     JSON.parse(localStorage.getItem('watched')),
-    libraryMarkupRef
+    refs.libraryMarkupRef
   );
 
   const storageIsNotEmpty = JSON.parse(localStorage.getItem('watched'));
@@ -33,12 +34,12 @@ function doWatchedLibrary() {
   }
 
   if (storageCondition) {
-    libraryContainer.setAttribute(
+    refs.libraryContainer.setAttribute(
       'class',
       'library__container visually-hidden'
     );
   } else {
-    libraryContainer.setAttribute('class', 'library__container');
+    refs.libraryContainer.setAttribute('class', 'library__container');
   }
 
   if (JSON.parse(localStorage.getItem('watched'))) {
@@ -46,7 +47,7 @@ function doWatchedLibrary() {
     const watchedPagination = new CreatePagination(getWatched);
     watchedPagination.activatePagination();
   } else {
-    libraryMarkupRef.innerHTML = '';
+    refs.libraryMarkupRef.innerHTML = '';
   }
   document
     .querySelector('.js-watched')
@@ -59,7 +60,7 @@ function doWatchedLibrary() {
 function doQueueLibrary() {
   const getQueued = new GetFilmsFromLocalStorage(
     JSON.parse(localStorage.getItem('queue')),
-    libraryMarkupRef
+    refs.libraryMarkupRef
   );
 
   const qStorageIsNotEmpty = JSON.parse(localStorage.getItem('queue'));
@@ -75,12 +76,12 @@ function doQueueLibrary() {
 
 
   if (qStorageConition) {
-    libraryContainer.setAttribute(
+    refs.libraryContainer.setAttribute(
       'class',
       'library__container visually-hidden'
     );
   } else {
-    libraryContainer.setAttribute('class', 'library__container');
+    refs.libraryContainer.setAttribute('class', 'library__container');
   }
 
   if (JSON.parse(localStorage.getItem('queue'))) {
@@ -88,7 +89,7 @@ function doQueueLibrary() {
     const queuedPagination = new CreatePagination(getQueued);
     queuedPagination.activatePagination();
   } else {
-    libraryMarkupRef.innerHTML = '';
+    refs.libraryMarkupRef.innerHTML = '';
   }
   document
     .querySelector('.js-watched')
