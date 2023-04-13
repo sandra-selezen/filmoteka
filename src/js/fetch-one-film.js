@@ -4,7 +4,7 @@ import defaultImage from '/src/images/no-poster.png';
 import { refs } from './refs';
 import * as basicLightbox from 'basiclightbox';
 import 'basiclightbox/dist/basicLightbox.min.css';
-import fetchVideoKey from './fetchVideoKey';
+import fetchVideoKey from './fetch-video-key';
 import addEventListenersOnButtons from './buttons-modal';
 
 export let movieInfo = {};
