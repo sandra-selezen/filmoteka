@@ -1,17 +1,18 @@
 import Notiflix from 'notiflix';
 import { fetchFilms } from './popular-films-fetch';
 import CreatePagination from './pagination';
+import { refs } from './refs';
 
 const API_KEY = '959330b1b48c95e1fde96a992bbede29';
 const URL = 'https://api.themoviedb.org/';
 
-const refs = {
-  form: document.querySelector('.js-header__form'),
-  input: document.querySelector('.js-header__input'),
-  inputError: document.querySelector('.header__js-input-error'),
-  pages: document.querySelector('.tui-pagination'),
-  notFound: document.querySelector('.not-found'),
-};
+// const refs = {
+//   form: document.querySelector('.js-header__form'),
+//   input: document.querySelector('.js-header__input'),
+//   inputError: document.querySelector('.header__js-input-error'),
+//   pages: document.querySelector('.tui-pagination'),
+//   notFound: document.querySelector('.not-found'),
+// };
 
 export const onSearch = (nextPage=1) => {
   Notiflix.Loading.circle();
