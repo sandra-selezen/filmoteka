@@ -1,39 +1,48 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import { getFirestore } from "firebase/firestore";
+import { initializeApp } from 'firebase/app';
+import { getAnalytics } from 'firebase/analytics';
+import { getFirestore } from 'firebase/firestore';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // More methods fore use firbase
 // https://firebase.google.com/docs/reference/js
 
-import {  getAuth,  createUserWithEmailAndPassword, signOut, setPersistence, browserSessionPersistence, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signOut,
+  setPersistence,
+  browserSessionPersistence,
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+} from 'firebase/auth';
 
-import { actionsAfterRegistration, actionsAfterFindingUser} from "./log-actions";
-import { refs } from "./render-modal";
+import {
+  actionsAfterRegistration,
+  actionsAfterFindingUser,
+} from './log-actions';
+import { refs } from './render-modal';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyCGg0qJ9JFhf5b2Ge0y513I7mH-MYLKuM4",
-  authDomain: "filmoteka-tprj.firebaseapp.com",
-  projectId: "filmoteka-tprj",
-  storageBucket: "filmoteka-tprj.appspot.com",
-  messagingSenderId: "857993502859",
-  appId: "1:857993502859:web:d981bc5ccde7830dd0b48e",
-  measurementId: "G-7S33D76KYR"
+  apiKey: 'AIzaSyCGg0qJ9JFhf5b2Ge0y513I7mH-MYLKuM4',
+  authDomain: 'filmoteka-tprj.firebaseapp.com',
+  projectId: 'filmoteka-tprj',
+  storageBucket: 'filmoteka-tprj.appspot.com',
+  messagingSenderId: '857993502859',
+  appId: '1:857993502859:web:d981bc5ccde7830dd0b48e',
+  measurementId: 'G-7S33D76KYR',
 };
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
-
 // ===========================firestore database==================
 // Initialize Cloud Firestore and get a reference to the service
 export const db = getFirestore(app);
 // ===========================firestore database==================
-
 
 // Get the currently signed -in user
 // Отримати поточного користувача, що вже здійснив вхід
@@ -46,13 +55,12 @@ onAuthStateChanged(auth, myUser => {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
     const uid = myUser.uid;
-        actionsAfterFindingUser(myUser);
+    actionsAfterFindingUser(myUser);
     // makeLoggedHtml(` user logged as ${myUser.email} `);
     // ...
   } else {
     // User is signed out
     // ...
-
     // logOutHandler();
   }
 });
@@ -61,14 +69,14 @@ onAuthStateChanged(auth, myUser => {
 export const toRegisterNewUser = async (email, password) => {
   const auth = getAuth();
   await createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      // Signed in 
+    .then(userCredential => {
+      // Signed in
       const user = userCredential.user;
       // ...
       actionsAfterRegistration(user);
       return user;
     })
-    .catch((error) => {
+    .catch(error => {
       const errorCode = error.code;
       const errorMessage = error.message;
       // ..
@@ -84,6 +92,7 @@ const entryUser = async (email, password) => {
     .then(userCredential => {
       const user = userCredential.user;
       actionsAfterRegistration(user);
+      console.log(user.uid);
       return user;
     })
     .catch(error => {
@@ -97,31 +106,33 @@ const entryUser = async (email, password) => {
 // вихід з профілю користувача
 export const exitUser = async () => {
   const auth = getAuth();
-  signOut(auth).then(() => {
-    // Sign-out successful.
-  }).catch((error) => {
-    // An error happened.
-    const errorCode = error.code;
-    const errorMessage = error.message;
+  signOut(auth)
+    .then(() => {
+      // Sign-out successful.
+    })
+    .catch(error => {
+      // An error happened.
+      const errorCode = error.code;
+      const errorMessage = error.message;
 
-    return errorCode;
-  });
-}; 
+      return errorCode;
+    });
+};
 
-const submitHandler = (e) => {
+const submitHandler = e => {
   e.preventDefault();
-  
+
   const { email, password } = e.target.elements;
 
   if (email.hasAttribute('data-action-signUp')) {
     toRegisterNewUser(email.value, password.value);
-    return
-  };
+    return;
+  }
 
   if (password.hasAttribute('data-action-logIn')) {
     entryUser(email.value, password.value);
-    return
-  };
+    return;
+  }
 };
 
 refs.form.addEventListener('submit', submitHandler);
