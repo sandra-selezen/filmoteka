@@ -1,50 +1,78 @@
-import { collection, addDoc, getDocs } from "firebase/firestore"; 
-import { app, db } from "./firebase-Init";
+import {
+  collection,
+  addDoc,
+  getDocs,
+  doc,
+  setDoc,
+  getDoc,
+  onSnapshot,
+  DocumentSnapshot,
+  updateDoc,
+} from 'firebase/firestore';
+import { app, db } from './firebase-Init';
 
-// Додаємо дані користувача
-const addUser1 = async () => {
+// Додаємо дані до Firebase
+const specialOfTheDay = doc(db, 'dailySpecial/2021-09-14');
+function writeDailySpecial() {
+  const docData = {
+    name: 'Pol',
+    age: 90,
+  };
+  setDoc(specialOfTheDay, docData);
+}
 
+// Оновлюємо дані у Firebase
+
+// const specialOfTheDay = doc(db, 'dailySpecial/2021-09-14');
+
+async function updateWrittenDailySpecial() {
+  const docData = {
+    name: 'Pol',
+    age: 98,
+    vegan: false,
+  };
   try {
-    const docRef = await addDoc(collection(db, "users"), {
-      first: "Ada",
-      last: "Lovelace2",
-      born: 1815
-    });
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
+    await setDoc(specialOfTheDay, docData, { merge: true });
+    console.log('This value has been written to the database');
+  } catch (error) {
+    console.log(`I got an error ${error}`);
   }
-};
+}
 
-// addUser1();
+// Додаємо дані в створену колекцію з автоматичним генеруванням ID
+const ordersCollection = collection(db, 'orders');
 
-// Add a second document with a generated ID.
-
-const addUser2 = async () => {
-
-  try {
-    const docRef = await addDoc(collection(db, "users"), {
-      first: "Alan",
-      middle: "Mathison2",
-      last: "Turing",
-      born: 1912
-    });
-  
-    console.log("Document written with ID: ", docRef.id);
-  } catch (e) {
-    console.error("Error adding document: ", e);
+async function addNewDocument() {
+  const newDoc = await addDoc(ordersCollection, {
+    customer: 'Arthur',
+    drink: 'Latte',
+    total_cost: 100,
+  });
+  console.log(`Your doc was created at ${newDoc.path}`);
+}
+// Отримуємо дані з firebase
+async function readASingleDocument() {
+  const mySnapshot = await getDoc(specialOfTheDay);
+  if (mySnapshot.exists()) {
+    const docData = mySnapshot.data();
+    console.log(`My data is ${JSON.stringify(docData)}`);
   }
-};
+}
 
-// addUser2();
+// Встановлення слухача документа. Слухач робить:
+// 1. Створює знімок документу;
+// 2. Після кожного оновлення документу робить його новий знімок.
+function listenToADocument() {
+  onSnapshot(specialOfTheDay, docSnapshot => {
+    if (docSnapshot.exists()) {
+      const docData = docSnapshot.data();
+      console.log(`My data is ${JSON.stringify(docData)}`);
+    }
+  });
+}
 
-// Зчитуємо дані користувача
-
-const readDataUsers = async () => {
-    const querySnapshot = await getDocs(collection(db, "users"));
-    querySnapshot.forEach((doc) => {
-        console.log(`${doc.id} => ${doc.data()}`);
-    });
-};
-
-// readDataUsers();
+// writeDailySpecial();
+// addNewDocument();
+// readASingleDocument();
+// listenToADocument();
+// updateWrittenDailySpecial();
