@@ -10,6 +10,9 @@ import {
   updateDoc,
 } from 'firebase/firestore';
 import { app, db } from './firebase-Init';
+import { movieInfo } from '../fetch-one-film';
+
+let UserID = '';
 
 // Додаємо дані до Firebase
 export const writeUser = id => {
@@ -19,7 +22,72 @@ export const writeUser = id => {
     queue: [],
   };
   setDoc(UserData, Data);
+  UserID = id;
 };
+
+// Оновлюємо дані у Firebase
+
+export async function saveDataToWatched(data) {
+  console.log('UserID: ', UserID);
+  const UserData = doc(db, `users/${UserID}`);
+  const Data = {
+    watched: [JSON.stringify(data)],
+    queue: [],
+  };
+  try {
+    await setDoc(UserData, Data, { merge: true });
+    console.log('This value has been written to the database');
+  } catch (error) {
+    console.log(`I got an error ${error}`);
+  }
+}
+
+// =================did not finish=================
+
+// Отримуємо дані з firestore
+export async function readASingleDocument() {
+  console.log('UserID: ', UserID);
+  try {
+    const mySnapshot = await getDoc(doc(db, `users/${UserID}`));
+    if (mySnapshot.exists()) {
+      const docData = mySnapshot.data();
+      console.log(`My data is ${JSON.stringify(docData)}`);
+      return docData;
+    }
+  } catch (error) {
+    console.log(`I got an error ${error}`);
+  }
+}
+//Необхідно дані в змінній docData зробити масивом для подальшої роботи логіки в saveToWatched
+// =========================================================================
+
+// function saveToWatched() {
+//   const currentLocalStorageContent = JSON.parse(
+//     localStorage.getItem(WATCHED_KEY)
+//   );
+
+//   const filmId = document.querySelector('.js-modal-card img').dataset.id;
+//   const watchedArray = [];
+
+//   if (currentLocalStorageContent) {
+//     const filmIncluded = currentLocalStorageContent.find(
+//       filmData => filmData.id === movieInfo.id
+//     );
+//     if (!filmIncluded) {
+//       currentLocalStorageContent.push(movieInfo);
+//       localStorage.setItem(
+//         WATCHED_KEY,
+//         JSON.stringify(currentLocalStorageContent)
+//       );
+//     }
+//     {
+//       return;
+//     }
+//   } else {
+//     watchedArray.push(movieInfo);
+//     localStorage.setItem(WATCHED_KEY, JSON.stringify(watchedArray));
+//   }
+// }
 
 // Додаємо дані до Firebase
 // const specialOfTheDay = doc(db, 'dailySpecial/2021-09-14');
@@ -72,14 +140,14 @@ export const writeUser = id => {
 // Встановлення слухача документа. Слухач робить:
 // 1. Створює знімок документу;
 // 2. Після кожного оновлення документу робить його новий знімок.
-function listenToADocument() {
-  onSnapshot(specialOfTheDay, docSnapshot => {
-    if (docSnapshot.exists()) {
-      const docData = docSnapshot.data();
-      console.log(`My data is ${JSON.stringify(docData)}`);
-    }
-  });
-}
+// function listenToADocument() {
+//   onSnapshot(specialOfTheDay, docSnapshot => {
+//     if (docSnapshot.exists()) {
+//       const docData = docSnapshot.data();
+//       console.log(`My data is ${JSON.stringify(docData)}`);
+//     }
+//   });
+// };
 
 // writeDailySpecial();
 // addNewDocument();

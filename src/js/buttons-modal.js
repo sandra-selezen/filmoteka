@@ -1,37 +1,35 @@
 import { movieInfo } from './fetch-one-film';
+import { saveDataToWatched, readASingleDocument } from './firebase/firestore';
 
 const URL = 'https://api.themoviedb.org/3/movie/';
 const API_KEY = '959330b1b48c95e1fde96a992bbede29';
 
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
-
+// =================did not finish=================
 function saveToWatched() {
-  const currentLocalStorageContent = JSON.parse(
-    localStorage.getItem(WATCHED_KEY)
-  );
+  const currentLocalStorageContent = readASingleDocument();
   const filmId = document.querySelector('.js-modal-card img').dataset.id;
   const watchedArray = [];
 
   if (currentLocalStorageContent) {
+    console.log(currentLocalStorageContent);
     const filmIncluded = currentLocalStorageContent.find(
       filmData => filmData.id === movieInfo.id
     );
     if (!filmIncluded) {
       currentLocalStorageContent.push(movieInfo);
-      localStorage.setItem(
-        WATCHED_KEY,
-        JSON.stringify(currentLocalStorageContent)
-      );
+      saveDataToWatched(currentLocalStorageContent);
     }
     {
       return;
     }
   } else {
     watchedArray.push(movieInfo);
-    localStorage.setItem(WATCHED_KEY, JSON.stringify(watchedArray));
+    saveDataToWatched(watchedArray);
   }
 }
+// =========================================================================
 
 function saveToQueue() {
   const currentLocalStorageContent = JSON.parse(
@@ -182,4 +180,3 @@ function removeFromQueue() {
 
   localStorage.setItem('queue', JSON.stringify(parsedFilms));
 }
-
