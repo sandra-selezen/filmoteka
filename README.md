@@ -18,7 +18,7 @@ The search functionality allows users to find movies by title, year, and genre.
 
 4. **Responsive Design:** The application is designed to be responsive, ensuring it works well on mobile, tablet, and desktop devices.
 
-5. **Pagination:** Pagination is mplemented to display 24 movies per page for a user-friendly experience.
+5. **Pagination:** Pagination is implemented to display 24 movies per page for a user-friendly experience.
 
 6. **User Registration and Authentication:** Users can register and log in to the application.
 
